@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+#======================================================
+  user_manage_api:
+    build: .
+#      context: .
+#      dockerfile: Dockerfile
+    image: user_manage_api
+    command: 'python manage.py runserver 0.0.0.0:8002'
+    ports:
+      - 8002:8002
+    volumes:
+      - .:/user-management-service
+    links:
+      - mysql-db
+    depends_on:
+      - migration
+      - mysql-db
+#======================================================
+#======================================================
+  migration:
+    build: .
+    image: user_manage_api
+    command: 'python manage.py makemigrations && python manage.py migrate'
+    volumes:
+      - .:/user-management-service
+    links:
+      - mysql-db
+    depends_on:
+      - dependencies
+      - mysql-db
+#  To create a super user
+#  docker-compose run user_manage_api python manage.py createsuperuser
+### s0562218@htw-berlin.de, 123456
+#======================================================
+  dependencies:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: python-dependencies
+    volumes:
+      - .:/user-management-service
+#======================================================
+#  queue:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    command: 'python -u consumer.py'
+#    volumes:
+#      - .:/user-management-service
+#    depends_on:
+#      - db
+  #======================================================
+  mysql-db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'user_management'
+#      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - .dbdata:/var/lib/mysql
+    ports:
+      - 33068:3306
