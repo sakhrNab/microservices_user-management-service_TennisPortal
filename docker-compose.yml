@@ -31,7 +31,7 @@ services:
       - mysql-db
 #  To create a super user
 #  docker-compose run user_manage_api python manage.py createsuperuser
-### s0562218@htw-berlin.de, 123456
+### simo@gmail.com, 123456
 #======================================================
   dependencies:
     build:
