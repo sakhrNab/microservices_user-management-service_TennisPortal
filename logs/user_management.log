@@ -420,3 +420,59 @@ django.db.utils.ProgrammingError: (1146, "Table 'user_management.django_session'
 2022-03-10 03:37:42,695 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-03-10 03:42:06,653 django.utils.autoreload INFO     /user-management-service/apps/ratings/admin.py changed, reloading.
 2022-03-10 03:42:07,441 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:00:27,978 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:00:31,814 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:00:32,630 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:00:35,296 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:00:36,080 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:01:00,917 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:01:01,819 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:01:31,855 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:01:32,659 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:03:44,168 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:03:44,835 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:03:54,554 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 04:03:55,416 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:04:37,093 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:04:37,759 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:05:05,707 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:05:06,407 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:06:59,919 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:07:00,762 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:07:14,023 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:07:14,841 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:08:20,284 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 04:08:21,120 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:10:47,597 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:11:47,079 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:12:12,208 django.utils.autoreload INFO     /user-management-service/apps/manage_user/views.py changed, reloading.
+2022-03-10 04:12:13,095 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:12:30,313 django.utils.autoreload INFO     /user-management-service/apps/manage_user/urls.py changed, reloading.
+2022-03-10 04:12:31,167 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:12:46,491 django.utils.autoreload INFO     /user-management-service/apps/manage_user/views.py changed, reloading.
+2022-03-10 04:12:47,233 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:12:59,273 django.utils.autoreload INFO     /user-management-service/apps/manage_user/views.py changed, reloading.
+2022-03-10 04:13:00,098 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:13:14,248 django.utils.autoreload INFO     /user-management-service/apps/manage_user/views.py changed, reloading.
+2022-03-10 04:13:14,981 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:13:23,887 django.utils.autoreload INFO     /user-management-service/apps/manage_user/views.py changed, reloading.
+2022-03-10 04:13:24,560 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:13:53,477 django.utils.autoreload INFO     /user-management-service/apps/manage_user/views.py changed, reloading.
+2022-03-10 04:13:54,263 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:14:20,148 django.utils.autoreload INFO     /user-management-service/apps/manage_user/urls.py changed, reloading.
+2022-03-10 04:14:20,954 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:14:29,883 django.utils.autoreload INFO     /user-management-service/apps/manage_user/urls.py changed, reloading.
+2022-03-10 04:14:30,739 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:16:10,155 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 04:23:09,832 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 04:25:43,270 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 17:14:33,819 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 17:19:58,500 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 17:19:59,384 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 17:22:30,013 django.request WARNING  Not Found: /api/auth/users/
+2022-03-10 17:23:45,425 django.request WARNING  Not Found: /favicon.ico
+2022-03-10 17:24:28,220 django.request WARNING  Not Found: /activate/Mg/b22yyh-97ecc29f54cf3b00c22495adb81e2b4b
+2022-03-10 17:24:41,056 django.request WARNING  Not Found: /activate/Mg/b22yyh-97ecc29f54cf3b00c22495adb81e2b4b
+2022-03-10 17:27:55,730 django.request WARNING  Bad Request: /api/v1/auth/users/activation/
+2022-03-10 18:39:22,828 django.request WARNING  Not Found: /api/auth/users/reset_password/
+2022-03-10 18:40:27,508 django.request WARNING  Not Found: /password/reset/confirm/Mg/b232in-09c59f06e08d2a435d8ff637f5c3be8d

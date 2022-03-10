@@ -36,6 +36,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     'rest_framework_simplejwt.token_blacklist',
+    'djoser',
     'corsheaders',
     'phonenumber_field',
     'django_countries',
@@ -168,13 +169,34 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
+    'SIGNING_KEY': env("SIGNING_KEY"),
+    #AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     'VERIFYING_KEY': None,
     'AUTH_HEADER_TYPES': ('JWT',),
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
+}
+
+DJOSER={
+    "LOGIN_FIELD":"email",
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    "USERNAME_CHANGED_EMAIL_CONFIRMATION": True,
+    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
+    "SEND_CONFIRMATION_EMAIL": True,
+    "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
+    "SET_PASSWORD_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_RETYPE": True,
+    "USERNAME_RESET_CONFIRM_URL":'email/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL':'activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL':True,
+    'SERIALIZERS':{
+        'user_create':'apps.manage_user.serializers.CreateUserSerializer',
+        'user':'apps.manage_user.serializers.UserSerializer',
+        'current_user':'apps.manage_user.serializers.UserSerializer',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    },
 }
 
 import logging

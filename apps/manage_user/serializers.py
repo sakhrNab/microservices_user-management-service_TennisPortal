@@ -1,128 +1,70 @@
+from django.contrib.auth import get_user_model
+from django_countries.serializer_fields import CountryField
+from djoser.serializers import UserCreateSerializer
+# from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
-from .models import User
-# , UserProfile
-from django.core import validators
-from django.utils import timezone
 
-from django.core.validators import EmailValidator
-from rest_framework.validators import UniqueTogetherValidator
-from django.utils.translation import gettext_lazy as _
+User = get_user_model()
 
-class DeleteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
 
-class CustomUserSerializer(serializers.ModelSerializer):
-    """
-    Currently unused in preference of the below.
-    """
-    email = serializers.EmailField(validators=[validators.validate_email],required=True)
-# )
-    # user_name = serializers.CharField(required=True)
-    first_name = serializers.CharField(required=True)
-    last_name = serializers.CharField(required=True)
-    password = serializers.CharField(min_length=8, write_only=True)
+User = get_user_model()
+
+
+class UserSerializer(serializers.ModelSerializer):
+    gender = serializers.CharField(source="profile.gender")
+    phone_number = serializers.CharField(source="profile.phone_number")
+    profile_photo = serializers.ImageField(source="profile.profile_photo")
+    country = CountryField(source="profile.country")
+    city = serializers.CharField(source="profile.city")
+    region = serializers.CharField(source="profile.region")
+    zip_code = serializers.CharField(source="profile.zip_code")
+    age = serializers.CharField(source="profile.age")
+    skill_level = serializers.CharField(source="profile.skill_level")
+    game_type = serializers.CharField(source="profile.game_type")
+    first_name = serializers.SerializerMethodField()
+    last_name = serializers.SerializerMethodField()
+    full_name = serializers.SerializerMethodField(source="get_full_name")
 
     class Meta:
         model = User
-        # fields = ('email', 'user_name', 'password')
-        fields=[
-            'id',
-            'first_name',
-            'last_name',
-            'email',
-            # 'country',
-            # 'address',
-            # 'address_2',
-            # 'mobile_no',
-            # 'zip_code',
-            # 'city',
-            # 'region',
-            # 'age',
-            # 'skill_level',
-            # 'game_type',
-            'password',
-            # 'confirm_password',
-            # 'gender',
-            'date_created',
+        fields = [
+            # the good about using pseudo primary key
+            # you don't have to serializer the actual primary key,
+            # you can serialize the uuid
+            "id",
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "full_name",
+            "gender",
+            "phone_number",
+            "profile_photo",
+            "country",
+            "city",
+            "region",
+            "zip_code",
+            "age",
+            "skill_level",
+            "game_type",
         ]
-        extra_kwargs = {
-            # 'email': {
-            #     'validators': [
-            #         EmailValidator,
-            #         UniqueValidator(
-            #             queryset=NewUser.objects.all(),
-            #             message="This email already exist!"
-            #         )
-            #     ]
-            # },
 
-            'password': {'write_only': True}}
+    def get_first_name(self, obj):
+        return obj.first_name.title()
 
-    def create(self, validated_data):
+    def get_last_name(self, obj):
+        return obj.last_name.title()
 
-        password = validated_data.pop('password', None)
-        # as long as the fields are the same, we can just use this
-        instance = self.Meta.model(**validated_data)
-        if password is not None:
-            instance.set_password(password)
+    # will allow us to dynamically put a validator serializer field
+    def to_representation(self, instance):
+        representation = super(UserSerializer, self).to_representation(instance)
+        if instance.is_superuser:
+            representation["admin"] = True
+        return representation
 
 
-        instance.save()
-        return instance
-
-
-    def validate_email(self, value):
-        print("#!$$$!$!$!$!!", " i am here")
-        if User.objects.filter(email=value).exists():
-            print("#!$$$!$!$!$!!", " i am here")
-            raise serializers.ValidationError(
-                _('email is a duplicate'),
-                code={'invalid'}
-            )
-        return value
-
-# class CustomUserProfileSerializer(serializers.ModelSerializer):
-#     user_profile = CustomUserSerializer(read_only=True, many=False)
-#     class Meta:
-#         model = UserProfile
-#         # fields = ('email', 'user_name', 'password')
-#         fields= [
-#             'id',
-#             'user_profile',
-#             'country',
-#             'profile_picture',
-#             'address',
-#             'address_2',
-#             'mobile_no',
-#             'zip_code',
-#             'city',
-#             'region',
-#             'age',
-#             'skill_level',
-#             'game_type',
-#             'password',
-#             # 'confirm_password',
-#             'gender',
-#             # 'date_created',
-#         ]
-#         def create(self, validated_data):
-#             password = validated_data.pop('password', None)
-#             # as long as the fields are the same, we can just use this
-#             instance = self.Meta.model(**validated_data)
-#             if password is not None:
-#                 instance.set_password(password)
-#
-#             instance.save()
-#             return instance
-#
-#
-#     def validate_email(self, value):
-#         print("#!$$$!$!$!$!!", " i am here")
-#         if UserProfile.objects.filter(email=value).exists():
-#             print("#!$$$!$!$!$!!", " i am here")
-#             raise serializers.ValidationError(
-#                 _('email is a duplicate'),
-#                 code={'invalid'}
-#             )
-#         return value
+# UserCreateSerializer is imported from djoser
+class CreateUserSerializer(UserCreateSerializer):
+    class Meta(UserCreateSerializer.Meta):
+        model = User
+        fields = ["id", "username", "email", "first_name", "last_name", "password"]

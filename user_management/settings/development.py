@@ -1,16 +1,14 @@
 from .base import *
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'user_management',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': 'mysql-db',   # Or an IP Address that your DB is hosted on
-#         'PORT': '3306', # the port used in our service
-#     }
-# }
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_USE_TLS = True
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = "info@tenniscompanion.com"
+DOMAIN = env("DOMAIN")
+SITE_NAME = "Tennis Companion"
 DATABASES = {
     'default': {
         'ENGINE': env("MYSQL_ENGINE"),
