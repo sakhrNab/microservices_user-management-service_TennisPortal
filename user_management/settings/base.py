@@ -37,15 +37,16 @@ THIRD_PARTY_APPS = [
     "rest_framework_simplejwt",
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
-    "phonenumber_field",
-    "django_countries",
+    'phonenumber_field',
+    'django_countries',
 ]
 
 LOCAL_APPS = [
     "apps.manage_user",
     "apps.token_app",
     "apps.common",
-    "apps.profiles",
+    'apps.profiles',
+    'apps.ratings',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

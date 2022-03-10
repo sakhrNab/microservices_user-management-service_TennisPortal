@@ -414,3 +414,9 @@ django.db.utils.ProgrammingError: (1146, "Table 'user_management.django_session'
 2022-03-10 02:06:29,236 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-03-10 02:09:00,114 django.utils.autoreload INFO     /user-management-service/apps/manage_user/managers.py changed, reloading.
 2022-03-10 02:09:00,955 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 03:37:26,662 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 03:37:27,776 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 03:37:42,022 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 03:37:42,695 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 03:42:06,653 django.utils.autoreload INFO     /user-management-service/apps/ratings/admin.py changed, reloading.
+2022-03-10 03:42:07,441 django.utils.autoreload INFO     Watching for file changes with StatReloader
