@@ -1,2 +1,416 @@
 2022-03-09 22:01:58,601 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-03-09 22:02:44,977 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 22:28:00,910 django.utils.autoreload INFO     /user-management-service/apps/manage_user/models.py changed, reloading.
+2022-03-09 22:28:01,573 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 22:38:38,574 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-09 22:38:39,187 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:26:46,403 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-09 23:26:47,359 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:28:51,867 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-09 23:28:52,487 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:30:31,072 django.utils.autoreload INFO     /user-management-service/apps/manage_user/migrations/0001_initial.py changed, reloading.
+2022-03-09 23:30:31,643 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:31:37,486 django.utils.autoreload INFO     /user-management-service/apps/manage_user/migrations/0001_initial.py changed, reloading.
+2022-03-09 23:31:38,074 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:32:53,735 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:32:55,318 django.request ERROR    Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'user_management.manage_user_user' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 251, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 222, in inner
+    if not self.has_permission(request):
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 196, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 240, in inner
+    self._setup()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 376, in _setup
+    self._wrapped = self._setupfunc()
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py", line 181, in get_user
+    user = backend.get_user(user_id)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'user_management.manage_user_user' doesn't exist")
+2022-03-09 23:33:40,449 django.request ERROR    Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'user_management.manage_user_user' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 251, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 222, in inner
+    if not self.has_permission(request):
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 196, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 240, in inner
+    self._setup()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 376, in _setup
+    self._wrapped = self._setupfunc()
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py", line 181, in get_user
+    user = backend.get_user(user_id)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'user_management.manage_user_user' doesn't exist")
+2022-03-09 23:33:41,589 django.request ERROR    Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'user_management.manage_user_user' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 251, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 222, in inner
+    if not self.has_permission(request):
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 196, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 240, in inner
+    self._setup()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 376, in _setup
+    self._wrapped = self._setupfunc()
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py", line 181, in get_user
+    user = backend.get_user(user_id)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'user_management.manage_user_user' doesn't exist")
+2022-03-09 23:34:24,427 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:35:32,289 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:35:37,016 django.request ERROR    Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/base.py", line 233, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'user_management.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 251, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 222, in inner
+    if not self.has_permission(request):
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 196, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 240, in inner
+    self._setup()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/functional.py", line 376, in _setup
+    self._wrapped = self._setupfunc()
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py", line 174, in get_user
+    user_id = _get_user_session_key(request)
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py", line 58, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/base.py", line 238, in _get_session
+    self._session_cache = self.load()
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'user_management.django_session' doesn't exist")
+2022-03-09 23:48:34,892 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-09 23:48:35,583 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-09 23:49:18,100 django.utils.autoreload INFO     /user-management-service/apps/common/models.py changed, reloading.
+2022-03-09 23:49:18,790 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:20:13,966 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 01:20:15,026 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:21:16,949 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:21:17,606 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:21:37,325 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 01:21:37,750 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:21:56,208 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 01:21:56,635 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:26:54,057 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:27:19,929 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 01:27:20,360 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:28:56,219 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:31:13,536 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:32:13,831 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:34:28,689 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:34:35,063 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:34:35,684 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:35:10,008 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:35:10,743 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:37:11,821 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:39:07,566 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:39:08,134 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:39:39,128 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:39:39,796 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:40:01,316 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:40:02,108 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:40:33,290 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:40:33,976 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:40:41,859 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:40:42,637 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:41:31,829 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:41:32,534 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:42:52,499 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:42:53,197 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:46:36,996 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:46:37,621 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:49:08,642 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:49:09,287 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:50:02,940 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:50:03,669 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:50:07,156 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:50:07,874 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:50:55,593 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:50:56,362 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:51:39,792 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:51:40,468 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:51:44,967 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:51:45,687 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:51:50,328 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:51:51,094 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:51:53,497 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:51:54,225 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:51:58,818 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:51:59,500 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:52:01,978 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:52:02,676 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:53:02,915 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:53:03,700 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:53:57,533 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:53:58,291 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:54:20,082 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:54:20,850 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 01:54:36,134 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 01:54:36,845 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 02:03:08,799 django.utils.autoreload INFO     /user-management-service/apps/profiles/admin.py changed, reloading.
+2022-03-10 02:03:09,592 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 02:03:28,365 django.utils.autoreload INFO     /user-management-service/apps/profiles/admin.py changed, reloading.
+2022-03-10 02:03:29,122 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 02:03:40,251 django.utils.autoreload INFO     /user-management-service/apps/profiles/admin.py changed, reloading.
+2022-03-10 02:03:40,981 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 02:05:31,197 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 02:05:31,909 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 02:06:28,606 django.utils.autoreload INFO     /user-management-service/apps/profiles/migrations/0001_initial.py changed, reloading.
+2022-03-10 02:06:29,236 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 02:09:00,114 django.utils.autoreload INFO     /user-management-service/apps/manage_user/managers.py changed, reloading.
+2022-03-10 02:09:00,955 django.utils.autoreload INFO     Watching for file changes with StatReloader

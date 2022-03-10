@@ -37,12 +37,15 @@ THIRD_PARTY_APPS = [
     "rest_framework_simplejwt",
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
-
+    "phonenumber_field",
+    "django_countries",
 ]
 
 LOCAL_APPS = [
     "apps.manage_user",
     "apps.token_app",
+    "apps.common",
+    "apps.profiles",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -82,16 +85,16 @@ WSGI_APPLICATION = 'user_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'user_management',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'mysql-db',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306', # the port used in our service
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'user_management',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': 'mysql-db',   # Or an IP Address that your DB is hosted on
+#         'PORT': '3306', # the port used in our service
+#     }
+# }
 
 
 # Password validation
@@ -153,8 +156,10 @@ REST_FRAMEWORK = {
 
 CORS_ALLOW_ALL_ORIGINS=True
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 # Custom user model
-AUTH_USER_MODEL = "manage_user.NewUser"
+AUTH_USER_MODEL = "manage_user.User"
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),

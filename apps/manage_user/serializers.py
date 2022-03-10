@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import NewUser, UserProfile
+from .models import User
+# , UserProfile
 from django.core import validators
 from django.utils import timezone
 
@@ -9,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 
 class DeleteSerializer(serializers.ModelSerializer):
     class Meta:
-        model = NewUser
+        model = User
 
 class CustomUserSerializer(serializers.ModelSerializer):
     """
@@ -23,7 +24,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(min_length=8, write_only=True)
 
     class Meta:
-        model = NewUser
+        model = User
         # fields = ('email', 'user_name', 'password')
         fields=[
             'id',
@@ -73,7 +74,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     def validate_email(self, value):
         print("#!$$$!$!$!$!!", " i am here")
-        if NewUser.objects.filter(email=value).exists():
+        if User.objects.filter(email=value).exists():
             print("#!$$$!$!$!$!!", " i am here")
             raise serializers.ValidationError(
                 _('email is a duplicate'),
@@ -81,47 +82,47 @@ class CustomUserSerializer(serializers.ModelSerializer):
             )
         return value
 
-class CustomUserProfileSerializer(serializers.ModelSerializer):
-    user_profile = CustomUserSerializer(read_only=True, many=False)
-    class Meta:
-        model = UserProfile
-        # fields = ('email', 'user_name', 'password')
-        fields= [
-            'id',
-            'user_profile',
-            'country',
-            'profile_picture',
-            'address',
-            'address_2',
-            'mobile_no',
-            'zip_code',
-            'city',
-            'region',
-            'age',
-            'skill_level',
-            'game_type',
-            'password',
-            # 'confirm_password',
-            'gender',
-            # 'date_created',
-        ]
-        def create(self, validated_data):
-            password = validated_data.pop('password', None)
-            # as long as the fields are the same, we can just use this
-            instance = self.Meta.model(**validated_data)
-            if password is not None:
-                instance.set_password(password)
-
-            instance.save()
-            return instance
-
-
-    def validate_email(self, value):
-        print("#!$$$!$!$!$!!", " i am here")
-        if UserProfile.objects.filter(email=value).exists():
-            print("#!$$$!$!$!$!!", " i am here")
-            raise serializers.ValidationError(
-                _('email is a duplicate'),
-                code={'invalid'}
-            )
-        return value
+# class CustomUserProfileSerializer(serializers.ModelSerializer):
+#     user_profile = CustomUserSerializer(read_only=True, many=False)
+#     class Meta:
+#         model = UserProfile
+#         # fields = ('email', 'user_name', 'password')
+#         fields= [
+#             'id',
+#             'user_profile',
+#             'country',
+#             'profile_picture',
+#             'address',
+#             'address_2',
+#             'mobile_no',
+#             'zip_code',
+#             'city',
+#             'region',
+#             'age',
+#             'skill_level',
+#             'game_type',
+#             'password',
+#             # 'confirm_password',
+#             'gender',
+#             # 'date_created',
+#         ]
+#         def create(self, validated_data):
+#             password = validated_data.pop('password', None)
+#             # as long as the fields are the same, we can just use this
+#             instance = self.Meta.model(**validated_data)
+#             if password is not None:
+#                 instance.set_password(password)
+#
+#             instance.save()
+#             return instance
+#
+#
+#     def validate_email(self, value):
+#         print("#!$$$!$!$!$!!", " i am here")
+#         if UserProfile.objects.filter(email=value).exists():
+#             print("#!$$$!$!$!$!!", " i am here")
+#             raise serializers.ValidationError(
+#                 _('email is a duplicate'),
+#                 code={'invalid'}
+#             )
+#         return value

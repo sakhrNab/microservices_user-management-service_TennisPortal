@@ -21,3 +21,7 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "User Management Admin"
+admin.site.site_title = "User Management Admin Portal"
+admin.site.index_title = "Welcome to the User Management Portal"

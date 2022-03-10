@@ -1,40 +1,82 @@
 from django.contrib import admin
-from .models import NewUser, UserProfile
-from django.contrib.auth.admin import UserAdmin
-from django.forms import TextInput, Textarea, CharField
-from django import forms
-from django.db import models
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.utils.translation import gettext_lazy as _
+
+from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .models import User
 
 
-class UserAdminConfig(UserAdmin):
-    model = NewUser
-    search_fields = ('email', 'first_name', 'last_name')
-    list_filter = ('email', 'first_name', 'last_name', 'is_active', 'is_staff')
-    ordering = ('-start_date',)
-    list_display = ('email', 'first_name', 'last_name',
-                    'is_active', 'is_staff')
+class UserAdmin(BaseUserAdmin):
+    ordering = ["email"]
+    add_form = CustomUserCreationForm
+    form = CustomUserChangeForm
+    model = User
+    list_display = [
+        "pkid",
+        "id",
+        "email",
+        "username",
+        "first_name",
+        "last_name",
+        "is_staff",
+        "is_active",
+    ]
+    # these two have to be clickable
+    list_display_links = ["id", "email"]
+    list_filter = [
+        "email",
+        "username",
+        "first_name",
+        "last_name",
+        "is_staff",
+        "is_active",
+    ]
+    # Fieldsets will show how the d/f sections in your admin will look like
     fieldsets = (
-        # change hier
-        (None, {'fields': ('email', 'first_name', 'last_name')}),
-        ('Permissions', {'fields': ('is_staff', 'is_active')}),
-        ('Personal', {'fields': ('about',)}),
+        (
+            _("Login Credentials"),
+            {
+                "fields": (
+                    "email",
+                    "password",
+                )
+            },
+        ),
+        (
+            _("Personal Information"),
+            {
+                "fields": (
+                    "username",
+                    "first_name",
+                    "last_name",
+                )
+            },
+        ),
+        (
+            _("Permissions and Groups"),
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "groups",
+                    "user_permissions",
+                )
+            },
+        ),
+        (_("Important Dates"), {"fields": ("last_login", "date_joined")}),
     )
-    formfield_overrides = {
-        models.TextField: {'widget': Textarea(attrs={'rows': 20, 'cols': 60})},
-    }
     add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': (
-                'email', 'first_name', 'last_name',
-                'password1', 'password2', 'is_active', 'is_staff'
-            )}
-         ),
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": ("email", "password1", "password2", "is_staff", "is_active"),
+            },
+        ),
     )
+    # we're going to search by email, username, etc.
+    search_fields = ["email", "username", "first_name", "last_name"]
 
 
-admin.site.register(NewUser, UserAdminConfig)
-admin.site.register(UserProfile)
-
-# admin.site.register(models.GameCategory)
-# admin.site.register(models.Game)
+admin.site.register(User, UserAdmin)
