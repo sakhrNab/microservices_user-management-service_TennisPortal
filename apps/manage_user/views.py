@@ -1,17 +1,8 @@
-# from rest_framework_simplejwt.views import TokenObtainPairView
-# from rest_framework import status, generics, viewsets
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-# from .serializers import CustomUserSerializer
-# #,CustomUserProfileSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
-# from .models import User
-# #,UserProfile
-# from django.contrib import messages
-# from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
-from rest_framework.decorators import api_view, permission_classes, action
 # from rest_framework.parsers import JSONParser
 #
 # class CustomUserCreate(APIView):

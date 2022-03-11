@@ -11,11 +11,18 @@ DOMAIN = env("DOMAIN")
 SITE_NAME = "Tennis Companion"
 DATABASES = {
     'default': {
-        'ENGINE': env("MYSQL_ENGINE"),
-        'NAME': env("MYSQL_DB"),
-        'USER': env("MYSQL_USER"),
-        'PASSWORD': env("MYSQL_PASSWORD"),
-        'HOST': env("MYSQL_HOST"),   # Or an IP Address that your DB is hosted on
-        'PORT': env("MYSQL_PORT"),
+        'ENGINE': env("POSTGRES_ENGINE"),
+        'NAME': env("POSTGRES_DB"),
+        'USER': env("POSTGRES_USER"),
+        'PASSWORD': env("POSTGRES_PASSWORD"),
+        'HOST': env("PG_HOST"),   # Or an IP Address that your DB is hosted on
+        'PORT': env("PG_PORT"),
     }
 }
+
+# MYSQL_ENGINE=django.db.backends.mysql
+# MYSQL_DB=user_management
+# MYSQL_USER=root
+# MYSQL_PASSWORD=root
+# MYSQL_HOST=mysql-db
+# MYSQL_PORT=3306

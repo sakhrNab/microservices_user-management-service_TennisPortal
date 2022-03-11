@@ -1,45 +1,27 @@
-version: '3.8'
+version: '3.9'
+
+
 services:
 #======================================================
   user_manage_api:
-    build: .
-#      context: .
-#      dockerfile: Dockerfile
-    image: user_manage_api
-    command: 'python manage.py runserver 0.0.0.0:8002'
-    ports:
-      - 8002:8002
-    volumes:
-      - .:/user-management-service
-    links:
-      - mysql-db
-    depends_on:
-      - migration
-      - mysql-db
-#======================================================
-#======================================================
-  migration:
-    build: .
-    image: user_manage_api
-    command: 'python manage.py makemigrations && python manage.py migrate'
-    volumes:
-      - .:/user-management-service
-    links:
-      - mysql-db
-    depends_on:
-      - dependencies
-      - mysql-db
-#  To create a super user
-#  docker-compose run user_manage_api python manage.py createsuperuser
-### simo@gmail.com, 123456
-#======================================================
-  dependencies:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: python-dependencies
+      dockerfile: ./docker/local/django/Dockerfile
+    command: /start
+    image: user_manage_api
+#    command: 'python manage.py runserver 0.0.0.0:8002'
+    ports:
+      - "8002:8002"
+    env_file:
+      - .env
     volumes:
-      - .:/user-management-service
+      - .:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/mediafiles
+    depends_on:
+      - postgres-db
+    networks:
+      - tennis-react
 #======================================================
 #  queue:
 #    build:
@@ -51,15 +33,28 @@ services:
 #    depends_on:
 #      - db
   #======================================================
-  mysql-db:
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'user_management'
-#      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - .dbdata:/var/lib/mysql
+
+  postgres-db:
+    image: postgres:12.0-alpine
     ports:
-      - 33068:3306
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+#zacki@gmail.com,123456
+    env_file:
+      - "./database.env"
+#    environment:
+#      POSTGRES_USER: ${POSTGRES_USER}
+#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+#      POSTGRES_DB: ${POSTGRES_DB}
+    networks:
+    - tennis-react
+
+networks:
+    tennis-react:
+      driver: bridge
+
+volumes:
+    postgres_data:
+    static_volume:
+    media_volume:

@@ -5,14 +5,6 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from .managers import CustomUserManager
 
-class GenericFileUpload(models.Model):
-    file_upload = models.FileField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.file_upload}"
-
-
 class User(AbstractBaseUser, PermissionsMixin):
     pkid = models.BigAutoField(primary_key=True, editable=False)
     id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)

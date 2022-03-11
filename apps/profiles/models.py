@@ -16,11 +16,11 @@ class Gender(models.TextChoices):
 
 class SkillLevel(models.TextChoices):
 
-        NOVICE = "Novice", _("Novice")
-        ADVANCED_BEGINNER = "Advanced Beginner", _("Advanced Beginner")
-        COMPETENT = "Competent", _("Competent")
-        PROFICIENT = "Proficient", _("Proficient")
-        EXPERT = "Expert", _("Expert")
+    NOVICE = "Novice", _("Novice")
+    ADVANCED_BEGINNER = "Advanced Beginner", _("Advanced Beginner")
+    COMPETENT = "Competent", _("Competent")
+    PROFICIENT = "Proficient", _("Proficient")
+    EXPERT = "Expert", _("Expert")
 
 
 class GameType(models.TextChoices):
@@ -68,6 +68,7 @@ class Profile(TimeStampedUUIDModel):
 
     region = models.CharField(verbose_name=_("Region"),
                               max_length=100,
+                              default="Berlin",
                               blank=False,
                               null=False,)
 
@@ -75,9 +76,10 @@ class Profile(TimeStampedUUIDModel):
         verbose_name=_("Age"), null=True,blank=True, max_length=10
     )
     skill_level = models.CharField(verbose_name=_("Skill Level"),
-                                   max_length=20, choices=SkillLevel.choices, default="Novice")
+                                   max_length=20, choices=SkillLevel.choices,
+                                   default=SkillLevel.NOVICE)
 
-    game_type = models.CharField(max_length=20, choices=GameType.choices, default="Tennis")
+    game_type = models.CharField(max_length=20, choices=GameType.choices, default=GameType.TENNIS)
 
     rating = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
@@ -88,6 +90,8 @@ class Profile(TimeStampedUUIDModel):
     about_me = models.TextField(
         verbose_name=_("About me"), default="say something about yourself"
     )
+
+    opponent_user = models.BooleanField(verbose_name=_("Opponent"), default=False)
 
     def __str__(self):
         return f"{self.user.username}'s profile"

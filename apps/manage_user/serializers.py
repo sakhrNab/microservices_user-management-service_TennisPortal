@@ -7,10 +7,8 @@ from rest_framework import serializers
 User = get_user_model()
 
 
-User = get_user_model()
-
-
 class UserSerializer(serializers.ModelSerializer):
+
     gender = serializers.CharField(source="profile.gender")
     phone_number = serializers.CharField(source="profile.phone_number")
     profile_photo = serializers.ImageField(source="profile.profile_photo")
@@ -19,8 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
     region = serializers.CharField(source="profile.region")
     zip_code = serializers.CharField(source="profile.zip_code")
     age = serializers.CharField(source="profile.age")
-    skill_level = serializers.CharField(source="profile.skill_level")
-    game_type = serializers.CharField(source="profile.game_type")
     first_name = serializers.SerializerMethodField()
     last_name = serializers.SerializerMethodField()
     full_name = serializers.SerializerMethodField(source="get_full_name")
@@ -45,8 +41,6 @@ class UserSerializer(serializers.ModelSerializer):
             "region",
             "zip_code",
             "age",
-            "skill_level",
-            "game_type",
         ]
 
     def get_first_name(self, obj):

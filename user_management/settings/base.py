@@ -136,7 +136,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
+STATIC_URL = "/staticfiles/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIR = []
 MEDIA_URL = "/mediafiles/"
@@ -164,7 +164,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "manage_user.User"
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
@@ -172,9 +172,13 @@ SIMPLE_JWT = {
     'SIGNING_KEY': env("SIGNING_KEY"),
     #AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     'VERIFYING_KEY': None,
-    'AUTH_HEADER_TYPES': ('JWT',),
+    "AUTH_HEADER_TYPES": (
+        "Bearer",
+        "JWT",
+    ),
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
 }

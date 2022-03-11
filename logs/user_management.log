@@ -476,3 +476,532 @@ django.db.utils.ProgrammingError: (1146, "Table 'user_management.django_session'
 2022-03-10 17:27:55,730 django.request WARNING  Bad Request: /api/v1/auth/users/activation/
 2022-03-10 18:39:22,828 django.request WARNING  Not Found: /api/auth/users/reset_password/
 2022-03-10 18:40:27,508 django.request WARNING  Not Found: /password/reset/confirm/Mg/b232in-09c59f06e08d2a435d8ff637f5c3be8d
+2022-03-10 19:06:13,625 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 19:06:14,785 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 19:06:41,234 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 19:06:42,077 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:03:53,888 django.utils.autoreload INFO     /user-management-service/user_management/urls.py changed, reloading.
+2022-03-10 20:03:55,707 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:04:12,033 django.utils.autoreload INFO     /user-management-service/user_management/urls.py changed, reloading.
+2022-03-10 20:04:13,475 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:04:16,006 django.utils.autoreload INFO     /user-management-service/user_management/urls.py changed, reloading.
+2022-03-10 20:04:17,234 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:06:12,177 django.request WARNING  Unauthorized: /api/v1/auth/jwt/create/
+2022-03-10 20:08:39,988 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:09:04,518 django.utils.autoreload INFO     /user-management-service/apps/profiles/urls.py changed, reloading.
+2022-03-10 20:09:05,725 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:10:25,542 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:10:35,244 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:10:59,863 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:12:43,696 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:14:10,563 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 20:14:11,640 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:14:14,729 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 20:14:15,738 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:14:21,642 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:14:37,639 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 20:14:38,672 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:14:48,878 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:14:56,035 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 20:14:57,015 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:16:25,056 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:16:40,283 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:16:46,455 django.request WARNING  Unauthorized: /api/v1/profile/me/
+2022-03-10 20:17:19,063 django.utils.autoreload INFO     /user-management-service/user_management/settings/base.py changed, reloading.
+2022-03-10 20:17:20,260 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:17:27,669 django.request ERROR    Internal Server Error: /api/v1/profile/me/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.OperationalError: (1054, "Unknown column 'profiles_profile.opponent_user' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/user-management-service/apps/profiles/views.py", line 37, in get
+    user_profile = Profile.objects.get(user=user)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'profiles_profile.opponent_user' in 'field list'")
+2022-03-10 20:19:15,691 django.request ERROR    Internal Server Error: /api/v1/profile/me/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/user-management-service/apps/profiles/views.py", line 37, in get
+    user_profile = Profile.objects.get(user=user)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+apps.profiles.models.Profile.DoesNotExist: Profile matching query does not exist.
+2022-03-10 20:23:04,470 django.utils.autoreload INFO     /user-management-service/apps/manage_user/models.py changed, reloading.
+2022-03-10 20:23:05,535 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:24:34,634 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 20:24:35,652 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:25:01,374 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 20:25:02,344 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:25:34,974 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 20:25:35,766 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:25:44,024 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 20:25:44,871 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:25:46,714 django.utils.autoreload INFO     /user-management-service/apps/manage_user/serializers.py changed, reloading.
+2022-03-10 20:25:47,563 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:26:40,141 django.utils.autoreload INFO     /user-management-service/apps/manage_user/views.py changed, reloading.
+2022-03-10 20:26:41,447 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:29:20,216 django.utils.autoreload INFO     /user-management-service/apps/profiles/serializers.py changed, reloading.
+2022-03-10 20:29:20,977 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:32:31,254 django.request WARNING  Unauthorized: /api/v1/auth/jwt/create/
+2022-03-10 20:32:44,803 django.request WARNING  Unauthorized: /api/v1/auth/jwt/create/
+2022-03-10 20:34:22,591 django.utils.autoreload INFO     /user-management-service/apps/manage_user/managers.py changed, reloading.
+2022-03-10 20:34:23,743 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:38:53,018 django.utils.autoreload INFO     /user-management-service/apps/manage_user/models.py changed, reloading.
+2022-03-10 20:38:54,463 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:40:00,229 django.utils.autoreload INFO     /user-management-service/apps/manage_user/models.py changed, reloading.
+2022-03-10 20:40:01,182 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:40:07,729 django.utils.autoreload INFO     /user-management-service/apps/manage_user/managers.py changed, reloading.
+2022-03-10 20:40:08,894 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:40:13,031 django.request WARNING  Bad Request: /api/v1/auth/users/activation/
+2022-03-10 20:40:24,221 django.request WARNING  Not Found: /activate/Mw/b237oy-4b22c48226146f1257fdec276094c4cb
+2022-03-10 20:41:05,845 django.request WARNING  Unauthorized: /api/v1/auth/jwt/create/
+2022-03-10 20:41:29,626 django.request ERROR    Internal Server Error: /api/v1/profile/me/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/user-management-service/apps/profiles/views.py", line 37, in get
+    user_profile = Profile.objects.get(user=user)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+apps.profiles.models.Profile.DoesNotExist: Profile matching query does not exist.
+2022-03-10 20:42:25,156 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 20:42:26,156 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:44:31,433 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 20:44:33,238 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:45:08,394 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 20:45:09,567 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 20:45:19,145 django.utils.autoreload INFO     /user-management-service/apps/profiles/models.py changed, reloading.
+2022-03-10 20:45:20,241 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:01:21,892 django.utils.autoreload INFO     /user-management-service/user_management/settings/development.py changed, reloading.
+2022-03-10 21:01:23,027 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:04:34,608 django.utils.autoreload INFO     /user-management-service/user_management/settings/development.py changed, reloading.
+2022-03-10 21:21:20,082 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:26:32,613 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:31:17,915 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:33:09,577 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:36:32,641 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:43:47,576 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:45:53,407 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:51:48,443 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 21:55:38,963 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-10 22:00:58,569 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:26:13,183 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:32:06,930 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:34:00,879 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:38:16,544 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:39:59,588 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:44:27,479 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:46:08,263 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:49:46,295 django.utils.autoreload INFO     /app/user_management/urls.py changed, reloading.
+2022-03-11 00:49:47,737 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:51:49,263 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 00:51:51,429 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:52:07,398 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 00:52:09,165 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:52:25,091 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 00:52:26,829 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:52:37,020 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 00:52:38,799 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:52:50,288 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 00:52:51,799 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:53:13,035 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 00:53:14,836 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:53:47,266 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 00:53:49,349 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:55:56,526 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 00:57:42,922 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:01:48,285 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:13:42,877 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:15:36,365 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:15:45,260 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:16:11,440 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:17:23,571 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:35:59,293 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:38:56,727 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:40:07,718 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:45:12,433 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:56:09,926 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 01:58:59,004 django.utils.autoreload INFO     /app/user_management/urls.py changed, reloading.
+2022-03-11 01:59:00,275 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:02:10,919 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:21:59,686 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:24:24,022 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:30:19,443 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:31:06,758 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: '127.0.0.1:8002'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2022-03-11 02:31:06,846 django.request WARNING  Bad Request: /admin
+2022-03-11 02:31:07,035 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: '127.0.0.1:8002'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2022-03-11 02:31:07,071 django.request WARNING  Bad Request: /favicon.ico
+2022-03-11 02:31:26,167 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'localhost:8002'. You may need to add 'localhost' to ALLOWED_HOSTS.
+2022-03-11 02:31:26,201 django.request WARNING  Bad Request: /admin/
+2022-03-11 02:31:26,394 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'localhost:8002'. You may need to add 'localhost' to ALLOWED_HOSTS.
+2022-03-11 02:31:26,427 django.request WARNING  Bad Request: /favicon.ico
+2022-03-11 02:32:24,610 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:32:28,682 django.request WARNING  Not Found: /favicon.ico
+2022-03-11 02:36:33,062 django.request WARNING  Not Found: /activate/Mw/b237oy-4b22c48226146f1257fdec276094c4cb
+2022-03-11 02:51:46,881 django.utils.autoreload INFO     /app/apps/profiles/renderers.py changed, reloading.
+2022-03-11 02:51:48,345 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:52:57,306 django.utils.autoreload INFO     /app/apps/profiles/renderers.py changed, reloading.
+2022-03-11 02:52:58,717 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:53:31,392 django.utils.autoreload INFO     /app/apps/profiles/renderers.py changed, reloading.
+2022-03-11 02:53:32,859 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:53:40,447 django.utils.autoreload INFO     /app/apps/profiles/renderers.py changed, reloading.
+2022-03-11 02:53:41,701 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 02:56:45,922 django.utils.autoreload INFO     /app/apps/profiles/views.py changed, reloading.
+2022-03-11 02:56:47,161 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 03:54:15,692 django.request WARNING  Not Found: /api/v1/profile/roro/
+2022-03-11 03:54:24,020 django.request WARNING  Unauthorized: /api/v1/profile/update/roro/
+2022-03-11 03:55:20,618 django.request WARNING  Unauthorized: /api/v1/profile/update/roro/
+2022-03-11 03:56:01,129 django.request WARNING  Unauthorized: /api/v1/profile/update/roro/
+2022-03-11 03:56:32,832 django.request ERROR    Internal Server Error: /api/v1/profile/update/roro/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 65, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:01:56,285 django.request WARNING  Unauthorized: /api/v1/profile/opponents/all/
+2022-03-11 04:02:07,555 django.request WARNING  Unauthorized: /api/v1/profile/opponents/all/
+2022-03-11 04:02:27,298 django.request WARNING  Unauthorized: /api/v1/profile/opponents/all/
+2022-03-11 04:03:25,011 django.request ERROR    Internal Server Error: /api/v1/profile/update/roro/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 65, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:06:20,846 django.utils.autoreload INFO     /app/apps/profiles/urls.py changed, reloading.
+2022-03-11 04:06:22,624 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:06:28,862 django.utils.autoreload INFO     /app/apps/profiles/urls.py changed, reloading.
+2022-03-11 04:06:30,192 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:06:33,464 django.request ERROR    Internal Server Error: /api/v1/profile/update/roro/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 65, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:08:23,248 django.utils.autoreload INFO     /app/apps/profiles/serializers.py changed, reloading.
+2022-03-11 04:08:24,640 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:08:26,030 django.request WARNING  Unauthorized: /api/v1/profile/update/roro/
+2022-03-11 04:08:41,305 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-11 04:08:42,794 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:08:55,976 django.request ERROR    Internal Server Error: /api/v1/profile/update/roro/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 65, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:09:04,646 django.utils.autoreload INFO     /app/apps/profiles/serializers.py changed, reloading.
+2022-03-11 04:09:06,122 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:09:08,908 django.request ERROR    Internal Server Error: /api/v1/profile/update/roro/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 65, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:09:15,180 django.utils.autoreload INFO     /app/apps/profiles/serializers.py changed, reloading.
+2022-03-11 04:09:16,926 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:09:31,342 django.utils.autoreload INFO     /app/apps/profiles/serializers.py changed, reloading.
+2022-03-11 04:09:32,732 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:10:53,103 django.request ERROR    Internal Server Error: /api/v1/profile/update/roro/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 65, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:11:46,227 django.request WARNING  Forbidden: /api/v1/profile/update/zico/
+2022-03-11 04:11:59,028 django.request WARNING  Unauthorized: /api/v1/auth/jwt/create/
+2022-03-11 04:12:51,320 django.request ERROR    Internal Server Error: /api/v1/profile/update/zico/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 65, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:14:06,978 django.request WARNING  Unauthorized: /api/v1/profile/opponents/all/
+2022-03-11 04:14:47,772 django.utils.autoreload INFO     /app/apps/profiles/views.py changed, reloading.
+2022-03-11 04:14:49,212 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:15:02,667 django.request ERROR    Internal Server Error: /api/v1/profile/update/zico/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 66, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:15:33,867 django.utils.autoreload INFO     /app/apps/profiles/views.py changed, reloading.
+2022-03-11 04:15:35,493 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:15:41,583 django.request ERROR    Internal Server Error: /api/v1/profile/update/zico/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 67, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:16:11,322 django.utils.autoreload INFO     /app/apps/profiles/views.py changed, reloading.
+2022-03-11 04:16:12,824 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:16:15,155 django.utils.autoreload INFO     /app/apps/profiles/views.py changed, reloading.
+2022-03-11 04:16:16,364 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-11 04:16:22,262 django.request ERROR    Internal Server Error: /api/v1/profile/update/zico/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/apps/profiles/views.py", line 69, in patch
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 177, in save
+    assert not self.errors, (
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2022-03-11 04:17:08,098 django.utils.autoreload INFO     /app/apps/profiles/serializers.py changed, reloading.
+2022-03-11 04:17:09,512 django.utils.autoreload INFO     Watching for file changes with StatReloader

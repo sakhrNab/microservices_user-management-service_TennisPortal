@@ -11,8 +11,7 @@ from rest_framework_simplejwt.views import (
 ### this is correct
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("api/v1/auth/", include("djoser.urls")),
-    path("api/v1/auth/", include("djoser.urls.jwt")),
+
                   # jwt/create, jwt/refresh, etc..
     # path('api/', include('apps.token_app.urls'),
     path('api/user/', include('apps.manage_user.urls')),
@@ -23,7 +22,12 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    path("api/v1/auth/", include("djoser.urls")),
+    path("api/v1/auth/", include("djoser.urls.jwt")),
+    path("api/v1/profile/", include("apps.profiles.urls")),
+
+]
 
 admin.site.site_header = "User Management Admin"
 admin.site.site_title = "User Management Admin Portal"
