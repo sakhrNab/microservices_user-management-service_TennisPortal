@@ -10,7 +10,7 @@ from .serializers import ProfileSerializer, UpdateProfileSerializer
 
 class OpponentListAPIView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Profile.objects.filter(opponent_user=True)
+    queryset = Profile.objects.filter(is_opponent=True)
     serializer_class = ProfileSerializer
 
 

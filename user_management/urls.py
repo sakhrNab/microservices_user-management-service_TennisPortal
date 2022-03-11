@@ -27,6 +27,7 @@ urlpatterns = [
     path("api/v1/auth/", include("djoser.urls.jwt")),
     path("api/v1/profile/", include("apps.profiles.urls")),
 
+    path("api/v1/ratings/", include("apps.ratings.urls")),
 ]
 
 admin.site.site_header = "User Management Admin"

@@ -5,6 +5,8 @@ from apps.common.models import TimeStampedUUIDModel
 from apps.profiles.models import Profile
 from user_management.settings.base import AUTH_USER_MODEL
 
+# User = get_user_model -> this creates an instnce of a user
+
 
 class Rating(TimeStampedUUIDModel):
     class Range(models.IntegerChoices):

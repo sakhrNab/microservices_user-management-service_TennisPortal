@@ -38,6 +38,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "rating",
             "num_reviews",
             "reviews",
+            "is_opponent",
         ]
 
     def get_full_name(self, obj):
@@ -54,8 +55,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     # because i am reviewing the opponent
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        if instance.opponent_user:
-            representation["opponent_user"] = True
+        if instance.is_opponent:
+            representation["is_opponent"] = True
         return representation
 
 
@@ -73,14 +74,15 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "city",
             "region",
             "zip_code",
-            # "game_type",
-            # "skill_level",
+            "game_type",
+            "skill_level",
+            "is_opponent",
             # maybe: is_opponent (Gesucht), is_looking (sucher)
         ]
 
     #validate
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        if instance.opponent_user:
-            representation["opponent_user"] = True
+        if instance.is_opponent:
+            representation["is_opponent"] = True
         return representation

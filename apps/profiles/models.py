@@ -91,7 +91,8 @@ class Profile(TimeStampedUUIDModel):
         verbose_name=_("About me"), default="say something about yourself"
     )
 
-    opponent_user = models.BooleanField(verbose_name=_("Opponent"), default=False)
+    is_opponent = models.BooleanField(verbose_name=_("Opponent"),
+                                      default=True)
 
     def __str__(self):
         return f"{self.user.username}'s profile"
