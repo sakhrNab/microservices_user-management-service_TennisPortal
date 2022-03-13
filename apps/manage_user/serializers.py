@@ -59,6 +59,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 # UserCreateSerializer is imported from djoser
 class CreateUserSerializer(UserCreateSerializer):
+
     class Meta(UserCreateSerializer.Meta):
         model = User
         fields = ["id", "username", "email", "first_name", "last_name", "password"]
+
+        # whenever a user is created share the id with the view
+        # to publish it other services
+        # def save(self):
+        #
+        #     if serializer

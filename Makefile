@@ -9,3 +9,5 @@ docker network inspect bridge
 docker-compose run user_manage_api python manage.py makemigrations
 
 docker-compose config
+
+ docker network create tennis-react

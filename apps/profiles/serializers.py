@@ -55,6 +55,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     # because i am reviewing the opponent
     def to_representation(self, instance):
         representation = super().to_representation(instance)
+        print("########################################", instance)
+        print(instance.id)
         if instance.is_opponent:
             representation["is_opponent"] = True
         return representation
