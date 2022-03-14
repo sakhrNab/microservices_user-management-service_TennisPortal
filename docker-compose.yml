@@ -9,9 +9,9 @@ services:
       dockerfile: ./docker/local/django/Dockerfile
     command: /start
     image: user_api
-#    command: 'python manage.py runserver 0.0.0.0:8002'
-    ports:
-      - "8002:8002"
+    container_name: userapp
+#    ports:
+#      - "8002:8002"
     env_file:
       - .env
     volumes:
@@ -22,7 +22,24 @@ services:
       - postgres-db
     networks:
       - tennis-react
-#======================================================
+
+  nginx:
+    restart: always
+    depends_on:
+      - user_manage_api
+    volumes:
+      - static_volume:/app/staticfiles/
+      - media_volume:/app/mediafiles/
+    build:
+      context: ./docker/local/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    networks:
+      - tennis-react
+
+
+        #======================================================
 #  queue:
 #    image: rabbitmq
 #    container_name: user_queue
