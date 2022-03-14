@@ -44,7 +44,6 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "apps.manage_user",
-    "apps.token_app",
     "apps.common",
     'apps.profiles',
     'apps.ratings',

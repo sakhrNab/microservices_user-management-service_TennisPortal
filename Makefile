@@ -18,16 +18,16 @@ show-logs:
 	docker compose logs
 
 migrate:
-	docker compose exec user_api python manage.py migrate
+	docker compose exec user_manage_api python manage.py migrate
 
 makemigrations:
 	docker compose exec user_manage_api python manage.py makemigrations
 
 superuser:
-	docker compose exec user_api python manage.py createsuperuser
+	docker compose exec user_manage_api python manage.py createsuperuser
 
 collectstatic:
-	docker compose exec user_api python manage.py collectstatic --no-input --clear
+	docker compose exec user_manage_api python manage.py collectstatic --no-input --clear
 
 down-v:
 	docker compose down -v
