@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: ./docker/local/django/Dockerfile
     command: /start
-    image: user_manage_api
+    image: user_api
 #    command: 'python manage.py runserver 0.0.0.0:8002'
     ports:
       - "8002:8002"
@@ -20,8 +20,8 @@ services:
       - media_volume:/app/mediafiles
     depends_on:
       - postgres-db
-#    networks:
-#      - tennis-react
+    networks:
+      - tennis-react
 #======================================================
 #  queue:
 #    image: rabbitmq
@@ -50,11 +50,10 @@ services:
 
   postgres-db:
     image: postgres:12.0-alpine
-    container_name: db_user_management
+    container_name: user_db
     ports:
       - "5432"
     volumes:
-#      - .dbdata:/var/lib/postgresql/data/
       - postgres_data:/var/lib/postgresql/data/
 #zacki@gmail.com,123456
     env_file:
@@ -63,13 +62,12 @@ services:
 #      POSTGRES_USER: ${POSTGRES_USER}
 #      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 #      POSTGRES_DB: ${POSTGRES_DB}
-#    networks:
-#    - tennis-react
+    networks:
+    - tennis-react
 
 networks:
-    default:
-      external:
-        name: tennis-react
+  tennis-react:
+    driver: bridge
 
 volumes:
     postgres_data:

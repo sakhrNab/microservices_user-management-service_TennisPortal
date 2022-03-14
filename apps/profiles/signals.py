@@ -39,6 +39,11 @@ def save_user_profile(sender, instance, **kwargs):
     # need to be serialized
     user_profile = Profile.objects.get(id=instance.profile.id)
     print("!!!!!!!!!!!!!!!!!!!!!!!!", user_profile.id)
+    serializer = ProfileSerializer(user_profile)
+
+    print("@@@@@@@@@ Serializer data",serializer.data)
+
+    print("%%%%%%%%%%% Serialzer", serializer)
     profile_id = instance.profile.id
     profile_id_str = str(profile_id)
     users_username = user_profile.user.username
@@ -48,6 +53,6 @@ def save_user_profile(sender, instance, **kwargs):
     dict = ast.literal_eval(uuid_str)
 
     print(instance.profile)
-    publish('profile_created', dict)
+    publish('profile_created', serializer.data)
 
     logger.info(f"{instance}'s profile created {dict}")

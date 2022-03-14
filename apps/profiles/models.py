@@ -35,6 +35,8 @@ class GameType(models.TextChoices):
 # with the TimeStamped, I don't have to repeat the pkid and id
 class Profile(TimeStampedUUIDModel):
 
+    # pkid
+    # id
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
 
     phone_number = models.CharField(
