@@ -20,6 +20,9 @@ services:
       - media_volume:/app/mediafiles
     depends_on:
       - postgres-db
+#      - rabbitmq
+      - redis
+      - celery_worker
     networks:
       - tennis-react
 
@@ -38,15 +41,56 @@ services:
     networks:
       - tennis-react
 
-
+#  rmq:
+#    image: rabbitmq:3-management
+#    env_file:
+#      - .env
+#    ports:
+#      - "15672:15672"
+  celery_worker:
+    build:
+      context: .
+      dockerfile: ./docker/local/django/Dockerfile
+    command: /start-celeryworker
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+#      - rabbitmq
+#      - redis
+      - postgres-db
+    networks:
+      - tennis-react
         #======================================================
-#  queue:
+
+  redis:
+    image: redis:5-alpine
+    networks:
+      - tennis-react
+
+#  rabbitmq:
+#    image: rabbitmq:3.8-management-alpine
+#    container_name: users_rabbitmq
+##    environment:
+##      - RABBITMQ_DEFAULT_USER=admin
+##      - RABBITMQ_DEFAULT_PASS=password
+#    depends_on:
+#      - postgres-db
+#    networks:
+#      - tennis-react
+#    environment:
+#      - RABBITMQ_PASSWORD=UT7_s888elZ3FCRdD1CjiHY9S9aQPI81
+#      - RABBITMQ_VHOST=cow.rmq2.cloudamqp.com
+#      - RABBITMQ_USERNAME=dowzsxzj
+
+  #  rabbitmq:
 #    image: rabbitmq
 #    container_name: user_queue
 #    build:
 #      context: .
 #      dockerfile: ./docker/local/django/Dockerfile
-#    command: 'python -u consumer.py'
+#    command: 'python -u consumer2.py'
 #    volumes:
 #      - .:/app
 #    depends_on:

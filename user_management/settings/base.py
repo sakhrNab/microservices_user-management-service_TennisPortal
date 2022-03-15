@@ -40,6 +40,7 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'phonenumber_field',
     'django_countries',
+    'djcelery_email',
 ]
 
 LOCAL_APPS = [
