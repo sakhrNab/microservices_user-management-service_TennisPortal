@@ -19,6 +19,7 @@ services:
       - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
     depends_on:
+#      - queue
       - postgres-db
     networks:
       - tennis-react
@@ -46,13 +47,15 @@ services:
 #    build:
 #      context: .
 #      dockerfile: ./docker/local/django/Dockerfile
-#    command: 'python -u consumer.py'
+##    command: 'python -u consumer.py'
 #    volumes:
 #      - .:/app
 #    depends_on:
 #      - postgres-db
+#    networks:
+#      - tennis-react
 
-#  rabbitmq3:
+  #  rabbitmq3:
 #    container_name: "rabbitmq"
 #    image: rabbitmq:3.8-management-alpine
 #    environment:
