@@ -21,6 +21,8 @@ def create_opponent_review(request, profile_id):
         formatted_response = {"message": "You can't rate yourself"}
         return Response(formatted_response, status=status.HTTP_403_FORBIDDEN)
 
+    #opponent_profile.opponent_review.filter(opponent__username=opponent.username).exists
+    # check if the review id is already assigned the profiles username. Each user can review one user
     alreadyExists = opponent_profile.opponent_review.filter(
         opponent__pkid=profile_user.pkid
     ).exists()

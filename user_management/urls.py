@@ -18,6 +18,9 @@ urlpatterns = [
 
     # path('api/', include(router.urls)),
     # path('api/user/', include('apps.manage_user.urls')),
+    ##
+    # important to share tokens
+    # path ('auth/jwt/token/', CustomTokenObtainPairView.as_view()),
 
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

@@ -8532,3 +8532,625 @@ pika.exceptions.StreamLostError: Stream connection lost: SSLEOFError(8, 'EOF occ
 2022-03-15 22:55:04,461 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f659e0362f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
 2022-03-15 22:55:04,461 pika.adapters.blocking_connection INFO     Created channel=1
 2022-03-15 22:55:04,672 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:13:03,904 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:13:03,931 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51284), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:04,010 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51284), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:04,011 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f0177f5e230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f0177f5e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:13:04,082 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f0177f5e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:04,083 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f0177f5e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:04,084 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f0177f5e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:04,085 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:13:07,593 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:13:07,619 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51292), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:07,674 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51292), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:07,675 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbc40bbe230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbc40bbe230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:13:07,742 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbc40bbe230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:07,742 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbc40bbe230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:07,743 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbc40bbe230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:07,743 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:13:09,480 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:13:09,504 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51296), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:09,550 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51296), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:09,551 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f47d7b0a290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f47d7b0a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:13:09,619 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f47d7b0a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:09,620 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f47d7b0a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:09,620 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f47d7b0a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:09,621 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:13:11,207 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:13:11,230 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51300), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:11,282 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.80.3', 51300), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:13:11,283 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f61793962f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f61793962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:13:11,349 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f61793962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:11,349 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f61793962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:11,350 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f61793962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:13:11,350 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:13:11,561 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:34:32,403 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:34:32,430 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46220), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:32,480 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46220), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:32,481 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39a77da230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39a77da230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:34:32,543 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39a77da230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:32,543 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39a77da230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:32,544 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39a77da230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:32,544 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:34:35,624 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:34:35,650 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46228), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:35,697 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46228), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:35,698 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f4c7ab32230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f4c7ab32230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:34:35,762 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f4c7ab32230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:35,763 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f4c7ab32230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:35,763 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f4c7ab32230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:35,764 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:34:37,503 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:34:37,526 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46232), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:37,574 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46232), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:37,575 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f86d17be290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f86d17be290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:34:37,638 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f86d17be290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:37,639 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f86d17be290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:37,639 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f86d17be290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:37,640 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:34:39,123 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:34:39,146 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46236), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:39,194 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.192.4', 46236), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:34:39,195 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f9a1d5ea2f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f9a1d5ea2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:34:39,259 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f9a1d5ea2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:39,260 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f9a1d5ea2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:39,260 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f9a1d5ea2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:34:39,261 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:34:39,475 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:39:11,434 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:39:11,458 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59792), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:11,507 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59792), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:11,508 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1d167e6230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1d167e6230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:39:11,592 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1d167e6230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:11,592 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1d167e6230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:11,593 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1d167e6230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:11,593 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:39:14,638 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:39:14,747 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59800), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:15,538 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59800), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:15,539 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ffb05846230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ffb05846230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:39:15,728 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ffb05846230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:15,728 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ffb05846230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:15,729 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ffb05846230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:15,730 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:39:17,484 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:39:17,508 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59804), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:17,559 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59804), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:17,560 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f897068a290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f897068a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:39:17,628 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f897068a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:17,629 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f897068a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:17,629 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f897068a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:17,630 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:39:19,182 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:39:19,206 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59808), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:19,255 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.208.4', 59808), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:39:19,256 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f3b981da2f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f3b981da2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:39:19,327 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f3b981da2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:19,328 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f3b981da2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:19,328 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f3b981da2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:39:19,329 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:39:19,544 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:40:11,263 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:40:11,284 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39802), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:11,333 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39802), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:11,334 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd5d73ca230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd5d73ca230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:40:11,418 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd5d73ca230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:11,419 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd5d73ca230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:11,419 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd5d73ca230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:11,420 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:40:14,486 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:40:14,511 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39810), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:14,562 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39810), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:14,563 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f92e5566230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f92e5566230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:40:14,630 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f92e5566230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:14,631 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f92e5566230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:14,631 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f92e5566230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:14,632 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:40:16,286 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:40:16,310 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39814), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:16,367 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39814), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:16,368 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdd38e3a290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdd38e3a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:40:16,432 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdd38e3a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:16,433 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdd38e3a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:16,433 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdd38e3a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:16,434 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:40:17,986 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:40:18,009 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39818), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:18,077 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.224.4', 39818), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:40:18,078 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6ddaaaa2f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6ddaaaa2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:40:18,158 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6ddaaaa2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:18,159 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6ddaaaa2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:18,159 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6ddaaaa2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:40:18,160 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:40:18,366 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:49:40,661 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:49:40,684 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43248), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:40,738 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43248), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:40,739 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5257e1a230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5257e1a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:49:40,800 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5257e1a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:40,801 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5257e1a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:40,801 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5257e1a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:40,802 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:49:43,992 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:49:44,016 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43256), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:44,064 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43256), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:44,065 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2f6ea8a230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2f6ea8a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:49:44,129 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2f6ea8a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:44,130 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2f6ea8a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:44,131 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2f6ea8a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:44,131 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:49:45,972 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:49:45,995 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43260), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:46,044 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43260), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:46,045 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6d09d1a290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6d09d1a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:49:46,107 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6d09d1a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:46,107 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6d09d1a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:46,108 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6d09d1a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:46,109 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:49:47,701 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:49:47,724 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43264), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:47,771 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.4', 43264), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:49:47,771 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1a114622f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1a114622f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:49:47,837 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1a114622f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:47,838 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1a114622f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:47,838 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1a114622f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:49:47,839 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:49:48,051 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:51:40,522 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:51:40,544 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51878), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:40,593 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51878), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:40,594 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdce7976230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdce7976230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:51:40,656 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdce7976230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:40,657 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdce7976230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:40,657 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdce7976230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:40,658 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:51:43,928 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:51:43,956 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51886), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:44,004 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51886), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:44,005 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5114e22230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5114e22230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:51:44,068 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5114e22230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:44,069 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5114e22230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:44,069 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f5114e22230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:44,070 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:51:45,908 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:51:45,931 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51890), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:45,979 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51890), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:45,980 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f42528ba290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f42528ba290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:51:46,042 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f42528ba290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:46,043 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f42528ba290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:46,043 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f42528ba290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:46,044 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:51:47,622 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:51:47,646 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51894), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:47,704 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51894), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:51:47,705 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1c74022f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1c74022f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:51:47,798 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1c74022f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:47,799 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1c74022f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:47,800 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1c74022f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:51:47,802 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:51:48,047 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:56:14,949 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-15 23:56:16,409 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:56:16,440 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51900), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:56:16,490 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51900), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:56:16,491 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f41f11be2f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f41f11be2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:56:16,558 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f41f11be2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:56:16,559 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f41f11be2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:56:16,559 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f41f11be2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:56:16,560 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:56:16,781 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-15 23:57:43,304 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-15 23:57:44,774 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-15 23:57:44,818 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51906), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:57:44,872 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51906), raddr=('54.93.32.234', 5671)>
+2022-03-15 23:57:44,873 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f50463a22f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f50463a22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-15 23:57:44,935 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f50463a22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:57:44,936 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f50463a22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:57:44,936 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f50463a22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-15 23:57:44,937 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-15 23:57:45,157 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-16 00:05:51,289 django.utils.autoreload INFO     /app/user_management/settings/base.py changed, reloading.
+2022-03-16 00:05:52,894 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:05:52,916 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51912), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:05:52,965 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.20.0.4', 51912), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:05:52,966 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f02abdfe2f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f02abdfe2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:05:53,062 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f02abdfe2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:05:53,062 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f02abdfe2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:05:53,063 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f02abdfe2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:05:53,063 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:05:53,383 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-16 00:07:54,337 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:07:54,364 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41472), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:07:54,411 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41472), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:07:54,412 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7efd9841e230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7efd9841e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:07:54,472 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7efd9841e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:07:54,473 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7efd9841e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:07:54,473 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7efd9841e230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:07:54,474 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:07:57,710 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:07:57,740 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41480), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:07:57,807 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41480), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:07:57,808 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f122f4ba230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f122f4ba230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:07:57,883 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f122f4ba230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:07:57,884 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f122f4ba230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:07:57,884 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f122f4ba230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:07:57,885 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:07:59,893 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:07:59,917 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41484), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:07:59,968 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41484), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:07:59,969 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb509c82290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb509c82290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:08:00,043 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb509c82290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:08:00,044 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb509c82290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:08:00,044 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb509c82290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:08:00,045 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:08:01,608 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:08:01,633 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41488), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:08:01,680 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.21.0.4', 41488), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:08:01,682 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fecd62962f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fecd62962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:08:01,744 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fecd62962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:08:01,745 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fecd62962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:08:01,745 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fecd62962f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:08:01,746 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:08:01,961 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-16 00:16:23,694 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:16:23,717 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60592), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:23,765 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60592), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:23,766 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f43c195a230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f43c195a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:16:23,829 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f43c195a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:23,830 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f43c195a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:23,830 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f43c195a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:23,831 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:16:26,899 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:16:26,923 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60600), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:26,974 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60600), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:26,975 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f97cc44a230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f97cc44a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:16:27,040 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f97cc44a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:27,040 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f97cc44a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:27,041 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f97cc44a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:27,041 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:16:29,073 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:16:29,096 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60604), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:29,144 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60604), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:29,145 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb60fe8a290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb60fe8a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:16:29,214 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb60fe8a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:29,214 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb60fe8a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:29,215 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fb60fe8a290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:29,215 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:16:31,044 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:16:31,073 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60608), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:31,165 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.22.0.4', 60608), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:16:31,167 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff645cf22f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff645cf22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:16:31,258 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff645cf22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:31,259 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff645cf22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:31,260 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff645cf22f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:16:31,260 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:16:31,501 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-16 00:18:28,067 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:18:28,089 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59292), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:28,137 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59292), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:28,138 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f609c32a230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f609c32a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:18:28,200 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f609c32a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:28,201 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f609c32a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:28,201 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f609c32a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:28,202 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:18:31,649 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:18:31,673 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59300), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:31,721 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59300), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:31,722 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f70d32c2230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f70d32c2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:18:31,787 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f70d32c2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:31,788 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f70d32c2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:31,789 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f70d32c2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:31,789 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:18:33,576 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:18:33,598 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59304), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:33,648 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59304), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:33,649 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2be339e290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2be339e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:18:33,717 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2be339e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:33,718 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2be339e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:33,718 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f2be339e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:33,719 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:18:35,317 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:18:35,344 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59308), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:35,395 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.24.0.4', 59308), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:18:35,396 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff8562ae2f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff8562ae2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:18:35,478 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff8562ae2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:35,479 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff8562ae2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:35,479 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7ff8562ae2f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:18:35,480 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:18:35,699 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-16 00:21:36,016 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:21:36,039 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38288), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:36,086 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38288), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:36,087 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f7c3a47a230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f7c3a47a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:21:36,152 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f7c3a47a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:36,153 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f7c3a47a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:36,153 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f7c3a47a230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:36,154 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:21:39,695 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:21:39,716 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38296), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:39,764 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38296), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:39,765 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f14817f2230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f14817f2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:21:39,826 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f14817f2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:39,826 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f14817f2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:39,827 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f14817f2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:39,828 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:21:41,911 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:21:41,935 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38300), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:41,983 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38300), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:41,984 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f85ba04e290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f85ba04e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:21:42,046 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f85ba04e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:42,047 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f85ba04e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:42,047 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f85ba04e290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:42,048 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:21:43,788 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:21:43,812 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38304), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:43,862 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.4', 38304), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:21:43,863 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f22cd5422f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f22cd5422f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:21:43,933 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f22cd5422f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:43,934 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f22cd5422f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:43,934 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f22cd5422f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:21:43,935 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:21:44,168 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-16 00:28:07,687 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:28:07,711 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38966), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:07,763 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38966), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:07,765 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fcf45fb2230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fcf45fb2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:28:07,843 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fcf45fb2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:07,844 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fcf45fb2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:07,845 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fcf45fb2230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:07,845 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:28:10,114 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:28:10,139 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38974), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:10,190 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38974), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:10,191 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbfe3a42230>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbfe3a42230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:28:10,260 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbfe3a42230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:10,261 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbfe3a42230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:10,261 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fbfe3a42230> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:10,262 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:28:12,038 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:28:12,067 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38978), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:12,126 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38978), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:12,127 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39ecde2290>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39ecde2290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:28:12,220 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39ecde2290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:12,220 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39ecde2290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:12,221 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f39ecde2290> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:12,221 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:28:13,768 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:28:13,792 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38982), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:13,847 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38982), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:28:13,848 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1658a822f0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1658a822f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:28:13,910 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1658a822f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:13,911 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1658a822f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:13,911 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1658a822f0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:28:13,912 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:28:14,117 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-16 00:29:10,765 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-16 00:29:10,788 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38988), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:29:10,837 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38988), raddr=('54.93.32.234', 5671)>
+2022-03-16 00:29:10,838 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6da533e860>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6da533e860> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-16 00:29:10,900 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6da533e860> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:29:10,901 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6da533e860> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:29:10,902 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6da533e860> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-16 00:29:10,902 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-16 00:30:41,753 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /admin/login/
+2022-03-16 01:13:16,581 django.request WARNING  Unauthorized: /api/v1/auth/jwt/create/
+2022-03-16 01:13:31,135 pika.adapters.utils.io_services_utils ERROR    _AsyncBaseTransport._consume() failed, aborting connection: error=SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2536)'); sock=<ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38982)>; Caller's stack:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 1222, in _consume
+    super(_AsyncSSLTransport, self)._consume()
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 791, in _consume
+    data = self._sigint_safe_recv(self._sock, self._MAX_RECV_BYTES)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 846, in _sigint_safe_recv
+    return sock.recv(max_bytes)
+  File "/usr/local/lib/python3.10/ssl.py", line 1258, in recv
+    return self.read(buflen)
+  File "/usr/local/lib/python3.10/ssl.py", line 1131, in read
+    return self._sslobj.read(len)
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:2536)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 1222, in _consume
+    super(_AsyncSSLTransport, self)._consume()
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 791, in _consume
+    data = self._sigint_safe_recv(self._sock, self._MAX_RECV_BYTES)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 846, in _sigint_safe_recv
+    return sock.recv(max_bytes)
+  File "/usr/local/lib/python3.10/ssl.py", line 1258, in recv
+    return self.read(buflen)
+  File "/usr/local/lib/python3.10/ssl.py", line 1131, in read
+    return self._sslobj.read(len)
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:2536)
+2022-03-16 01:13:31,136 pika.adapters.utils.io_services_utils ERROR    Wrapped func exited with exception. Caller's stack:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pika/diagnostic_utils.py", line 53, in log_exception_func_wrap
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 1222, in _consume
+    super(_AsyncSSLTransport, self)._consume()
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 791, in _consume
+    data = self._sigint_safe_recv(self._sock, self._MAX_RECV_BYTES)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 846, in _sigint_safe_recv
+    return sock.recv(max_bytes)
+  File "/usr/local/lib/python3.10/ssl.py", line 1258, in recv
+    return self.read(buflen)
+  File "/usr/local/lib/python3.10/ssl.py", line 1131, in read
+    return self._sslobj.read(len)
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:2536)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pika/diagnostic_utils.py", line 53, in log_exception_func_wrap
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 1222, in _consume
+    super(_AsyncSSLTransport, self)._consume()
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 791, in _consume
+    data = self._sigint_safe_recv(self._sock, self._MAX_RECV_BYTES)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/io_services_utils.py", line 846, in _sigint_safe_recv
+    return sock.recv(max_bytes)
+  File "/usr/local/lib/python3.10/ssl.py", line 1258, in recv
+    return self.read(buflen)
+  File "/usr/local/lib/python3.10/ssl.py", line 1131, in read
+    return self._sslobj.read(len)
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:2536)
+2022-03-16 01:13:31,137 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2536)'); <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38982)>
+2022-03-16 01:13:31,137 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38982)>
+2022-03-16 01:13:31,138 pika.adapters.base_connection ERROR    connection_lost: StreamLostError: ("Stream connection lost: SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2536)')",)
+2022-03-16 01:13:31,140 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=StreamLostError: ("Stream connection lost: SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2536)')",); pending-error=None
+2022-03-16 01:13:31,141 pika.connection INFO     Stack terminated due to StreamLostError: ("Stream connection lost: SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2536)')",)
+2022-03-16 01:13:31,142 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=2; <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.27.0.4', 38982)>
+2022-03-16 01:13:31,144 pika.adapters.blocking_connection ERROR    Unexpected connection close detected: StreamLostError: ("Stream connection lost: SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2536)')",)
+2022-03-16 01:13:31,226 django.request ERROR    Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 414, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/views.py", line 63, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/views.py", line 92, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 135, in login
+    user_logged_in.send(sender=user.__class__, request=request, user=user)
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/models.py", line 22, in update_last_login
+    user.save(update_fields=['last_login'])
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/apps/profiles/signals.py", line 56, in save_user_profile
+    publish('profile_created', serializer.data)
+  File "/app/apps/profiles/producer.py", line 17, in publish
+    channel.basic_publish(exchange='', routing_key='review_service',
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 2248, in basic_publish
+    self._flush_output()
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 1336, in _flush_output
+    self._connection._flush_output(lambda: self.is_closed, *waiters)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2536)')
+2022-03-16 01:13:49,344 django.request ERROR    Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 414, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/views.py", line 63, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/views.py", line 92, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 135, in login
+    user_logged_in.send(sender=user.__class__, request=request, user=user)
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/models.py", line 22, in update_last_login
+    user.save(update_fields=['last_login'])
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/apps/profiles/signals.py", line 56, in save_user_profile
+    publish('profile_created', serializer.data)
+  File "/app/apps/profiles/producer.py", line 17, in publish
+    channel.basic_publish(exchange='', routing_key='review_service',
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 2242, in basic_publish
+    self._impl.basic_publish(
+  File "/usr/local/lib/python3.10/site-packages/pika/channel.py", line 421, in basic_publish
+    self._raise_if_not_open()
+  File "/usr/local/lib/python3.10/site-packages/pika/channel.py", line 1389, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2022-03-16 04:23:10,382 pika.adapters.utils.selector_ioloop_adapter ERROR    Address resolution failed: gaierror(-3, 'Temporary failure in name resolution')
+2022-03-16 04:23:10,384 pika.adapters.utils.connection_workflow ERROR    getaddrinfo failed: gaierror(-3, 'Temporary failure in name resolution').
+2022-03-16 04:23:10,385 pika.adapters.utils.connection_workflow ERROR    AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-3, 'Temporary failure in name resolution'); first exception - None.
+2022-03-16 04:23:10,385 pika.adapters.utils.connection_workflow ERROR    AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-3, 'Temporary failure in name resolution'); first exception - None
+2022-03-16 04:23:10,386 pika.adapters.blocking_connection ERROR    Connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-3, 'Temporary failure in name resolution'); first exception - None
+2022-03-16 04:23:10,387 pika.adapters.blocking_connection ERROR    Error in _create_connection().
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 450, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 562, in _resolve
+    result = socket.getaddrinfo(self._host, self._port, self._family,
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+2022-03-16 04:24:45,131 pika.adapters.utils.selector_ioloop_adapter ERROR    Address resolution failed: gaierror(-3, 'Temporary failure in name resolution')
+2022-03-16 04:24:45,134 pika.adapters.utils.connection_workflow ERROR    getaddrinfo failed: gaierror(-3, 'Temporary failure in name resolution').
+2022-03-16 04:24:45,134 pika.adapters.utils.connection_workflow ERROR    AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-3, 'Temporary failure in name resolution'); first exception - None.
+2022-03-16 04:24:45,135 pika.adapters.utils.connection_workflow ERROR    AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-3, 'Temporary failure in name resolution'); first exception - None
+2022-03-16 04:24:45,135 pika.adapters.blocking_connection ERROR    Connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-3, 'Temporary failure in name resolution'); first exception - None
+2022-03-16 04:24:45,136 pika.adapters.blocking_connection ERROR    Error in _create_connection().
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 450, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 562, in _resolve
+    result = socket.getaddrinfo(self._host, self._port, self._family,
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
