@@ -11,7 +11,7 @@ from django.dispatch import receiver
 from uuid import UUID
 from apps.profiles.models import Profile
 from user_management.settings.base import AUTH_USER_MODEL
-from .producer import publish
+from .producer import RabbitMq
 from apps.profiles.serializers import ProfileSerializer
 
 logger = logging.getLogger(__name__)
@@ -53,6 +53,7 @@ def save_user_profile(sender, instance, **kwargs):
     dict = ast.literal_eval(uuid_str)
 
     print(instance.profile)
-    publish('profile_created', serializer.data)
+    p = RabbitMq()
+    RabbitMq.publish(p, 'profile_created', serializer.data)
 
     logger.info(f"{instance}'s profile created {dict}")

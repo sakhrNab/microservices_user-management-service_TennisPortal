@@ -9154,3 +9154,897 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
 socket.gaierror: [Errno -3] Temporary failure in name resolution
+2022-03-17 12:18:06,961 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:48:04,079 django.request ERROR    Internal Server Error: /api/v1/auth/users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/djoser/views.py", line 136, in perform_create
+    user = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 65, in create
+    user = self.perform_create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 73, in perform_create
+    user = User.objects.create_user(**validated_data)
+  File "/app/apps/manage_user/managers.py", line 44, in create_user
+    user.save(using=self._db)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/apps/profiles/signals.py", line 56, in save_user_profile
+    RabbitMq.publish('profile_created', serializer.data)
+TypeError: RabbitMq.publish() missing 1 required positional argument: 'body'
+2022-03-17 12:48:43,586 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 12:48:45,355 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:48:48,885 django.request ERROR    Internal Server Error: /api/v1/auth/users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/djoser/views.py", line 136, in perform_create
+    user = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 65, in create
+    user = self.perform_create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 73, in perform_create
+    user = User.objects.create_user(**validated_data)
+  File "/app/apps/manage_user/managers.py", line 44, in create_user
+    user.save(using=self._db)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/apps/profiles/signals.py", line 56, in save_user_profile
+    RabbitMq.publish('profile_created', serializer.data)
+TypeError: RabbitMq.publish() missing 1 required positional argument: 'body'
+2022-03-17 12:49:06,819 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 12:49:08,884 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:49:14,940 django.request ERROR    Internal Server Error: /api/v1/auth/users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/djoser/views.py", line 136, in perform_create
+    user = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 65, in create
+    user = self.perform_create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 73, in perform_create
+    user = User.objects.create_user(**validated_data)
+  File "/app/apps/manage_user/managers.py", line 44, in create_user
+    user.save(using=self._db)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/apps/profiles/signals.py", line 56, in save_user_profile
+    RabbitMq.publish('profile_created', serializer.data)
+TypeError: RabbitMq.publish() missing 1 required positional argument: 'body'
+2022-03-17 12:51:29,080 django.utils.autoreload INFO     /app/apps/profiles/signals.py changed, reloading.
+2022-03-17 12:51:30,870 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:51:33,769 django.request ERROR    Internal Server Error: /api/v1/auth/users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/djoser/views.py", line 136, in perform_create
+    user = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 65, in create
+    user = self.perform_create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 73, in perform_create
+    user = User.objects.create_user(**validated_data)
+  File "/app/apps/manage_user/managers.py", line 44, in create_user
+    user.save(using=self._db)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+TypeError: save_user_profile() missing 1 required positional argument: 'self'
+2022-03-17 12:52:08,376 django.utils.autoreload INFO     /app/apps/profiles/signals.py changed, reloading.
+2022-03-17 12:52:10,135 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:52:49,237 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 12:52:51,165 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:53:33,535 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 12:53:35,347 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:55:21,217 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 12:55:23,038 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:56:46,167 django.utils.autoreload INFO     /app/apps/profiles/signals.py changed, reloading.
+2022-03-17 12:56:47,913 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:56:53,417 django.request ERROR    Internal Server Error: /api/v1/auth/users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/djoser/views.py", line 136, in perform_create
+    user = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 65, in create
+    user = self.perform_create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 73, in perform_create
+    user = User.objects.create_user(**validated_data)
+  File "/app/apps/manage_user/managers.py", line 44, in create_user
+    user.save(using=self._db)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/apps/profiles/signals.py", line 56, in save_user_profile
+    p = RabbitMq()
+TypeError: RabbitMq.__init__() missing 1 required positional argument: 'server'
+2022-03-17 12:58:53,015 django.utils.autoreload INFO     /app/apps/profiles/signals.py changed, reloading.
+2022-03-17 12:58:54,573 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 12:59:03,995 django.utils.autoreload INFO     /app/apps/profiles/signals.py changed, reloading.
+2022-03-17 12:59:05,769 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:01:01,826 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:01:03,349 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:01:10,534 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:01:12,354 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:01:53,033 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:01:54,796 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:02:30,209 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:02:32,204 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:02:37,904 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:02:39,820 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:02:47,141 pika.adapters.utils.selector_ioloop_adapter ERROR    Address resolution failed: gaierror(-2, 'Name or service not known')
+2022-03-17 13:02:47,141 pika.adapters.utils.connection_workflow ERROR    getaddrinfo failed: gaierror(-2, 'Name or service not known').
+2022-03-17 13:02:47,142 pika.adapters.utils.connection_workflow ERROR    AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-2, 'Name or service not known'); first exception - None.
+2022-03-17 13:02:47,142 pika.adapters.utils.connection_workflow ERROR    AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-2, 'Name or service not known'); first exception - None
+2022-03-17 13:02:47,143 pika.adapters.blocking_connection ERROR    Connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - gaierror(-2, 'Name or service not known'); first exception - None
+2022-03-17 13:02:47,143 pika.adapters.blocking_connection ERROR    Error in _create_connection().
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 450, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 562, in _resolve
+    result = socket.getaddrinfo(self._host, self._port, self._family,
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+2022-03-17 13:02:47,238 django.request ERROR    Internal Server Error: /api/v1/auth/users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/djoser/views.py", line 136, in perform_create
+    user = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 65, in create
+    user = self.perform_create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/djoser/serializers.py", line 73, in perform_create
+    user = User.objects.create_user(**validated_data)
+  File "/app/apps/manage_user/managers.py", line 44, in create_user
+    user.save(using=self._db)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 774, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 180, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 181, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/apps/profiles/signals.py", line 56, in save_user_profile
+    p = RabbitMq()
+  File "/app/apps/profiles/producer.py", line 38, in __init__
+    self._connection = pika.BlockingConnection(pika.ConnectionParameters(host='amqps://dowzsxzj:UT7_s888elZ3FCRdD1CjiHY9S9aQPI81@cow.rmq2.cloudamqp.com/dowzsxzj'))
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 359, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 450, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+  File "/usr/local/lib/python3.10/site-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 562, in _resolve
+    result = socket.getaddrinfo(self._host, self._port, self._family,
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+2022-03-17 13:03:17,397 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:03:19,461 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:05:42,087 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:05:43,882 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:06:06,510 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:06:06,532 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46790), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:06,754 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46790), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:06,755 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f711a620>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f711a620> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:06:06,902 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f711a620> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:06:06,903 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f711a620> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:06:06,904 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f711a620> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:06:06,905 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:06:06,952 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:06:06,953 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f711a620> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:06:06,976 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f711a620> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:06:06,977 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:06:06,998 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46790), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:06,998 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46790), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:06,999 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46790), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,000 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:06:07,001 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:06:07,002 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46790), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,003 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:06:07,038 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:06:07,163 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46794), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,318 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46794), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,319 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f65e3070>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f65e3070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:06:07,386 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f65e3070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:06:07,387 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f65e3070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:06:07,388 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f65e3070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:06:07,389 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:06:07,434 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:06:07,435 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f65e3070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:06:07,457 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f65e3070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:06:07,458 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:06:07,478 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46794), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,478 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46794), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,479 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46794), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,479 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:06:07,480 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:06:07,480 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46794), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:06:07,481 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:08:15,037 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:08:15,096 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46812), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:08:15,379 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46812), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:08:15,382 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f7b6af50>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f7b6af50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:08:15,510 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f7b6af50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:08:15,511 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f7b6af50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:08:15,512 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f7b6af50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:08:15,513 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:08:15,558 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:08:15,559 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f7b6af50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:08:15,582 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fe1f7b6af50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:08:15,585 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:08:15,677 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46812), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:08:15,677 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46812), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:08:15,678 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46812), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:08:15,679 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:08:15,679 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:08:15,680 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46812), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:08:15,681 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:12:21,106 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:12:22,658 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:12:45,694 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:12:45,722 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46910), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:45,768 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46910), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:45,769 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa5850e0b0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa5850e0b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:12:45,915 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa5850e0b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:12:45,916 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa5850e0b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:12:45,917 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa5850e0b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:12:45,917 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:12:46,120 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:12:46,120 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa5850e0b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:12:46,149 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa5850e0b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:12:46,150 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:12:46,174 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46910), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,175 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46910), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,175 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46910), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,176 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:12:46,176 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:12:46,177 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46910), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,178 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:12:46,200 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:12:46,226 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46914), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,277 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46914), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,278 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa581a0910>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa581a0910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:12:46,530 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa581a0910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:12:46,531 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa581a0910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:12:46,532 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa581a0910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:12:46,533 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:12:46,638 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:12:46,639 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa581a0910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:12:46,661 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7faa581a0910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:12:46,662 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:12:46,688 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46914), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,689 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46914), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,689 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46914), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,690 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:12:46,691 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:12:46,691 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46914), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:12:46,692 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:13:32,734 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:13:34,526 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:13:37,634 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:13:37,831 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46926), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:37,889 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46926), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:37,890 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3910>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:13:37,961 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:13:37,962 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:13:37,962 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:13:37,963 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:13:38,008 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:13:38,008 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:13:38,037 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3910> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:13:38,038 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:13:38,139 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46926), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,140 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46926), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,141 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46926), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,142 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:13:38,142 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:13:38,143 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46926), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,144 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:13:38,165 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:13:38,332 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46930), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,412 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46930), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,413 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c3d0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:13:38,477 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:13:38,478 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:13:38,479 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:13:38,479 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:13:38,754 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:13:38,755 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:13:38,799 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:13:38,799 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:13:38,825 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46930), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,825 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46930), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,826 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46930), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,826 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:13:38,827 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:13:38,827 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46930), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:13:38,828 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:14:17,011 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:14:17,042 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46940), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,098 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46940), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,100 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d2890>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d2890> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:14:17,260 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d2890> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:17,261 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d2890> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:17,261 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d2890> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:17,262 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:14:17,484 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:14:17,485 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d2890> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:17,505 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d2890> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:17,506 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:14:17,542 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46940), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,542 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46940), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,543 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46940), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,544 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:17,544 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:17,545 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46940), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,545 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:14:17,567 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:14:17,590 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46944), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,767 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46944), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:17,768 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3010>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3010> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:14:17,975 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3010> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:17,976 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3010> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:17,976 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3010> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:17,977 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:14:18,026 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:14:18,026 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3010> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:18,047 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3010> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:18,047 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:14:18,070 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46944), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:18,070 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46944), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:18,071 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46944), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:18,072 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:18,072 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:18,073 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46944), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:18,073 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:14:58,006 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:14:58,030 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46954), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,088 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46954), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,090 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede35b0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede35b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:14:58,218 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede35b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:58,218 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede35b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:58,219 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede35b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:58,220 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:14:58,423 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:14:58,423 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede35b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:58,476 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede35b0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:58,476 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:14:58,497 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46954), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,497 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46954), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,498 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46954), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,498 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:58,499 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:58,499 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46954), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,500 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:14:58,523 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:14:58,547 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46958), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,598 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46958), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,599 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef2a650>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef2a650> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:14:58,830 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef2a650> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:58,831 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef2a650> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:58,832 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef2a650> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:14:58,832 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:14:58,956 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:14:58,956 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef2a650> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:58,976 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef2a650> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:14:58,977 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:14:58,999 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46958), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:58,999 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46958), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:59,000 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46958), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:59,001 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:59,001 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:14:59,002 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46958), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:14:59,003 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:15:43,079 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:15:43,202 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46968), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,257 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46968), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,258 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5e8c0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5e8c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:15:43,321 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5e8c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:15:43,322 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5e8c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:15:43,322 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5e8c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:15:43,323 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:15:43,479 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:15:43,479 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5e8c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:15:43,587 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5e8c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:15:43,587 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:15:43,682 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46968), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,682 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46968), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,683 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46968), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,684 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:15:43,684 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:15:43,685 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46968), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,686 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:15:43,707 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:15:43,730 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46972), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,779 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46972), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:43,780 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fe50>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fe50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:15:43,991 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fe50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:15:43,991 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fe50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:15:43,992 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fe50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:15:43,993 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:15:44,132 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:15:44,133 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fe50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:15:44,153 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fe50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:15:44,154 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:15:44,179 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46972), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:44,180 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46972), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:44,180 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46972), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:44,181 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:15:44,181 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:15:44,182 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46972), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:15:44,182 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:16:24,728 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:16:24,752 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46982), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:24,847 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46982), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:24,850 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c430>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c430> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:16:25,132 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c430> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:16:25,133 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c430> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:16:25,133 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c430> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:16:25,134 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:16:25,176 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:16:25,176 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c430> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:16:25,200 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5c430> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:16:25,201 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:16:25,237 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46982), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,237 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46982), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,238 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46982), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,238 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:16:25,239 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:16:25,239 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46982), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,240 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:16:25,272 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:16:25,360 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46986), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,568 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46986), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,569 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fa30>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fa30> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:16:25,654 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fa30> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:16:25,654 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fa30> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:16:25,655 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fa30> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:16:25,656 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:16:25,713 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:16:25,714 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fa30> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:16:25,740 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ef5fa30> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:16:25,741 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:16:25,772 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46986), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,773 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46986), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,774 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46986), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,774 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:16:25,775 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:16:25,775 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 46986), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:16:25,776 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:18:12,331 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:18:12,355 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47004), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:12,580 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47004), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:12,582 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3eb0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3eb0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:18:12,990 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3eb0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:12,991 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3eb0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:12,992 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3eb0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:12,993 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:18:13,327 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:18:13,328 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3eb0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:13,605 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ede3eb0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:13,606 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:18:13,716 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47004), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:13,717 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47004), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:13,717 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47004), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:13,718 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:13,719 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:13,719 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47004), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:13,720 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:18:13,740 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:18:13,774 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47008), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:13,912 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47008), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:13,913 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed992d0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed992d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:18:14,216 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed992d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:14,217 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed992d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:14,217 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed992d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:14,218 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:18:14,263 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:18:14,263 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed992d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:14,284 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed992d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:14,285 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:18:14,311 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47008), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:14,312 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47008), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:14,312 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47008), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:14,313 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:14,314 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:14,315 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47008), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:14,316 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:18:35,413 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:18:35,597 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47028), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:35,923 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47028), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:35,925 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed98ac0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed98ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:18:36,204 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed98ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:36,205 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed98ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:36,205 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed98ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:36,206 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:18:36,524 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:18:36,524 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed98ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:36,557 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351ed98ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:36,558 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:18:36,586 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47028), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:36,587 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47028), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:36,587 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47028), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:36,588 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:36,589 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:36,589 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47028), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:36,590 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:18:36,612 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:18:36,636 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47032), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:36,845 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47032), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:36,846 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d04c0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d04c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:18:37,020 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d04c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:37,021 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d04c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:37,022 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d04c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:18:37,023 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:18:37,073 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:18:37,073 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d04c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:37,150 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f351e1d04c0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:18:37,151 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:18:37,254 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47032), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:37,255 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47032), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:37,255 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47032), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:37,256 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:37,256 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:18:37,257 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('192.168.128.3', 47032), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:18:37,258 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:20:38,172 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:52:39,679 django.request WARNING  Bad Request: /api/v1/auth/users/
+2022-03-17 13:52:48,663 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:52:48,761 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58384), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:48,914 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58384), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:48,916 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9c250>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9c250> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:52:48,993 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9c250> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:52:48,994 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9c250> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:52:48,995 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9c250> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:52:48,996 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:52:49,046 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:52:49,046 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9c250> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:52:49,069 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9c250> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:52:49,070 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:52:49,171 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58384), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,171 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58384), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,172 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58384), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,172 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:52:49,173 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:52:49,173 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58384), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,174 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:52:49,194 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:52:49,377 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58388), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,430 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58388), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,431 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9f730>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9f730> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:52:49,508 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9f730> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:52:49,509 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9f730> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:52:49,509 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9f730> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:52:49,510 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:52:49,684 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:52:49,685 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9f730> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:52:49,785 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f6570d9f730> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:52:49,786 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:52:49,846 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58388), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,847 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58388), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,848 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58388), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,849 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:52:49,849 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:52:49,850 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58388), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:52:49,850 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:53:52,082 django.utils.autoreload INFO     /app/apps/profiles/producer.py changed, reloading.
+2022-03-17 13:53:53,877 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 13:53:59,735 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:53:59,759 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58408), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:53:59,813 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58408), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:53:59,815 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908dc070>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908dc070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:53:59,929 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908dc070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:53:59,930 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908dc070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:53:59,931 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908dc070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:53:59,932 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:54:00,134 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:54:00,135 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908dc070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:54:00,200 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908dc070> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:54:00,201 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:54:00,224 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58408), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,225 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58408), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,226 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58408), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,226 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:54:00,227 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:54:00,228 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58408), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,229 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:54:00,254 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:54:00,290 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=12, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58414), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,342 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=12, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58414), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,343 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e91108ac0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e91108ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:54:00,674 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e91108ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:54:00,674 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e91108ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:54:00,678 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e91108ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:54:00,680 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:54:00,728 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:54:00,729 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e91108ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:54:00,751 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e91108ac0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:54:00,752 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:54:00,773 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=12, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58414), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,773 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=12, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58414), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,774 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=12, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58414), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,775 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:54:00,775 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:54:00,776 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=12, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58414), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:54:00,776 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:55:29,685 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:55:29,712 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58458), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:29,839 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58458), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:29,840 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e905540a0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e905540a0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:55:30,123 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e905540a0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:55:30,124 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e905540a0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:55:30,125 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e905540a0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:55:30,126 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:55:30,186 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:55:30,186 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e905540a0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:55:30,211 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e905540a0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:55:30,211 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:55:30,235 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58458), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,235 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58458), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,236 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58458), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,237 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:55:30,237 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:55:30,238 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58458), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,238 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:55:30,259 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:55:30,351 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58462), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,556 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58462), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,557 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908de320>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908de320> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:55:30,646 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908de320> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:55:30,647 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908de320> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:55:30,647 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908de320> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:55:30,648 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:55:30,703 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:55:30,704 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908de320> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:55:30,730 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908de320> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:55:30,731 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:55:30,762 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58462), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,762 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58462), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,763 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58462), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,763 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:55:30,764 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:55:30,765 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58462), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:55:30,766 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:58:33,329 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:58:33,355 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58480), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:33,651 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58480), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:33,653 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908def50>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908def50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:58:33,788 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908def50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:58:33,789 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908def50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:58:33,789 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908def50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:58:33,790 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:58:34,059 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:58:34,060 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908def50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:58:34,164 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e908def50> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:58:34,165 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:58:34,194 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58480), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:34,195 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58480), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:34,195 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58480), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:34,196 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:58:34,197 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:58:34,197 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58480), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:34,198 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 13:58:34,222 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 13:58:34,244 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58484), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:34,468 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58484), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:34,469 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e912aebc0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e912aebc0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 13:58:34,684 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e912aebc0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:58:34,684 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e912aebc0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:58:34,685 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e912aebc0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 13:58:34,685 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 13:58:34,980 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 13:58:34,981 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e912aebc0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:58:35,083 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7f1e912aebc0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 13:58:35,084 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 13:58:35,117 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58484), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:35,117 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58484), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:35,118 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58484), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:35,118 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:58:35,119 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 13:58:35,119 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58484), raddr=('54.93.32.234', 5671)>
+2022-03-17 13:58:35,120 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 14:00:46,470 django.utils.autoreload INFO     /app/apps/manage_user/urls.py changed, reloading.
+2022-03-17 14:00:48,265 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:06:03,881 django.utils.autoreload INFO     /app/apps/manage_user/urls.py changed, reloading.
+2022-03-17 14:06:05,749 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:06:57,781 django.utils.autoreload INFO     /app/apps/manage_user/views.py changed, reloading.
+2022-03-17 14:06:59,685 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:08:07,124 django.utils.autoreload INFO     /app/apps/manage_user/views.py changed, reloading.
+2022-03-17 14:08:09,063 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:08:27,979 django.utils.autoreload INFO     /app/apps/manage_user/views.py changed, reloading.
+2022-03-17 14:08:29,838 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:09:09,283 django.utils.autoreload INFO     /app/apps/manage_user/views.py changed, reloading.
+2022-03-17 14:09:11,049 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:13:32,497 django.utils.autoreload INFO     /app/apps/manage_user/views.py changed, reloading.
+2022-03-17 14:13:34,675 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:17:28,008 django.utils.autoreload INFO     /app/apps/manage_user/urls.py changed, reloading.
+2022-03-17 14:17:29,660 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:17:45,667 django.utils.autoreload INFO     /app/apps/manage_user/urls.py changed, reloading.
+2022-03-17 14:17:47,452 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-17 14:17:52,919 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 14:17:52,941 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58524), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,012 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58524), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,013 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4cc0e9e0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4cc0e9e0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 14:17:53,242 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4cc0e9e0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 14:17:53,242 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4cc0e9e0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 14:17:53,243 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4cc0e9e0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 14:17:53,244 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 14:17:53,383 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 14:17:53,383 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4cc0e9e0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 14:17:53,419 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4cc0e9e0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 14:17:53,419 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 14:17:53,444 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58524), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,445 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58524), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,445 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58524), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,446 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 14:17:53,447 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 14:17:53,447 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58524), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,448 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 14:17:53,474 pika.adapters.utils.connection_workflow INFO     Pika version 1.1.0 connecting to ('54.93.32.234', 5671)
+2022-03-17 14:17:53,497 pika.adapters.utils.io_services_utils INFO     Socket connected: <socket.socket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58528), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,651 pika.adapters.utils.io_services_utils INFO     SSL handshake completed successfully: <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58528), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:53,653 pika.adapters.utils.connection_workflow INFO     Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4d46c3d0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4d46c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>).
+2022-03-17 14:17:53,881 pika.adapters.utils.connection_workflow INFO     AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4d46c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 14:17:53,882 pika.adapters.utils.connection_workflow INFO     AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4d46c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 14:17:53,882 pika.adapters.blocking_connection INFO     Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4d46c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>
+2022-03-17 14:17:53,883 pika.adapters.blocking_connection INFO     Created channel=1
+2022-03-17 14:17:53,941 pika.adapters.blocking_connection INFO     Closing connection (200): Normal shutdown
+2022-03-17 14:17:53,941 pika.channel INFO     Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4d46c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 14:17:53,969 pika.channel INFO     Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fdc4d46c3d0> params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>>
+2022-03-17 14:17:53,970 pika.connection INFO     Closing connection (200): 'Normal shutdown'
+2022-03-17 14:17:54,065 pika.adapters.utils.io_services_utils INFO     Aborting transport connection: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58528), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:54,065 pika.adapters.utils.io_services_utils INFO     _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58528), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:54,066 pika.adapters.utils.io_services_utils INFO     Deactivating transport: state=1; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58528), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:54,066 pika.connection INFO     AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 14:17:54,067 pika.connection INFO     Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2022-03-17 14:17:54,067 pika.adapters.utils.io_services_utils INFO     Closing transport socket and unlinking: state=3; <ssl.SSLSocket fd=11, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.19.0.3', 58528), raddr=('54.93.32.234', 5671)>
+2022-03-17 14:17:54,068 pika.adapters.blocking_connection INFO     User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=cow.rmq2.cloudamqp.com port=5671 virtual_host=dowzsxzj ssl=True>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2022-03-17 14:18:48,042 django.utils.autoreload INFO     /app/apps/manage_user/views.py changed, reloading.
+2022-03-17 14:18:49,920 django.utils.autoreload INFO     Watching for file changes with StatReloader
