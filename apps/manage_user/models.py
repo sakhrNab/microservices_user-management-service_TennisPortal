@@ -16,6 +16,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
+    is_signed = models.BooleanField(verbose_name=_("User Signed"),
+                                    default=False)
 
     ## the name of user of the user , that a user needs to identify
     USERNAME_FIELD="email"
@@ -37,6 +39,3 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.username
-
-
-

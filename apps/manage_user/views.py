@@ -20,20 +20,25 @@ class BlacklistTokenUpdateView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-# class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
-#
-#     def validate(self, attrs):
-#         ## This data variable will contain refresh and accesss tokens
-#         data = super().validate(attrs)
-#         ## You can add more User model's attributes like username, email etc. in the data dictionary like this
-#         ##  the information, I want to share
-#         data['username'] = self.user.username
-#         # publish
-#         p = RabbitMq()
-#         ##
-#         print("~~~~~~~~~~~~~~~~~~ ", "publishing signed in user")
-#         RabbitMq.publish(p, 'user_signed', data)
-#         return data
-#
-# class CustomTokenObtainPairView(TokenObtainPairView):
-#     pass
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+
+    def validate(self, attrs):
+        ## This data variable will contain refresh and accesss tokens
+        data = super().validate(attrs)
+        ## You can add more User model's attributes like username, email etc. in the data dictionary like this
+        ##  the information, I want to share
+        data['username'] = self.user.username
+        data['is_signed'] = self.user.is_signed
+        data_dict = {
+            "username": data["username"],
+            "is_signed": data["is_signed"]
+        }
+        # publish
+        p = RabbitMq()
+        ##
+        print("~~~~~~~~~~~~~~~~~~ ", "publishing signed in user")
+        RabbitMq.publish(p, 'user_signed', data_dict)
+        return data
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer

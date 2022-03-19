@@ -24,10 +24,12 @@ services:
     networks:
       - tennis-react
 
+
   nginx:
     restart: always
     depends_on:
       - user_manage_api
+    container_name: nginx_container
     volumes:
       - static_volume:/app/staticfiles/
       - media_volume:/app/mediafiles/
@@ -37,10 +39,10 @@ services:
     ports:
       - "8080:80"
     networks:
-      - tennis-react
+      - tennis-react # this network
 
 
-        #======================================================
+      #======================================================
   queue:
     build:
       context: .
@@ -76,7 +78,8 @@ services:
 
 networks:
   tennis-react:
-    driver: bridge
+    name: users_network
+
 
 volumes:
     postgres_data:

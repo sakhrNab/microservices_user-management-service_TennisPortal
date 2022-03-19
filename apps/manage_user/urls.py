@@ -11,7 +11,7 @@ urlpatterns = [
          name='blacklist'),
     # path('user-login/', views.user_login),
     # path('all-registered-users/', views.get_users),
-    path('auth/jwt/token/', CustomTokenObtainPairView.as_view())
+    path('jwt/token/', CustomTokenObtainPairView.as_view())
     # path('delete-user/<int:pk>/', views.user_list),
     # path('delete-user/<str:pk>/', views.delete_user_by_id, name='delete_user'),
 ]
