@@ -6,6 +6,13 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from apps.profiles.producer import RabbitMq
+from django.contrib.auth import get_user_model
+from .serializers import UserSerializer
+from apps.profiles.serializers import ProfileSerializer
+from django.http import Http404
+from apps.profiles.models import Profile
+User = get_user_model()
+
 class BlacklistTokenUpdateView(APIView):
     permission_classes = [AllowAny]
     authentication_classes = ()
@@ -42,3 +49,50 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
+
+from rest_framework import viewsets, status
+
+class ProfileViewset(viewsets.ViewSet):
+    def list(self, request):
+        profiles = Profile.objects.all()
+        serializer = ProfileSerializer(profiles, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def create(self, request):
+        serializer = ProfileSerializer.create(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def retrieve(self, request, pk=None):
+        profile = Profile.objects.get(pk=pk)
+        serializer = ProfileSerializer(profile)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def update(self, request, pk=None):
+        profile = Profile.objects.get(pk=pk)
+        serializer = ProfileSerializer(instance=profile, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def destroy(self, request, pk=None):
+        profile = Profile.objects.get(pk=pk)
+        profile.delete()
+        return Response("Profile deleted")
+
+class UserAPIView(APIView):
+    def get(self, _):
+        users = User.objects.all()
+        return Response(UserSerializer(users).data)
+
+class UserDetailAPIView(APIView):
+    def get_user(self, pk):
+        try:
+            User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise Http404
+    def get(self, request, pk, format=None):
+        user = self.get_user(pk)
+        serializer = UserSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
