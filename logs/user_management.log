@@ -13231,3 +13231,7 @@ Original exception text was: 'QuerySet' object has no attribute 'username'.
 2022-03-21 18:05:38,010 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-03-21 18:08:29,633 django.utils.autoreload INFO     /app/apps/profiles/views.py changed, reloading.
 2022-03-21 18:08:32,101 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-03-22 03:33:13,449 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: '192.168.178.21'. You may need to add '192.168.178.21' to ALLOWED_HOSTS.
+2022-03-22 03:33:13,610 django.request WARNING  Bad Request: /
+2022-03-22 03:33:28,863 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: '192.168.178.21'. You may need to add '192.168.178.21' to ALLOWED_HOSTS.
+2022-03-22 03:33:28,892 django.request WARNING  Bad Request: /HNAP1/
