@@ -1,0 +1,24 @@
+language: python
+python:
+  - "3.9"
+
+services:
+  - docker
+branches:
+  only:
+    - version21.03
+    - main
+
+before_script: pip install docker-compose
+
+script:
+#  - docker-compose run user_manage_api sh -c "python manage.py test && flake8"
+  - docker-compose run user_manage_api sh -c "pytest -p no:warnings --cov=."
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: version21.03
+
