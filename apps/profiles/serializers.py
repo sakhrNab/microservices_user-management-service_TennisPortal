@@ -11,7 +11,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source="user.username")
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
-    is_active = serializers.CharField(source="user.is_active")
+    # is_active = serializers.CharField(source="user.is_active")
     email = serializers.EmailField(source="user.email")
     full_name = serializers.SerializerMethodField(read_only=True)
     country = CountryField(name_only=True)
@@ -20,13 +20,14 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = [
+            'pkid',
             "username",
-            "first_name",
-            "last_name",
+            # "first_name",
+            # "last_name",
             "full_name",
             'is_active',
             "email",
-            "id",
+            # "id",
             "phone_number",
             "profile_photo",
             "about_me",
@@ -41,7 +42,8 @@ class ProfileSerializer(serializers.ModelSerializer):
             "rating",
             "num_reviews",
             "reviews",
-            "is_opponent",
+            # "is_opponent",
+
         ]
 
     def get_full_name(self, obj):

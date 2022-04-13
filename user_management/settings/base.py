@@ -40,13 +40,11 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     'rest_framework_simplejwt.token_blacklist',
-    # 'djoser',
     'corsheaders',
     'phonenumber_field',
     'django_countries',
     'knox',
     'rest_framework_swagger',
-    # 'rest_auth',
     'django_filters'
 ]
 
@@ -93,27 +91,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'user_management.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'user_management',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': 'mysql-db',   # Or an IP Address that your DB is hosted on
-#         'PORT': '3306', # the port used in our service
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -159,7 +136,7 @@ STATICFILES_DIR = []
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
@@ -173,10 +150,12 @@ REST_FRAMEWORK = {
         # 'rest_framework.renderers.JSONRenderer',
         # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
-    # 'DEFAULT_PERMISSION_CLASSES': (
-    #     'rest_framework.permissions.IsAdminUser',
-    #     'rest_framework.permissions.AllowAny',
-    # ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+
+    ),
 }
 
 # CORS_ALLOWED_ORIGINS = [
@@ -197,7 +176,6 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': env("SIGNING_KEY"),
-    # "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     'VERIFYING_KEY': None,
     "AUTH_HEADER_TYPES": (
         "Bearer",

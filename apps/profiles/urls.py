@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import (OpponentListAPIView, GetProfileAPIView, UpdateProfileAPIView
-                    )
+from .views import (OpponentListAPIView, GetProfileAPIView, UpdateProfileAPIView,
+                    CustomUserCreate)
 
 urlpatterns = [
      path("me/", GetProfileAPIView.as_view(), name="get_profile"),
@@ -9,5 +9,7 @@ urlpatterns = [
           name="update_profile"),
      path("opponents/all/", OpponentListAPIView.as_view(),
           name="all-opponents"),
-    # path("")
+     path('register/', CustomUserCreate.as_view()),
+
+     # path("")
 ]

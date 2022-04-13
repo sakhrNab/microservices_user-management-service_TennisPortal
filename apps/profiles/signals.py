@@ -22,9 +22,10 @@ logger = logging.getLogger(__name__)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-        instance.profile.save()
 
-        profile_id_str = str(instance.profile.id)
+        instance.profile.save()
+        print("#!!!!!!!!!!!!!!!!!!!! ", instance.profile)
+        profile_id_str = str(instance.profile)
 
         # instance ->users_username = user_profile.user.username
         data = {'id': profile_id_str,

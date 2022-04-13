@@ -8,10 +8,7 @@ RUN mkdir $APP_HOME
 RUN mkdir $APP_HOME/staticfiles
 RUN mkdir $APP_HOME/mediafiles
 
-
 WORKDIR $APP_HOME
-
-
 
 RUN apt-get update \
   && apt-get install -y build-essential \
@@ -28,7 +25,6 @@ RUN #pip uninstall psycopg2
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
-#COPY . /user-management-service
 
 COPY ./docker/local/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
@@ -39,7 +35,3 @@ RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 
 ENTRYPOINT [ "/entrypoint"]
-
-#RUN python manage.py makemigrations
-#RUN python manage.py migrate
-#CMD python manage.py runserver 0.0.0.0:5000

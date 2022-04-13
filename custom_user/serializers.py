@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.models import update_last_login
 from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth.password_validation import validate_password
+from django_countries.serializer_fields import CountryField
 from django_filters import rest_framework as filters
 from django.core import exceptions
 from django.conf import settings
@@ -16,6 +17,8 @@ from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from rest_framework.exceptions import AuthenticationFailed
 
+from apps.profiles.models import Profile
+from apps.ratings.serializers import RatingSerializer
 from .forms import PasswordResetForm
 from . import google
 from .register import register_social_user
@@ -32,22 +35,200 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email')
 
 
+#===========================================================
+# from django.core import validators
+#
+# class CustomUserSerializer(serializers.ModelSerializer):
+#     """
+#     Currently unused in preference of the below.
+#     """
+#     email = serializers.EmailField(validators=[validators.validate_email],required=True)
+#     # )
+#     # user_name = serializers.CharField(required=True)
+#     first_name = serializers.CharField(required=True)
+#     last_name = serializers.CharField(required=True)
+#     password = serializers.CharField(min_length=8, write_only=True)
+#
+#     class Meta:
+#         model = User
+#         # fields = ('email', 'user_name', 'password')
+#         fields=[
+#             'id',
+#             'first_name',
+#             'last_name',
+#             'email',
+#             # 'country',
+#             # 'address',
+#             # 'address_2',
+#             # 'mobile_no',
+#             # 'zip_code',
+#             # 'city',
+#             # 'region',
+#             # 'age',
+#             # 'skill_level',
+#             # 'game_type',
+#             'password',
+#             # 'confirm_password',
+#             # 'gender',
+#             'created',
+#         ]
+#         extra_kwargs = {
+#             # 'email': {
+#             #     'validators': [
+#             #         EmailValidator,
+#             #         UniqueValidator(
+#             #             queryset=NewUser.objects.all(),
+#             #             message="This email already exist!"
+#             #         )
+#             #     ]
+#             # },
+#
+#             'password': {'write_only': True}}
+#
+#     def create(self, validated_data):
+#
+#         password = validated_data.pop('password', None)
+#         # as long as the fields are the same, we can just use this
+#         instance = self.Meta.model(**validated_data)
+#         if password is not None:
+#             instance.set_password(password)
+#
+#
+#         instance.save()
+#         return instance
+#
+#
+#     def validate_email(self, value):
+#         print("#!$$$!$!$!$!!", " i am here")
+#         if User.objects.filter(email=value).exists():
+#             print("#!$$$!$!$!$!!", " i am here")
+#             raise serializers.ValidationError(
+#                 _('email is a duplicate'),
+#                 code={'invalid'}
+#             )
+#         return value
+#
+#
+# class CustomUserProfileSerializer(serializers.ModelSerializer):
+#     # profile = CustomUserSerializer(read_only=True, many=False)
+#     profile_photo = serializers.SerializerMethodField()
+#     username = serializers.CharField(source="user.username")
+#     # first_name = serializers.CharField(source="user.first_name")
+#     # last_name = serializers.CharField(source="user.last_name")
+#     is_active = serializers.CharField(source="user.is_active")
+#     email = serializers.EmailField(source="user.email")
+#     full_name = serializers.SerializerMethodField(read_only=True)
+#     country = CountryField(name_only=True)
+#     reviews = serializers.SerializerMethodField(read_only=True)
+#
+#     class Meta:
+#             model = Profile
+#             # fields = ('email', 'user_name', 'password')
+#             fields= [
+#                 'pkid',
+#                 "username",
+#                 # 'profile',
+#                 # "first_name",
+#                 # "last_name",
+#                 "full_name",
+#                 'is_active',
+#                 "email",
+#                 # "id",
+#                 "phone_number",
+#                 "profile_photo",
+#                 "about_me",
+#                 "gender",
+#                 "age",
+#                 "country",
+#                 "city",
+#                 "region",
+#                 "zip_code",
+#                 # "game_type",
+#                 "skill_level",
+#                 "rating",
+#                 "num_reviews",
+#                 "reviews",
+#                 # "is_opponent",
+#
+#             ]
+#             def create(self, validated_data):
+#                 password = validated_data.pop('password', None)
+#                 # as long as the fields are the same, we can just use this
+#                 instance = self.Meta.model(**validated_data)
+#                 if password is not None:
+#                     instance.set_password(password)
+#
+#                 instance.save()
+#                 return instance
+#
+#
+#             def validate_email(self, value):
+#                 print("#!$$$!$!$!$!!", " i am here")
+#                 if Profile.objects.filter(email=value).exists():
+#                     print("#!$$$!$!$!$!!", " i am here")
+#                     raise serializers.ValidationError(
+#                         _('email is a duplicate'),
+#                         code={'invalid'}
+#                     )
+#                 return value
+#                 def get_full_name(self, obj):
+#                     first_name = obj.user.first_name.title()
+#                 last_name = obj.user.last_name.title()
+#                 return f"{first_name} {last_name}"
+#
+#             def get_reviews(self, obj):
+#                 # opponent_review: in ratings.models, related_name
+#                 reviews = obj.opponent_review.all()
+#                 serializer = RatingSerializer(reviews, many=True)
+#                 return serializer.data
+#
+#             def get_profile_photo(self, obj):
+#                 return obj.profile_photo.url
+#
+#
+#                 # because i am reviewing the opponent
+#             def to_representation(self, instance):
+#                 representation = super().to_representation(instance)
+#                 print("########################################", instance)
+#                 print(instance.id)
+#                 if instance.is_opponent:
+#                     representation["is_opponent"] = True
+#                 return representation
+
+#===========================================================
 class RegisterSerializer(serializers.ModelSerializer):
+    # username = serializers.CharField(source="user.username")
 
     # profile = UserSerializer(required=False)
+    region = serializers.CharField(source="profile.region", required=False)
+    zip_code = serializers.CharField(source="profile.zip_code", required=False)
+    phone_number = serializers.CharField(source="profile.phone_number", required=False)
+    country = serializers.CharField(source="profile.country", required=False)
+    city = serializers.CharField(source="profile.city", required=False)
+    age = serializers.CharField(source="profile.age", required=False)
+    gender = serializers.CharField(source="profile.gender", required=False)
+    skill_level = serializers.CharField(source="profile.skill_level", required=False)
+    game_type = serializers.CharField(source="profile.game_type", required=False)
+    address = serializers.CharField(source="profile.address", required=False)
+    address_2 = serializers.CharField(source="profile.address_2", required=False)
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'email', 'first_name', 'last_name')
+        fields = ('username', 'password', 'email', 'first_name', 'last_name',
+        'region', 'zip_code','phone_number', 'gender', 'country', 'city', 'age', 'skill_level', 'game_type', 'address', 'address_2')
+
         extra_kwargs = {
             'first_name': {'required': True},
             'last_name': {'required': True},
             'phone_number': {'required': False},
             'zip_code': {'required': False},
             'gender': {'required': False},
-            'country': {'required': True},
-            'city': {'required': True},
-            'region': {'required': True},
+            # 'country': {'required': True},
+            # 'city': {'required': True},
+            # 'region': {'required': False},
+            # 'age': {'required': False},
+            # 'skill_level': {'required': False},
+            # 'game_type': {'required': False},
         }
 
     def validate(self, attrs):
@@ -75,11 +256,49 @@ class RegisterSerializer(serializers.ModelSerializer):
             last_name=validated_data['last_name']
         )
 
+        # def check_json_input(user_info_args):
+        #     # print(validated_data.get(user_info_args), False))
+        #     if len(user)
+        #     if bool(validated_data['profile'].get(user_info_args)) is False:
+        #             print(user_info_args, " is empty")
+        #             pass
+        #
+        #     user.profile.user_info_args = validated_data['profile'].get(user_info_args)
+        #     user.set_password(validated_data['password'])
+        #     user.save()
+        #     #===================================================
+        #     user.profile.save()
+        #     #===================================================
+        #     return user
+        #     # return user.profile.user_info_args
+
+
+        #==================================================='region', 'zip_code','phone_number', 'gender', 'country', 'city', 'age', 'skill_level', 'game_type')
+        # array = ['region', 'zip_code','phone_number', 'gender', 'country', 'city', 'age', 'skill_level', 'game_type', 'address', 'address_2']
+        # check_json_input(array)
+        user.profile.region = validated_data["profile"].get("region")
+        user.profile.zip_code = validated_data["profile"].get("zip_code")
+        user.profile.phone_number = validated_data["profile"].get("phone_number")
+        user.profile.gender = validated_data["profile"].get("gender")
+        user.profile.country = validated_data["profile"].get("country")
+        user.profile.city = validated_data["profile"].get("city")
+        user.profile.age = validated_data["profile"].get("age")
+        user.profile.skill_level = validated_data["profile"].get("skill_level")
+        user.profile.game_type = validated_data["profile"].get("game_type")
+        user.profile.address = validated_data["profile"].get("address")
+        user.profile.address_2 = validated_data["profile"].get("address_2")
+
+        #===================================================
+
+        # validated_data.get("phone_number")
+        # validated_data['profile'].save
         user.set_password(validated_data['password'])
         user.save()
-
+        #===================================================
+        user.profile.save()
+        #===================================================
         return user
-    
+
     def get_cleaned_data_profile(self):
         return {
             "first_name": self.validated_data.get("first_name", ""),

@@ -57,14 +57,16 @@ class rabbitmqServer():
         print(body)
         data = json.loads(body)
         print(data)# data is already the username
-        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX: ",data, " ", properties.content_type)
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX: ",data['username'], " ", properties.content_type)
+        new_rating = int(data['rating'])
         if properties.content_type == 'review_added':
             try:
-                print("Rartatgga")
+                print("Rartatgga ", data['rating'])
 
-                print("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2")
-                profile = Profile.objects.get(user__username=data)
+                print("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2", new_rating)
+                profile = Profile.objects.get(user__username=data['username'])
                 profile.num_reviews += 1
+                profile.rating += new_rating
                 profile.save()
                 print("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
                 print("Reviews increased.")

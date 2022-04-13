@@ -1,29 +1,25 @@
 version: '3.9'
 
-
 services:
-#======================================================
   user_manage_api3:
     build:
       context: .
       dockerfile: ./docker/local/django/Dockerfile
     command: /start
+    restart: on-failure
     image: user_api
     container_name: userapp3
-#    ports:
-#      - "8004:8004"
     env_file:
       - .env
     volumes:
       - .:/app
       - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
+      - ./mediafiles/imgs/:/app/mediafiles/imgs/
     depends_on:
-#      - queue
       - postgres-db
     networks:
       - tennis-react
-
 
   nginx3:
     restart: always
@@ -33,6 +29,7 @@ services:
     volumes:
       - static_volume:/app/staticfiles/
       - media_volume:/app/mediafiles/
+      - ./mediafiles/imgs/:/app/mediafiles/imgs/
     build:
       context: ./docker/local/nginx
       dockerfile: Dockerfile
@@ -41,8 +38,6 @@ services:
     networks:
       - tennis-react # this network
 
-
-      #======================================================
   queue3:
     build:
       context: .
@@ -57,7 +52,6 @@ services:
       - postgres-db
     networks:
       - tennis-react
-  #======================================================
 
   postgres-db3:
     image: postgres:12.0-alpine
@@ -66,20 +60,14 @@ services:
       - "54322:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-#zacki@gmail.com,123456
     env_file:
       - "./database.env"
-#    environment:
-#      POSTGRES_USER: ${POSTGRES_USER}
-#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-#      POSTGRES_DB: ${POSTGRES_DB}
     networks:
     - tennis-react
 
 networks:
   tennis-react:
     name: users_network
-
 
 volumes:
     postgres_data:

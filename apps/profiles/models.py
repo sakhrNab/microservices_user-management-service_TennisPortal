@@ -46,7 +46,7 @@ class Profile(TimeStampedUUIDModel):
 
     zip_code = models.CharField(max_length=10)
 
-    profile_photo = models.ImageField(default='/shrek.png',
+    profile_photo = models.ImageField(default='/imgs/tennis_player_img.png',
         verbose_name=_("Profile Photo"))
 
     gender = models.CharField(
@@ -83,7 +83,9 @@ class Profile(TimeStampedUUIDModel):
 
     game_type = models.CharField(max_length=20, choices=GameType.choices, default=GameType.TENNIS)
 
-    rating = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
+    # rating = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
+    rating = models.IntegerField(
+        verbose_name=_("Number of Reviews"), default=0, null=True, blank=True)
 
     num_reviews = models.IntegerField(
         verbose_name=_("Number of Reviews"), default=0, null=True, blank=True
@@ -96,6 +98,8 @@ class Profile(TimeStampedUUIDModel):
     is_opponent = models.BooleanField(verbose_name=_("Opponent"),
                                       default=True)
 
+    address = models.CharField(max_length=100)
+    address_2 = models.CharField(null=True, max_length=100)
 
     def __str__(self):
         return f"{self.user.username}'s profile"

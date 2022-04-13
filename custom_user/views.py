@@ -1,16 +1,17 @@
 import json
 
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse, Http404, HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 from apps.profiles import serializers
 from apps.profiles.models import Profile
 from apps.profiles.producer import RabbitMq
 from apps.profiles.serializers import ProfileSerializer
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, resolve_url
 from django.db.models import Q, Count
 from django.views.decorators.debug import sensitive_post_parameters
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.cache import cache_page
@@ -40,10 +41,13 @@ from rest_framework.generics import (
     DestroyAPIView
 )
 
-from .serializers import ( RegisterSerializer, UserSerializer,
-                         ChangePasswordSerializer, UpdateUserSerializer,
-                        PasswordResetConfirmSerializer, ResetPasswordEmailRequestSerializer, 
-                        ProfileAvailabilitySerializer, WishListSerializer, UserFilter, GoogleSocialAuthSerializer, UserFilterByID)
+from .serializers import (RegisterSerializer, UserSerializer,
+                          ChangePasswordSerializer, UpdateUserSerializer,
+                          PasswordResetConfirmSerializer, ResetPasswordEmailRequestSerializer,
+                          ProfileAvailabilitySerializer, WishListSerializer, UserFilter, GoogleSocialAuthSerializer,
+                          UserFilterByID)
+
+
 from .decorators import time_calculator
 
 User=get_user_model()
@@ -53,6 +57,11 @@ sensitive_post_parameters_m = method_decorator(
     sensitive_post_parameters("password1", "password2")
 )
 
+
+#=============================================================
+
+
+#============================================================
 class RegisterAPI(CreateAPIView):
 
     serializer_class = RegisterSerializer
@@ -61,6 +70,7 @@ class RegisterAPI(CreateAPIView):
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
+        print("##########",serializer.validated_data)
         serializer.save()
         response = {
             'success' : 'True',
@@ -70,33 +80,33 @@ class RegisterAPI(CreateAPIView):
         status_code = status.HTTP_200_OK
         return Response(response, status=status_code)
 
-@csrf_exempt
-def user_login(request):
-    email = request.POST['email']
-    print("I AM  HERERERERERE#########################################")
-    user_data = User.objects.filter(email=email).first()
-    print(user_data)
-    # models.Tennisplayer.objects.get(email=email, password=password)
-    if user_data:
-        status_code = status.HTTP_200_OK
-
-        response = {
-            'bool': True, #success
-            'status code': status.HTTP_200_OK,
-            'isAdmin': user_data.is_staff,
-            'message': 'User logged in  successfully',
-        }
-        publish_data = {
-            "username": str(user_data),
-            "logged_status": "True"
-        }
-        p = RabbitMq()
-        RabbitMq.publish(p, 'user_signed', publish_data)
-        return JsonResponse(response, status=status_code)
-    else:
-        # user can is not logged in
-        return JsonResponse({'bool': False})
-
+# @csrf_exempt
+# def user_login(request):
+#     email = request.POST['email']
+#     print("I AM  HERERdERERERE#########################################")
+#     user_data = User.objects.filter(email=email).first()
+#     print(user_data)
+#     # models.Tennisplayer.objects.get(email=email, password=password)
+#     if user_data:
+#         status_code = status.HTTP_200_OK
+#
+#         response = {
+#             'bool': True, #success
+#             'status code': status.HTTP_200_OK,
+#             'isAdmin': user_data.is_staff,
+#             'message': 'User logged in  successfully',
+#         }
+#         publish_data = {
+#             "username": str(user_data),
+#             "logged_status": "True"
+#         }
+#         p = RabbitMq()
+#         RabbitMq.publish(p, 'user_signed', publish_data)
+#         return JsonResponse(response, status=status_code)
+#     else:
+#         # user can is not logged in
+#         return JsonResponse({'bool': False})
+#
 
 class LoginAPI(APIView):
 
@@ -122,6 +132,7 @@ class LoginAPI(APIView):
                 'status code': status.HTTP_200_OK,
                 'isAdmin': user_data.is_staff,
                 'message': 'User logged in  successfully',
+                'username': user_data.username
             }
             publish_data = {
                 "username": str(user_data),
@@ -137,10 +148,10 @@ class LoginAPI(APIView):
 
 class UserAPI(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated,]
-    serializer_class = UserSerializer
+    serializer_class = ProfileSerializer
 
     def get_object(self):
-        return self.request.user
+        return self.request.user.profile
 
 
 class ChangePasswordView(generics.UpdateAPIView):
@@ -196,7 +207,6 @@ class UpdateProfileView(generics.UpdateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = UpdateUserSerializer
 
-
 #API to search users
 class FilterUsersAPIView(ListAPIView):
     permission_classes = (AllowAny,)
@@ -228,10 +238,41 @@ class FilterUsersAPIView(ListAPIView):
         return Response(serializer.data)
 
 
+#API to search users
+class FilterUsersStrengthAPIView(ListAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = UserSerializer
+    filter_backends = (
+        DjangoFilterBackend,
+        filters.SearchFilter,
+    )
+    filterset_class = UserFilter
+    queryset = User.objects.filter(available=True)
+
+    @time_calculator
+    def time(self):
+        return 0
+
+    @method_decorator(cache_page(60 * 60 * 2))
+    @method_decorator(vary_on_cookie)
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+
+        self.time()
+        return Response(serializer.data)
+
+
 #API to fetch all users
 class AllUsersAPIView(ListAPIView):
-    permission_classes = [IsAdminUser]
-    # permission_classes = (AllowAny,)
+    # permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
 
     serializer_class = UserSerializer
     queryset = User.objects.filter(available=True)
@@ -254,15 +295,19 @@ class AllUsersAPIView(ListAPIView):
         date_created_list = User.objects.filter(is_active=True).values_list('created', flat=True)
 
     # return Response(serializer.data)
-        return JsonResponse({'users': list(all_emails),
-                             'date_created': list(date_created_list)})
+        response = {
+            "users": serializer.data
+        }
+        return Response(response, status=status.HTTP_200_OK)
+    #     return JsonResponse({'users': list(all_emails),
+    #                          'date_created': list(date_created_list)})
 
 class UserDetailView(APIView):
     permission_classes = permission_classes = (AllowAny,)
 
     def get(self, request, pk):
-        profile = User.objects.get(pk=pk)
-        serializer = UserSerializer(
+        profile = Profile.objects.get(pk=pk)
+        serializer = ProfileSerializer(
             profile, context={"request": request}
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -281,7 +326,7 @@ class PasswordResetView(GenericAPIView):
         serializer.save()
         # Return the success message with OK HTTP status
         return Response(
-            {"detail": _("Password reset e-mail has been sent.")},
+            {"detail": _("Password has been reset.")},
             status=status.HTTP_200_OK
         )
 
@@ -357,7 +402,7 @@ class WishListView(viewsets.ModelViewSet):
 
 #API to fetch recommended players
 class RecommendedPlayersAPIView(ListAPIView):
-    permission_classes = (AllowAny,)
+    permission_classes = [AllowAny]
     serializer_class = ProfileSerializer
 
     @time_calculator
@@ -365,24 +410,42 @@ class RecommendedPlayersAPIView(ListAPIView):
         return 0
 
     def get_queryset(self):
-        if not User.is_authenticated:
-            recommended_users = Profile.objects.filter(Q(age__iexact=self.request.user.profile.age)
-            | Q(region__iexact=self.request.user.profile.region) | Q(gender__iexact=self.request.user.profile.gender) | Q(skill_level__iexact=self.request.user.profile.skill_level)).exclude(Q(user__pk__iexact=self.request.user.pk) | Q(user__available=False))
+        if  User.is_authenticated:
+            recommended_users = Profile.objects.filter(Q(age=self.request.user.profile.age)
+                                                       | Q(region=self.request.user.profile.region) | Q(gender=self.request.user.profile.gender)
+                                                       | Q(skill_level=self.request.user.profile.skill_level)).exclude(Q(user__pk=self.request.user.pk)
+                                                                                                                       | Q(user__available=False))
             return recommended_users
 
     @method_decorator(cache_page(60 * 60 * 2))
     @method_decorator(vary_on_cookie)
     def list(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
+        if  request.user.is_authenticated:
             queryset = self.get_queryset()
             page = self.paginate_queryset(queryset)
             if page is not None:
-                serializer = self.get_serializer(page, many=True)
+                serializer = self.get_serializer(page, many=True,context={"request": request})
                 return self.get_paginated_response(serializer.data)
 
             serializer = self.get_serializer(queryset, many=True)
+            # length = len(serializer.data)
+            # newlist = [x for ind, x in enumerate(serializer.data) if length > ind >= 0]
+            # response = {}
+            #
+            # for i in range(length):
+            #     response[i] = {"first_name": newlist[i]['first_name'],
+            #                    "last_name": newlist[i]['last_name'],
+            #                    'profile_photo': newlist[i]['profile_photo'],
+            #                    'rating': newlist[i]['rating'],
+            #                    'about_me': newlist[i]['about_me'],
+            #                    }
             self.time()
-            return Response(serializer.data)
+            res = {
+                "users": serializer.data
+            }
+            return Response(res, status=status.HTTP_200_OK)
+
+
 
 
 #API to fetch latest players
@@ -408,8 +471,11 @@ class LatestPlayersAPIView(ListAPIView):
             return self.get_paginated_response(serializer.data)
 
         serializer = self.get_serializer(queryset, many=True)
+        response = {
+            "users": serializer.data
+        }
         self.time()
-        return Response(serializer.data)
+        return Response(response, status = status.HTTP_200_OK)
 
 from apps.profiles.renderers import ProfileJSONRenderer
 #API to fetch popular players
@@ -437,18 +503,18 @@ class PopularUsersAPIView(ListAPIView):
             return self.get_paginated_response(serializer.data)
 
         serializer = self.get_serializer(queryset, many=True,context={"request": request})
-
-        length = len(serializer.data)
-        newlist = [x for ind, x in enumerate(serializer.data) if length > ind >= 0]
-        response = {}
-        response2 = {}
-
-        for i in range(length):
-            response[i] = {"first_name": newlist[i]['first_name'],
-                           "last_name": newlist[i]['last_name'],
-                           'profile_photo': newlist[i]['profile_photo'],
-                           'rating': newlist[i]['rating'],
-                           }
+        #
+        # length = len(serializer.data)
+        # newlist = [x for ind, x in enumerate(serializer.data) if length > ind >= 0]
+        # response = {}
+        #
+        # for i in range(length):
+        #     response[i] = {"first_name": newlist[i]['first_name'],
+        #                    "last_name": newlist[i]['last_name'],
+        #                    'profile_photo': newlist[i]['profile_photo'],
+        #                    'rating': newlist[i]['rating'],
+        #                    'about_me': newlist[i]['about_me'],
+        #                    }
 
         #     # response=(',u'.join(str(a)for a in list(response.values())))
         #
@@ -470,8 +536,11 @@ class PopularUsersAPIView(ListAPIView):
         #
         # return JsonResponse(res, status=status.HTTP_200_OK)
         #--------------------------------------------------------
-        print("####d############ ", list(response))
-        return Response(response, status=status.HTTP_200_OK)        # return Response(response2, status=status.HTTP_200_OK)
+        resp ={
+            "users": serializer.data
+        }
+        # print("####d############ ", list(response))
+        return Response(resp, status=status.HTTP_200_OK)        # return Response(response2, status=status.HTTP_200_OK)
 
 
 
@@ -497,14 +566,34 @@ class GoogleSocialAuthView(GenericAPIView):
 class DestroyUserAPIView(DestroyAPIView):
     permission_classes = (permissions.IsAdminUser,)
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    # queryset = User.objects.all()
 
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        instance.is_deleted = True
-        instance.save()
-        return Response({"detail": "User deleted"})
+    def get_object(self, username):
+        try:
+            return get_object_or_404(User, username=username)
+        except User.DoesNotExist:
+            raise Http404
 
+    def destroy(self, request, username):
+        instance = self.get_object(username)
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!", instance)
+        instance.delete()
+
+        print("sffe############", self.request)
+        # instance = self.get_object()
+        # instance.is_deleted = True
+        # instance.save()
+        return Response({"detail": "User deleted",
+                         "user": str(instance)})
+
+class DeleteAccount(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        user=self.request.user
+        user.delete()
+
+        return Response({"result": "user deleted"})
 
 #API to search user by ID
 class FilterUsersByIDAPIView(ListAPIView):
@@ -537,3 +626,209 @@ class FilterUsersByIDAPIView(ListAPIView):
         self.time()
         return Response(serializer.data)
 
+
+# Class-based password reset views
+# - PasswordResetView sends the mail
+# - PasswordResetDoneView shows a success message for the above
+# - PasswordResetConfirmView checks the link the user clicked and
+#   prompts for a new password
+# - PasswordResetCompleteView shows a success message for the above
+
+from django.views.generic.edit import FormView
+from django.contrib.auth.forms import (
+    AuthenticationForm,
+    PasswordChangeForm,
+    PasswordResetForm,
+    SetPasswordForm,
+)
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.tokens import default_token_generator
+from django.urls import reverse_lazy
+from django.views.generic.base import TemplateView
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
+from django.core.exceptions import ImproperlyConfigured, ValidationError
+from django.utils.http import url_has_allowed_host_and_scheme, urlsafe_base64_decode
+from django.conf import settings
+from django.contrib.auth import login as auth_login
+
+class PasswordContextMixin:
+    extra_context = None
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {"title": self.title, "subtitle": None, **(self.extra_context or {})}
+        )
+        return context
+
+
+class PasswordResetView(PasswordContextMixin, FormView):
+    email_template_name = "registration/password_reset_email.html"
+    extra_email_context = None
+    form_class = PasswordResetForm
+    from_email = None
+    html_email_template_name = None
+    subject_template_name = "registration/password_reset_subject.txt"
+    success_url = reverse_lazy("password_reset_done")
+    template_name = "registration/password_reset_form.html"
+    title = _("Password reset")
+    token_generator = default_token_generator
+
+    @method_decorator(csrf_exempt)#csrf_protect
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def form_valid(self, form):
+        opts = {
+            "use_https": self.request.is_secure(),
+            "token_generator": self.token_generator,
+            "from_email": self.from_email,
+            "email_template_name": self.email_template_name,
+            "subject_template_name": self.subject_template_name,
+            "request": self.request,
+            "html_email_template_name": self.html_email_template_name,
+            "extra_email_context": self.extra_email_context,
+        }
+        form.save(**opts)
+        return super().form_valid(form)
+
+
+INTERNAL_RESET_SESSION_TOKEN = "_password_reset_token"
+
+
+class PasswordResetDoneView(PasswordContextMixin, TemplateView):
+    template_name = "registration/password_reset_done.html"
+    # template_name = "localhost:8080/reset/done/"
+    title = _("Password reset sent")
+
+
+
+class PasswordResetConfirmView(PasswordContextMixin, FormView):
+    form_class = SetPasswordForm
+    post_reset_login = False
+    post_reset_login_backend = None
+    reset_url_token = "set-password"
+    success_url = reverse_lazy("password_reset_complete")
+    template_name = "registration/password_reset_confirm.html"
+    title = _("Enter new password")
+    token_generator = default_token_generator
+
+    @method_decorator(sensitive_post_parameters())
+    @method_decorator(never_cache)
+    def dispatch(self, *args, **kwargs):
+        if "uidb64" not in kwargs or "token" not in kwargs:
+            raise ImproperlyConfigured(
+                "The URL path must contain 'uidb64' and 'token' parameters."
+            )
+
+        self.validlink = False
+        self.user = self.get_user(kwargs["uidb64"])
+
+        if self.user is not None:
+            token = kwargs["token"]
+            if token == self.reset_url_token:
+                session_token = self.request.session.get(INTERNAL_RESET_SESSION_TOKEN)
+                if self.token_generator.check_token(self.user, session_token):
+                    # If the token is valid, display the password reset form.
+                    self.validlink = True
+                    return super().dispatch(*args, **kwargs)
+            else:
+                if self.token_generator.check_token(self.user, token):
+                    # Store the token in the session and redirect to the
+                    # password reset form at a URL without the token. That
+                    # avoids the possibility of leaking the token in the
+                    # HTTP Referer header.
+                    self.request.session[INTERNAL_RESET_SESSION_TOKEN] = token
+                    redirect_url = self.request.path.replace(
+                        token, self.reset_url_token
+                    )
+                    return HttpResponseRedirect(redirect_url)
+
+        # Display the "Password reset unsuccessful" page.
+        return self.render_to_response(self.get_context_data())
+
+    def get_user(self, uidb64):
+        try:
+            # urlsafe_base64_decode() decodes to bytestring
+            uid = urlsafe_base64_decode(uidb64).decode()
+            user = User._default_manager.get(pk=uid)
+        except (
+                TypeError,
+                ValueError,
+                OverflowError,
+                User.DoesNotExist,
+                ValidationError,
+        ):
+            user = None
+        return user
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["user"] = self.user
+        return kwargs
+
+    def form_valid(self, form):
+        user = form.save()
+        del self.request.session[INTERNAL_RESET_SESSION_TOKEN]
+        if self.post_reset_login:
+            auth_login(self.request, user, self.post_reset_login_backend)
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.validlink:
+            context["validlink"] = True
+        else:
+            context.update(
+                {
+                    "form": None,
+                    "title": _("Password reset unsuccessful"),
+                    "validlink": False,
+                }
+            )
+        return context
+
+
+class PasswordResetCompleteView(PasswordContextMixin, TemplateView):
+    template_name = "registration/password_reset_complete.html"
+    title = _("Password reset complete")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["login_url"] = resolve_url(settings.LOGIN_URL)
+        return context
+
+
+class PasswordChangeView(PasswordContextMixin, FormView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy("password_change_done")
+    template_name = "registration/password_change_form.html"
+    title = _("Password change")
+
+    @method_decorator(sensitive_post_parameters())
+    @method_decorator(csrf_protect)
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["user"] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        form.save()
+        # Updating the password logs out all other sessions for the user
+        # except the current one.
+        update_session_auth_hash(self.request, form.user)
+        return super().form_valid(form)
+
+
+class PasswordChangeDoneView(PasswordContextMixin, TemplateView):
+    template_name = "registration/password_change_done.html"
+    title = _("Password change successful")
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
