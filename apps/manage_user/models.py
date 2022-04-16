@@ -10,6 +10,7 @@ from .managers import CustomUserManager
 
 AUTH_PROVIDERS = {'google': 'google', 'email': 'email'}
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     pkid = models.BigAutoField(primary_key=True, editable=False)
     id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
@@ -25,7 +26,8 @@ class User(AbstractBaseUser, PermissionsMixin):
                                     default=False)
 
     available = models.BooleanField(default=True, null=True)
-    favorite_players = models.ManyToManyField("User", verbose_name=_("Favorite Players"), blank=True, related_name="favorites")
+    favorite_players = models.ManyToManyField("User", verbose_name=_("Favorite Players"),
+                                              blank=True, related_name="favorites")
     created = models.DateTimeField(auto_now_add=True)
     auth_provider = models.CharField(
         max_length=255, blank=False,
@@ -50,4 +52,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.username
+
+
 

@@ -17,7 +17,7 @@ services:
       - media_volume:/app/mediafiles
       - ./mediafiles/imgs/:/app/mediafiles/imgs/
     depends_on:
-      - postgres-db
+      - postgres-db3
     networks:
       - tennis-react
 
@@ -26,6 +26,7 @@ services:
     depends_on:
       - user_manage_api
     container_name: nginx_container3
+    restart: on-failure
     volumes:
       - static_volume:/app/staticfiles/
       - media_volume:/app/mediafiles/
@@ -49,7 +50,7 @@ services:
     command: 'python consumer.py'
     restart: on-failure
     depends_on:
-      - postgres-db
+      - postgres-db3
     networks:
       - tennis-react
 

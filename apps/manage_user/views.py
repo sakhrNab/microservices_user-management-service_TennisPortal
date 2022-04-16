@@ -28,6 +28,39 @@ class BlacklistTokenUpdateView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+# class BlacklistTokenUpdateView(APIView):
+#     permission_classes = [AllowAny]
+#     authentication_classes = ()
+#
+#     def post(self, request):
+#         try:
+#             # print("faaffafa ", User.data)
+#             user_data = User.objects.filter(is_signed=True).first()
+#
+#             print("ra ", request.data)
+#             # user_data = User.objects.filter(email=request.data['email']).first()
+#             refresh_token = request.data["refresh_token"]
+#             print("ra2", user_data)
+#             token = RefreshToken(refresh_token)
+#             print("ra3", user_data)
+#             token.blacklist()
+#             print("ra4", user_data)
+#             print(user_data)
+#             user_data.is_signed=False
+#             print("ra5", user_data)
+#             publish_data = {
+#                 "username": str(user_data),
+#                 "logged_status": str(user_data.is_signed)
+#             }
+#             p = RabbitMq()
+#             RabbitMq.publish(p, 'user_signed', publish_data)
+#             print("!!!!!!!!!!!!!!!!!!!! ", "shared logout message")
+#             user_data.save()
+#             return Response(status=status.HTTP_205_RESET_CONTENT)
+#         except Exception as e:
+#             return Response({"response": str(e)},status=status.HTTP_400_BAD_REQUEST)
+#
+
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
     def validate(self, attrs):
@@ -37,9 +70,13 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         ##  the information, I want to share
         data['username'] = self.user.username
         data['is_signed'] = self.user.is_signed
+        # data['isAdmin'] = self.user.is_staff
+        # data['bool'] = True
+        # data['message'] = "User logged in successfully"
+
         data_dict = {
             "username": data["username"],
-            "is_signed": data["is_signed"]
+            "logged_status": data["is_signed"]
         }
 
         # publish

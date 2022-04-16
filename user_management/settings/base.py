@@ -13,11 +13,12 @@ env = environ.Env()
 
 environ.Env.read_env(BASE_DIR / ".env")
 
+
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
-#DEBUG = False
+#DEBUG = Falsec
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
@@ -45,14 +46,14 @@ THIRD_PARTY_APPS = [
     'django_countries',
     'knox',
     'rest_framework_swagger',
-    'django_filters'
+    'django_filters',
+    'django_extensions',
 ]
 
 LOCAL_APPS = [
     "apps.manage_user",
     "apps.common",
     'apps.profiles',
-    'apps.ratings',
     'apps.email_requests',
     'custom_user',
 ]
@@ -147,6 +148,8 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+
         # 'rest_framework.renderers.JSONRenderer',
         # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
@@ -228,5 +231,10 @@ logging.config.dictConfig(
         },
     }
 )
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True
+}
 
 DEFAULT_FROM_EMAIL="sakhr270@gmail.com"

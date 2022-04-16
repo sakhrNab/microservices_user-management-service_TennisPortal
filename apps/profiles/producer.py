@@ -1,3 +1,5 @@
+from user_management.settings.base import env
+
 try:
     import pika
 
@@ -20,7 +22,7 @@ class MetaClass(type):
 
 class RabbitmqConfigure(metaclass=MetaClass):
 
-    def __init__(self, queue='review_service', host='amqps://dowzsxzj:UT7_s888elZ3FCRdD1CjiHY9S9aQPI81@cow.rmq2.cloudamqp.com/dowzsxzj',
+    def __init__(self, queue='review_service', host=env("RABBITMQ_HOST"),
                  routingKey='review_service', exchange=''):
         """ Configure Rabbit Mq Server  """
         self.queue = queue
@@ -33,12 +35,10 @@ class RabbitMq():
 
     def __init__(self):
 
-        # self.server = server
-
-        self._connection = pika.BlockingConnection(pika.URLParameters('amqps://dowzsxzj:UT7_s888elZ3FCRdD1CjiHY9S9aQPI81@cow.rmq2.cloudamqp.com/dowzsxzj'))
+        self._connection = pika.BlockingConnection(pika.URLParameters(env("RABBITMQ_HOST")))
         self._channel = self._connection.channel()
         self._channel.queue_declare(queue="review_service")
-    # def publish(method, body):
+
     def publish(self, method, body):
         properties = pika.BasicProperties(method)
         self._channel.basic_publish(exchange="",
@@ -51,29 +51,10 @@ class RabbitMq():
 
 if __name__ == "__main__":
     server = RabbitmqConfigure(queue='review_service',
-                               host='amqps://dowzsxzj:UT7_s888elZ3FCRdD1CjiHY9S9aQPI81@cow.rmq2.cloudamqp.com/dowzsxzj',
+                               host=env("RABBITMQ_HOST"),
                                routingKey='review_service',
                                exchange='')
 
     rabbitmq = RabbitMq()
-    # rabbitmq.publish()
 
 
-# # amqps://dowzsxzj:UT7_s888elZ3FCRdD1CjiHY9S9aQPI81@cow.rmq2.cloudamqp.com/dowzsxzj
-# import json
-#
-# import pika
-#
-# params = \
-#     pika.URLParameters('amqps://dowzsxzj:UT7_s888elZ3FCRdD1CjiHY9S9aQPI81@cow.rmq2.cloudamqp.com/dowzsxzj')
-#
-# connection = pika.BlockingConnection(params)
-#
-# channel = connection.channel()
-# channel.queue_declare(queue='review_service')
-#
-# def publish(method, body):
-#     properties = pika.BasicProperties(method)
-#     # routing key, for the consumer to know whom it's coming from
-#     channel.basic_publish(exchange='', routing_key='review_service',
-#                           body=json.dumps(body), properties=properties)

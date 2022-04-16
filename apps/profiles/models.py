@@ -33,7 +33,6 @@ class GameType(models.TextChoices):
     TENNIS = "Tennis", _("Tennis")
 
 
-# with the TimeStamped, I don't have to repeat the pkid and id
 class Profile(TimeStampedUUIDModel):
 
     # pkid
@@ -82,10 +81,10 @@ class Profile(TimeStampedUUIDModel):
                                    default=SkillLevel.NOVICE)
 
     game_type = models.CharField(max_length=20, choices=GameType.choices, default=GameType.TENNIS)
+    rating = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
 
-    # rating = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
-    rating = models.IntegerField(
-        verbose_name=_("Number of Reviews"), default=0, null=True, blank=True)
+    # rating = models.IntegerField(
+    #     verbose_name=_("User Rating"), default=0, null=True, blank=True)
 
     num_reviews = models.IntegerField(
         verbose_name=_("Number of Reviews"), default=0, null=True, blank=True
@@ -99,7 +98,7 @@ class Profile(TimeStampedUUIDModel):
                                       default=True)
 
     address = models.CharField(max_length=100)
-    address_2 = models.CharField(null=True, max_length=100)
+    address_2 = models.CharField(blank=True, null=True, max_length=100)
 
     def __str__(self):
         return f"{self.user.username}'s profile"
@@ -110,26 +109,30 @@ class Profile(TimeStampedUUIDModel):
         else:
             return user_management.settings.base.STATIC_URL + 'img/default/meal.png'
 
+# Blacklisted tokens
 
-class GameCategory(models.Model):
-    title=models.CharField(max_length=150) # tennis
-    description=models.TextField()
+# Outstanding tokens
 
-    # class meta is for modifications
-    class Meta:
-        verbose_name_plural="2. Games Categories"
 
-    def __str__(self):
-        return self.title
 
-# a game without a GameCategory can't exist
-class Game(models.Model):
-    class Meta:
-        verbose_name_plural="3. Games"
-    category=models.ForeignKey(GameCategory, on_delete=models.CASCADE)
-    tennis_player=models.ForeignKey(User, on_delete=models.CASCADE)
-    title=models.CharField(max_length=150)
-    description=models.TextField()
-
-    def __str__(self):
-        return self.title
+# class GameCategory(models.Model):
+#     title=models.CharField(max_length=150) # tennis
+#     description=models.TextField()
+#
+#     # class meta is for modifications
+#     class Meta:
+#         verbose_name_plural="2. Games Categories"
+#
+#     def __str__(self):
+#         return self.title
+#
+# class Game(models.Model):
+#     class Meta:
+#         verbose_name_plural="3. Games"
+#     category=models.ForeignKey(GameCategory, on_delete=models.CASCADE)
+#     tennis_player=models.ForeignKey(User, on_delete=models.CASCADE)
+#     title=models.CharField(max_length=150)
+#     description=models.TextField()
+#
+#     def __str__(self):
+#         return self.title

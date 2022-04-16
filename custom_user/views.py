@@ -18,8 +18,8 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
 from custom_user.send_email import send_reset_password_email
 from django_filters.rest_framework import DjangoFilterBackend
-from knox.models import AuthToken
-from knox.views import LoginView as KnoxLoginView
+# from knox.models import AuthToken
+# from knox.views import LoginView as KnoxLoginView
 from rest_framework import generics, permissions, status, filters
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
@@ -73,7 +73,7 @@ class RegisterAPI(CreateAPIView):
         print("##########",serializer.validated_data)
         serializer.save()
         response = {
-            'success' : 'True',
+            'success': 'True',
             'status code' : status.HTTP_200_OK,
             'message': 'User registered  successfully!',
             }
@@ -199,7 +199,7 @@ class BlacklistTokenUpdateView(APIView):
             user_data.save()
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response({"response": str(e)},status=status.HTTP_400_BAD_REQUEST)
 
 
 class UpdateProfileView(generics.UpdateAPIView):
@@ -207,14 +207,14 @@ class UpdateProfileView(generics.UpdateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = UpdateUserSerializer
 
-#API to search users
+#API to search users by avaialibility
 class FilterUsersAPIView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = UserSerializer
     filter_backends = (
         DjangoFilterBackend,
         filters.SearchFilter,
-    ) 
+    )
     filterset_class = UserFilter
     queryset = User.objects.filter(available=True)
 
@@ -355,7 +355,7 @@ class UpdateAvailability(generics.UpdateAPIView):
 
     def update(self, request, *args, **kwargs):
         data_to_change = {'available': request.data.get("available")}
-        
+
         serializer = self.serializer_class(request.user, data=data_to_change, partial=True)
         if serializer.is_valid():
             self.perform_update(serializer)
@@ -564,7 +564,7 @@ class GoogleSocialAuthView(GenericAPIView):
 
 
 class DestroyUserAPIView(DestroyAPIView):
-    permission_classes = (permissions.IsAdminUser,)
+    permission_classes = [permissions.IsAdminUser]
     serializer_class = UserSerializer
     # queryset = User.objects.all()
 
@@ -576,13 +576,15 @@ class DestroyUserAPIView(DestroyAPIView):
 
     def destroy(self, request, username):
         instance = self.get_object(username)
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!", instance)
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!s", instance)
         instance.delete()
+        print("username ", username)
+        publish_data = {
+            "username": str(username)
+        }
+        p = RabbitMq()
+        RabbitMq.publish(p, 'user_deleted', publish_data)
 
-        print("sffe############", self.request)
-        # instance = self.get_object()
-        # instance.is_deleted = True
-        # instance.save()
         return Response({"detail": "User deleted",
                          "user": str(instance)})
 

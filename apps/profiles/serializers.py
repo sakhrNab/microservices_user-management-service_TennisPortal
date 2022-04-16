@@ -1,21 +1,20 @@
 from django_countries.serializer_fields import CountryField
 from rest_framework import fields, serializers
 
-from apps.ratings.serializers import RatingSerializer
-
 from .models import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
     profile_photo = serializers.SerializerMethodField()
     username = serializers.CharField(source="user.username")
-    first_name = serializers.CharField(source="user.first_name")
-    last_name = serializers.CharField(source="user.last_name")
-    # is_active = serializers.CharField(source="user.is_active")
+    # first_name = serializers.CharField(source="user.first_name")
+    # last_name = serializers.CharField(source="user.last_name")
+    is_active = serializers.CharField(source="user.is_active")
     email = serializers.EmailField(source="user.email")
     full_name = serializers.SerializerMethodField(read_only=True)
     country = CountryField(name_only=True)
-    reviews = serializers.SerializerMethodField(read_only=True)
+    # reviews = serializers.SerializerMethodField(read_only=True)
+
 
     class Meta:
         model = Profile
@@ -41,7 +40,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "skill_level",
             "rating",
             "num_reviews",
-            "reviews",
+            # "reviews",
             # "is_opponent",
 
         ]
@@ -51,11 +50,11 @@ class ProfileSerializer(serializers.ModelSerializer):
         last_name = obj.user.last_name.title()
         return f"{first_name} {last_name}"
 
-    def get_reviews(self, obj):
-        # opponent_review: in ratings.models, related_name
-        reviews = obj.opponent_review.all()
-        serializer = RatingSerializer(reviews, many=True)
-        return serializer.data
+    # def get_reviews(self, obj):
+    #     # opponent_review: in ratings.models, related_name
+    #     reviews = obj.opponent_review.all()
+    #     serializer = RatingSerializer(reviews, many=True)
+    #     return serializer.data
 
     def get_profile_photo(self, obj):
         return obj.profile_photo.url

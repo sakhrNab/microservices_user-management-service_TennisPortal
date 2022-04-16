@@ -17,23 +17,19 @@ from apps.profiles.serializers import ProfileSerializer
 logger = logging.getLogger(__name__)
 
 
-# def JSONEncode
 @receiver(post_save, sender=AUTH_USER_MODEL)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-
         instance.profile.save()
-        print("#!!!!!!!!!!!!!!!!!!!! ", instance.profile)
-        profile_id_str = str(instance.profile)
 
-        # instance ->users_username = user_profile.user.username
+        profile_id_str = str(instance.profile)
         data = {'id': profile_id_str,
                 "username": instance.username,
                 'is_admin': str(instance.is_staff)}
 
-        print(instance.profile)
         p = RabbitMq()
-        RabbitMq.publish(p, 'profile_created', data)#serializer.data
+        RabbitMq.publish(p, 'profile_created', data)
 
         logger.info(f"{instance}'s profile created {dict}")
+
