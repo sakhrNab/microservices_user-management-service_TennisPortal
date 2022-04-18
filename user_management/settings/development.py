@@ -9,16 +9,24 @@ EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = "info@tenniscompanion.com"
 DOMAIN = env("DOMAIN")
 SITE_NAME = "Tennis Companion"
+#DATABASES = {
+#    'default': {
+#        'ENGINE': env("POSTGRES_ENGINE"),
+#        'NAME': env("POSTGRES_DB"),
+#        'USER': env("POSTGRES_USER"),
+#        'PASSWORD': env("POSTGRES_PASSWORD"),
+#        'HOST': env("PG_HOST"),   # Or an IP Address that your DB is hosted on
+#        'PORT': env("PG_PORT"),
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': env("POSTGRES_ENGINE"),
-        'NAME': env("POSTGRES_DB"),
-        'USER': env("POSTGRES_USER"),
-        'PASSWORD': env("POSTGRES_PASSWORD"),
-        'HOST': env("PG_HOST"),   # Or an IP Address that your DB is hosted on
-        'PORT': env("PG_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # MYSQL_ENGINE=django.db.backends.mysql
 # MYSQL_DB=user_management
