@@ -9,7 +9,8 @@ services:
       dockerfile: ./docker/local/django/Dockerfile
     command: /start
     image: user_api
-    container_name: userapp
+    container_name: userapp2
+    restart: always
 #    ports:
 #      - "8004:8004"
     env_file:
@@ -29,7 +30,7 @@ services:
     restart: always
     depends_on:
       - user_manage_api
-    container_name: nginx_container
+    container_name: nginx_container2
     volumes:
       - static_volume:/app/staticfiles/
       - media_volume:/app/mediafiles/
@@ -48,7 +49,7 @@ services:
       context: .
       dockerfile: ./docker/local/rabbitmq/Dockerfile
     image: user_queue_image
-    container_name: user_queue
+    container_name: user_queue2
     env_file:
       - .env
     command: 'python consumer.py'
@@ -61,7 +62,7 @@ services:
 
   postgres-db:
     image: postgres:12.0-alpine
-    container_name: user_db
+    container_name: user_db2
     ports:
       - "54322:5432"
     volumes:

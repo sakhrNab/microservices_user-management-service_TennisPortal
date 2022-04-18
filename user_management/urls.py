@@ -31,6 +31,7 @@ urlpatterns = [
     path("api/v1/profile/", include("apps.profiles.urls")),
     # path("api/v1/auth/", include("apps.manage_user.urls")),-----
     path("api/v1/ratings/", include("apps.ratings.urls")),
+    path('', include('custom_user.urls'))
 ]
 
 admin.site.site_header = "User Management Admin"
