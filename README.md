@@ -1,22 +1,41 @@
-# user-management-service
-This service should create new users, authenticate them, manage created users and allow login. 
+# Before RUNNING this Service, please do the follwoing:
 
-This project works using docker-containers, using docker-compose we're going to run each service accordingly.
+1. Run the Review-Service inside this repository: `https://github.com/blitz-de/review_service`
 
-To run this service using docker-compose, type-in the following command in your terminal inside the root directory:
+2. Run the Frontend-Service inside this repository: `https://github.com/blitz-de/frontend-service`
 
-# RUN SERVICE
-`docker-compose up --build`
+3. Run the User-Management-Service :)
 
-** INFO: the project is going to run on portal :8004
 
-# CREATE a Django SUPERUSER inside the docker-container:
-`docker-compose run user_manage_api python manage.py createsuperuser`
+# Inside the User-Management-Service
 
--> user_manage_api is the name of the container
+## Makefile
 
-# MAKEMIGRATION and MIGRATE
+There is a file called makefile, inside of it are various commands to run different containers within the service, for example:
 
-`docker-compose run user_manage_api python manage.py makemigrations`
-`docker-compose run user_manage_api python manage.py migrate`
+### To run the service
+`make run user-service`
+
+### To create a superuser inside the User-Management-Service Database
+`make superuser`
+
+*** The Admin Panel for this service is
+`http:localhost:8080/superuser/`
+
+### To run the makemigration command inside the container
+`make makemigration`
+
+### To run the migrate command inside the container
+`make migrate`
+
+### To run the test coverage
+`make test`
+
+# The available Endpoints using swagger UI
+`http:localhost:8080/users/api/swagger/`
+
+
+# Link to the User-Management-Service Travis-CI Dashboard
+`https://app.travis-ci.com/github/blitz-de/user-management-service/builds`
+
 
