@@ -14,7 +14,7 @@ urlpatterns = [
 
                   # jwt/create, jwt/refresh, etc..
     # path('api/', include('apps.token_app.urls'),
-    path('api/user/', include('apps.manage_user.urls')),
+    path('api/v1/', include('apps.manage_user.urls')),
 
     # path('api/', include(router.urls)),
     # path('api/user/', include('apps.manage_user.urls')),
@@ -29,7 +29,7 @@ urlpatterns = [
     path("api/v1/auth/", include("djoser.urls")),
     path("api/v1/auth/", include("djoser.urls.jwt")),
     path("api/v1/profile/", include("apps.profiles.urls")),
-    path("api/v1/auth/", include("apps.manage_user.urls")),
+    # path("api/v1/auth/", include("apps.manage_user.urls")),-----
     path("api/v1/ratings/", include("apps.ratings.urls")),
 ]
 

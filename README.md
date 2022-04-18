@@ -8,7 +8,7 @@ To run this service using docker-compose, type-in the following command in your 
 # RUN SERVICE
 `docker-compose up --build`
 
-** INFO: the project is going to run on portal :8002
+** INFO: the project is going to run on portal :8004
 
 # CREATE a Django SUPERUSER inside the docker-container:
 `docker-compose run user_manage_api python manage.py createsuperuser`

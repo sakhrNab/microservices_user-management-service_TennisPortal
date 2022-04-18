@@ -11,7 +11,7 @@ services:
     image: user_api
     container_name: userapp
 #    ports:
-#      - "8002:8002"
+#      - "8004:8004"
     env_file:
       - .env
     volumes:

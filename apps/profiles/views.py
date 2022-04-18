@@ -9,11 +9,11 @@ from .serializers import ProfileSerializer, UpdateProfileSerializer
 
 
 class OpponentListAPIView(generics.ListAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
     queryset = Profile.objects.filter(is_opponent=True)
     serializer_class = ProfileSerializer
 
-
+# 20:00
 """ 
     Behind the scenes for the class above
     from rest_framework import api_view, permissions
