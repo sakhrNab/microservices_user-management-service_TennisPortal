@@ -6,14 +6,13 @@
 
 db.sqlite3
 htmlcov
-logs/
 
 htmlcov/
 /.idea
 /.pytest_cache
 /.coverage
 /db.sqlite3
-/logs/*
+#/logs/*
 
 **/__pycache__
 
