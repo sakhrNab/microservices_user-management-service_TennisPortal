@@ -1,9 +1,15 @@
 *.pyc
-
-htmlcov/
-
-.idea/
-.pytest_cache
 .coverage
+.idea
+.pytest_cache
 
 db.sqlite3
+htmlcov
+logs/*
+
+/htmlcov
+/.idea
+/.pytest_cache
+/.coverage
+/db.sqlite3
+/logs/*

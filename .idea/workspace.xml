@@ -2,77 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8d6b606-0da6-4762-a8c8-01f3617479a7" name="Changes" comment="ignoring some files and fixed some issues..">
-      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/controller/serializers/user_login/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/controller/serializers/user_login/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/controller/serializers/utils/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/controller/serializers/utils/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/controller/user_search_and_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/controller/user_search_and_categories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/consumer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/profile_management.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/profile_management/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/profile_management/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/user_login/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/user_login/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/user_register/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/user_register/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/user_search_and_categories/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/user_search_and_categories/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/decorators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/google.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/register_google.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user_login.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user_register.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user_search_and_categories.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/decorators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/google.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/register.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/send_email.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_common_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_common_admin_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_common_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_common_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_email_requests_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_email_requests_admin_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_email_requests_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_email_requests_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_admin_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_profile_management_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_profile_management_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_serializers_utils_decorators_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_serializers_utils_decorators_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_login_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_login_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_register_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_register_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_search_and_categories_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_search_and_categories_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_managers_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_managers_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_views_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_views_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_admin_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_exceptions_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_exceptions_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_producer_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_producer_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_renderers_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_renderers_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_signals_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_signals_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/status.json" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/status.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/user_management_api_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/user_management_api_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/user_management_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/user_management_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/user_management.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/user_management.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_management/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1650365403745</updated>
       <workItem from="1650365405305" duration="958000" />
+      <workItem from="1650395553291" duration="2389000" />
     </task>
     <servers />
   </component>

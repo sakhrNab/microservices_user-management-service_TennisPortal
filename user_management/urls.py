@@ -22,15 +22,12 @@ schema_view = get_schema_view(
 )
 urlpatterns = [
     path('superuser/', admin.site.urls),
-
     path('users/', include('apps.manage_user.urls')),
-    # path('users/api/swagger/', schema_view),
+
     path('users/api/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
-    path("users/api/profile/", include("apps.profiles.urls")),
-    # path('users/', include('custom_user.urls')),
-    path('rest-auth/', include('rest_auth.urls')),
+
 ] + static(user_management.settings.base.MEDIA_URL,
           document_root = user_management.settings.base.MEDIA_ROOT)
 
