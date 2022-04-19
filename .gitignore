@@ -51,3 +51,4 @@ db.sqlite3-journal
 #ENV/
 #env.bak/
 #venv.bak/
+#git rm --cached */__pycache__/*
