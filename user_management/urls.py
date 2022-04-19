@@ -2,9 +2,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from drf_yasg import openapi
-from rest_framework import permissions
 # from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
+from rest_framework import permissions
 
 import user_management.settings.base
 
@@ -29,7 +29,7 @@ urlpatterns = [
     path('redoc', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
     path("users/api/profile/", include("apps.profiles.urls")),
-    path('users/', include('custom_user.urls')),
+    # path('users/', include('custom_user.urls')),
     path('rest-auth/', include('rest_auth.urls')),
 ] + static(user_management.settings.base.MEDIA_URL,
           document_root = user_management.settings.base.MEDIA_ROOT)

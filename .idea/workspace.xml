@@ -1,148 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8d6b606-0da6-4762-a8c8-01f3617479a7" name="Changes" comment="fixing merge issue with branch 16.04version">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="f8d6b606-0da6-4762-a8c8-01f3617479a7" name="Changes" comment="ignoring some files and fixed some issues..">
       <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flake8" beforeDir="false" afterPath="$PROJECT_DIR$/.flake8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/user-management-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/user-management-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/common/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/common/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/common/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/common/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/common/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/common/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/common/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/common/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/email_requests/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/email_requests/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/email_requests/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/email_requests/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/email_requests/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/email_requests/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/email_requests/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/management/commands/initadmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/management/commands/initadmin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/management/commands/resetdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/management/commands/resetdb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/managers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/migrations/0002_user_is_signed.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manage_user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/migrations/0002_alter_profile_is_opponent.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/producer.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/producer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/renderers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/renderers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/profiles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ratings/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manage_user/controller/serializers/user_login/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/controller/serializers/user_login/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manage_user/controller/serializers/utils/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/controller/serializers/utils/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manage_user/controller/user_search_and_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manage_user/controller/user_search_and_categories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/consumer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_user/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_user/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/producer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_user/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_user/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.env" beforeDir="false" afterPath="$PROJECT_DIR$/database.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/django/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/local/django/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/django/entrypoint" beforeDir="false" afterPath="$PROJECT_DIR$/docker/local/django/entrypoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/django/start" beforeDir="false" afterPath="$PROJECT_DIR$/docker/local/django/start" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/local/nginx/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/nginx/api_gateway.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/nginx/api_secret.jwk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/local/nginx/default.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/rabbitmq/.env" beforeDir="false" afterPath="$PROJECT_DIR$/docker/local/rabbitmq/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/local/rabbitmq/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/local/rabbitmq/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/profile_management.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/profile_management/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/profile_management/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/user_login/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/user_login/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/user_register/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/user_register/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/user_search_and_categories/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/user_search_and_categories/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/decorators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/google.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/serializers/utils/register_google.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user_login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user_register.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user_search_and_categories.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/decorators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/google.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/register.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/send_email.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_user/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_common_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_common_admin_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_common_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_common_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_common_tests_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_common_views_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_common_views_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_email_requests_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_email_requests_admin_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_email_requests_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_email_requests_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_email_requests_serializers_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_email_requests_tests_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_email_requests_views_py.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_admin_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_forms_py.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_profile_management_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_profile_management_py.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_serializers_utils_decorators_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_serializers_utils_decorators_py.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_login_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_login_py.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_register_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_register_py.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_search_and_categories_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_controller_user_search_and_categories_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_managers_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_managers_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_models_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_serializers_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_tests_py.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_manage_user_views_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_manage_user_views_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_admin_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_admin_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_exceptions_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_exceptions_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_models_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_producer_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_producer_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_renderers_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_renderers_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_serializers_py.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_signals_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_signals_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_tests_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_profiles_views_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/apps_profiles_views_py.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_ratings_admin_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_ratings_models_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_ratings_serializers_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_ratings_tests_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/apps_ratings_views_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/consumer_py.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/coverage_html.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/coverage_html.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/jquery.ba-throttle-debounce.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/jquery.ba-throttle-debounce.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/jquery.hotkeys.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/jquery.hotkeys.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/jquery.isonscreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/jquery.isonscreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/jquery.tablesorter.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/jquery.tablesorter.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/status.json" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/status.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/user_management_api_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/user_management_api_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlcov/user_management_models_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/user_management_models_py.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/user_management.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/user_management.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/factories.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/factories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/profiles/test_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/profiles/test_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/users/test_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/users/test_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_management/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_management/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_management/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_management/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_management/settings/development.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/settings/development.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_management/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/wsgi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +81,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -174,6 +110,16 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zacki\OneDrive\Desktop\userbranch\user-management-service" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/user-management-service/htmlcov/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -203,6 +149,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixing merge issue with branch 16.04version" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing merge issue with branch 16.04version" />
+    <MESSAGE value="ignoring some files and fixed some issues.." />
+    <option name="LAST_COMMIT_MESSAGE" value="ignoring some files and fixed some issues.." />
   </component>
 </project>

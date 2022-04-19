@@ -14,7 +14,7 @@ before_script: pip install docker-compose
 script:
   - docker-compose run user_manage_api3 sh -c "python manage.py test && flake8"
   - docker-compose run user_manage_api3 sh -c "pytest -p no:warnings --cov=."
-  - docker compose exec user_manage_api3 isort . --skip env --skip migrations
+  - docker compose run user_manage_api3 isort . --skip env --skip migrations
 
 deploy:
   provider: pages
