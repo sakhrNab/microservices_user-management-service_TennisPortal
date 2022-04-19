@@ -1,3 +1,5 @@
+** very IMPORTANT INFO: with an exception for the project to run and get tested with the current configuration. The .env file has been also uploaded and has not added to the .gitignore file for temporary test purposes
+
 # Before RUNNING this Service, please do the follwoing:
 
 1. Run the Review-Service inside this repository: [Review-Service](https://github.com/blitz-de/review_service)  
