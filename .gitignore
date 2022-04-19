@@ -13,3 +13,5 @@ logs/*
 /.coverage
 /db.sqlite3
 /logs/*
+
+**/__pycache__
