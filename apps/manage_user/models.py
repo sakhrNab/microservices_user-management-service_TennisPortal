@@ -1,9 +1,16 @@
 import uuid
+
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
+import user_management.settings.base
+
 from .managers import CustomUserManager
+
+AUTH_PROVIDERS = {'google': 'google', 'email': 'email'}
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     pkid = models.BigAutoField(primary_key=True, editable=False)
@@ -19,6 +26,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_signed = models.BooleanField(verbose_name=_("User Signed"),
                                     default=False)
 
+    available = models.BooleanField(default=True, null=True)
+    favorite_players = models.ManyToManyField("User", verbose_name=_("Favorite Players"),
+                                              blank=True, related_name="favorites")
+    created = models.DateTimeField(auto_now_add=True)
+    auth_provider = models.CharField(
+        max_length=255, blank=False,
+        null=False, default=AUTH_PROVIDERS.get('email'))
     ## the name of user of the user , that a user needs to identify
     USERNAME_FIELD="email"
     # it requires a user to submit a username
@@ -39,3 +53,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.username
+
+
+

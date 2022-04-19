@@ -20,6 +20,8 @@ class UserAdmin(BaseUserAdmin):
         "last_name",
         "is_staff",
         "is_active",
+        "available",
+        'is_signed'
     ]
     # these two have to be clickable
     list_display_links = ["id", "email"]
@@ -49,7 +51,9 @@ class UserAdmin(BaseUserAdmin):
                     "username",
                     "first_name",
                     "last_name",
-                    "is_signed",
+                    "available",
+                    "favorite_players",
+                    "auth_provider"
                 )
             },
         ),

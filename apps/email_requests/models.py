@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from apps.common.models import TimeStampedUUIDModel
+
 
 class EmailRequest(TimeStampedUUIDModel):
     name = models.CharField(_('Your name'), max_length=100)
