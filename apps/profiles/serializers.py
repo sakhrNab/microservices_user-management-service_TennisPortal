@@ -1,29 +1,34 @@
 from django_countries.serializer_fields import CountryField
 from rest_framework import fields, serializers
 
-from apps.ratings.serializers import RatingSerializer
-
 from .models import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    profile_photo = serializers.SerializerMethodField()
     username = serializers.CharField(source="user.username")
-    first_name = serializers.CharField(source="user.first_name")
-    last_name = serializers.CharField(source="user.last_name")
+    # first_name = serializers.CharField(source="user.first_name")
+    # last_name = serializers.CharField(source="user.last_name")
+    is_active = serializers.CharField(source="user.is_active")
     email = serializers.EmailField(source="user.email")
     full_name = serializers.SerializerMethodField(read_only=True)
+    # first_name = serializers.SerializerMethodField(read_only=True)
+    # last_name = serializers.SerializerMethodField(read_only=True)
     country = CountryField(name_only=True)
-    reviews = serializers.SerializerMethodField(read_only=True)
+    # reviews = serializers.SerializerMethodField(read_only=True)
+
 
     class Meta:
         model = Profile
         fields = [
+            'pkid',
             "username",
-            "first_name",
-            "last_name",
+            # "first_name",
+            # "last_name",
             "full_name",
+            'is_active',
             "email",
-            "id",
+            # "id",
             "phone_number",
             "profile_photo",
             "about_me",
@@ -37,8 +42,9 @@ class ProfileSerializer(serializers.ModelSerializer):
             "skill_level",
             "rating",
             "num_reviews",
-            "reviews",
-            "is_opponent",
+            # "reviews",
+            # "is_opponent",
+
         ]
 
     def get_full_name(self, obj):
@@ -46,11 +52,15 @@ class ProfileSerializer(serializers.ModelSerializer):
         last_name = obj.user.last_name.title()
         return f"{first_name} {last_name}"
 
-    def get_reviews(self, obj):
-        # opponent_review: in ratings.models, related_name
-        reviews = obj.opponent_review.all()
-        serializer = RatingSerializer(reviews, many=True)
-        return serializer.data
+    # def get_reviews(self, obj):
+    #     # opponent_review: in ratings.models, related_name
+    #     reviews = obj.opponent_review.all()
+    #     serializer = RatingSerializer(reviews, many=True)
+    #     return serializer.data
+
+    def get_profile_photo(self, obj):
+        return obj.profile_photo.url
+
 
     # because i am reviewing the opponent
     def to_representation(self, instance):
@@ -88,3 +98,4 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
         if instance.is_opponent:
             representation["is_opponent"] = True
         return representation
+

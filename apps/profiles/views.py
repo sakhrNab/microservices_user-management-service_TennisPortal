@@ -1,4 +1,7 @@
+from django.contrib import messages
+from django.contrib.auth import get_user_model
 from rest_framework import generics, permissions, status
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -7,6 +10,7 @@ from .models import Profile
 from .renderers import ProfileJSONRenderer
 from .serializers import ProfileSerializer, UpdateProfileSerializer
 
+User = get_user_model()
 
 class OpponentListAPIView(generics.ListAPIView):
     # permission_classes = [permissions.IsAuthenticated]
@@ -25,6 +29,33 @@ class OpponentListAPIView(generics.ListAPIView):
         name_spaced_response={"agents": serializer.data}
         return Response(name_spaced_response,status=status.HTTP_200_OK)
 """
+class CustomUserCreate(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request, format='json'):
+        serializer = ProfileSerializer(data=request.data)
+        email = request.POST.get('email', False)
+        print("############3", User.objects.filter(email=email).exists())
+
+        if serializer.is_valid():
+            email = serializer.validated_data.get('email')
+
+
+            if User.objects.filter(email=email).exists():
+                print("#!!!!!!!!!!!!!!!!!!!!", serializer.errors)
+                messages.add_message(request, messages.ERROR,
+                                     'Email is taken, choose another one')
+
+                return Response({'message': 'Email is duplicate'}, status=status.HTTP_226_IM_USED)
+
+            user = serializer.save()
+            if user:
+                json = serializer.data
+                return Response(json, status=status.HTTP_201_CREATED)
+            # if serializer.validate_email(email):
+            #     return Response(serializer.errors, status=status.HTTP_226_IM_USED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class GetProfileAPIView(APIView):
@@ -69,3 +100,4 @@ class UpdateProfileAPIView(APIView):
         serializer.save()
         print("Errrrooooooor3")
         return Response(serializer.data, status=status.HTTP_200_OK)
+

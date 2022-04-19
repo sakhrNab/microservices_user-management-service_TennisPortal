@@ -1,7 +1,8 @@
 import factory
-from apps.profiles.models import Profile
 from django.db.models.signals import post_save
 from faker import Factory as FakerFactory
+
+from apps.profiles.models import Profile
 from user_management.settings.base import AUTH_USER_MODEL
 
 faker = FakerFactory.create()

@@ -1,3 +1,4 @@
+import os
 from datetime import timedelta
 from pathlib import Path
 
@@ -12,11 +13,12 @@ env = environ.Env()
 
 environ.Env.read_env(BASE_DIR / ".env")
 
+
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
-#DEBUG = False
+#DEBUG = Falsec
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
@@ -39,20 +41,22 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     'rest_framework_simplejwt.token_blacklist',
-    'djoser',
     'corsheaders',
     'phonenumber_field',
     'django_countries',
     'knox',
+    'rest_framework_swagger',
+    'django_filters',
+    'django_extensions',
+    'drf_yasg',
 ]
 
 LOCAL_APPS = [
     "apps.manage_user",
     "apps.common",
     'apps.profiles',
-    'apps.ratings',
     'apps.email_requests',
-    'custom_user'
+    'custom_user',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -73,7 +77,7 @@ ROOT_URLCONF = 'user_management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,33 +86,15 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries' : {
+                'staticfiles': 'django.templatetags.static',
+            }
         },
     },
 ]
 
 WSGI_APPLICATION = 'user_management.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'user_management',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': 'mysql-db',   # Or an IP Address that your DB is hosted on
-#         'PORT': '3306', # the port used in our service
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -128,7 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+REST_AUTH_SERIALIZERS = {
+    # 'PASSWORD_RESET_SERIALIZER': 'custom_user.serializers.ResetPasswordEmailRequestSerializer'
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -153,26 +141,49 @@ STATICFILES_DIR = []
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+
+        # 'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAdminUser',
         'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+
     ),
 }
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-# ]
-
-# CORS_ALLOW_ALL_ORIGINS=True
-
+# SWAGGER_SETTINGS = {
+#     'SECURITY_DEFINITIONS': {
+#         'api_key': {
+#             'type': 'apiKey',
+#             'in': 'header',
+#             'name': 'Authorization'
+#         }
+#     }
+# }
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        "Auth Token eg [Bearer (JWT)]": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Custom user model
@@ -185,7 +196,6 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': env("SIGNING_KEY"),
-    #AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     'VERIFYING_KEY': None,
     "AUTH_HEADER_TYPES": (
         "Bearer",
@@ -196,26 +206,6 @@ SIMPLE_JWT = {
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
-}
-
-DJOSER={
-    "LOGIN_FIELD":"email",
-    "USER_CREATE_PASSWORD_RETYPE": True,
-    "USERNAME_CHANGED_EMAIL_CONFIRMATION": True,
-    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
-    "SEND_CONFIRMATION_EMAIL": True,
-    "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
-    "SET_PASSWORD_RETYPE": True,
-    "PASSWORD_RESET_CONFIRM_RETYPE": True,
-    "USERNAME_RESET_CONFIRM_URL":'email/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL':'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL':True,
-    'SERIALIZERS':{
-        'user_create':'apps.manage_user.serializers.CreateUserSerializer',
-        'user':'apps.manage_user.serializers.UserSerializer',
-        'current_user':'apps.manage_user.serializers.UserSerializer',
-        'user_delete': 'djoser.serializers.UserDeleteSerializer',
-    },
 }
 
 import logging
@@ -258,3 +248,10 @@ logging.config.dictConfig(
         },
     }
 )
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True
+}
+
+DEFAULT_FROM_EMAIL="sakhr270@gmail.com"
