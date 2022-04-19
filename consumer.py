@@ -5,8 +5,9 @@ try:
     import json
     import os
 
-    import django
     import pika
+
+    import django
 
 except Exception as e:
     print("Some modules are missings {}".format(e))

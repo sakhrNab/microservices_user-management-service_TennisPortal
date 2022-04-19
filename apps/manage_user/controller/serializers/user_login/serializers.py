@@ -10,7 +10,6 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from apps.manage_user.controller.serializers.utils import google
 from apps.manage_user.controller.serializers.utils.register_google import \
     register_social_user
-
 # from rest_framework_jwt.settings import api_settings
 # JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER
 # JWT_ENCODE_HANDLER = api_settings.JWT_ENCODE_HANDLER
