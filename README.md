@@ -1,8 +1,8 @@
 # Before RUNNING this Service, please do the follwoing:
 
-1. Run the Review-Service inside this repository: `https://github.com/blitz-de/review_service`
+1. Run the Review-Service inside this repository: [Review-Service](https://github.com/blitz-de/review_service)  
 
-2. Run the Frontend-Service inside this repository: `https://github.com/blitz-de/frontend-service`
+2. Run the Frontend-Service inside this repository: [Frontend-Service](https://github.com/blitz-de/frontend-service)
 
 3. Run the User-Management-Service :)
 
