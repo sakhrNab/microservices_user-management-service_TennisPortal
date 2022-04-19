@@ -24,7 +24,7 @@ services:
   nginx3:
     restart: always
     depends_on:
-      - user_manage_api
+      - user_manage_api3
     container_name: nginx_container3
     restart: on-failure
     volumes:
