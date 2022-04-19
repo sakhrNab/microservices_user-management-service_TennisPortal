@@ -1,22 +1,40 @@
-# user-management-service
-This service should create new users, authenticate them, manage created users and allow login. 
 
-This project works using docker-containers, using docker-compose we're going to run each service accordingly.
+** Very IMPORTANT INFO: with an exception for the project to run and get tested with the current configuration. The .env file has been also uploaded and has not added to the .gitignore file for temporary test purposes
 
-To run this service using docker-compose, type-in the following command in your terminal inside the root directory:
+# Before RUNNING this Service, please do the follwoing:
 
-# RUN SERVICE
-`docker-compose up --build`
+1. Run the Review-Service inside this repository: [Review-Service](https://github.com/blitz-de/review_service)  
+2. Run the Frontend-Service inside this repository: [Frontend-Service](https://github.com/blitz-de/frontend-service)
+3. Run the User-Management-Service :)
 
-** INFO: the project is going to run on portal :8004
+# Inside the User-Management-Service
 
-# CREATE a Django SUPERUSER inside the docker-container:
-`docker-compose run user_manage_api python manage.py createsuperuser`
+## Makefile
+There is a file called makefile, inside of it are various commands to run different containers within the service, for example:
 
--> user_manage_api is the name of the container
+### To run the service
+`make run user-service`
 
-# MAKEMIGRATION and MIGRATE
+### To create a superuser inside the User-Management-Service Database
+`make superuser`
 
-`docker-compose run user_manage_api python manage.py makemigrations`
-`docker-compose run user_manage_api python manage.py migrate`
+*** The Admin Panel for this service is
+`http:localhost:8080/superuser/`
 
+### To run the makemigration command inside the container
+`make makemigration`
+
+### To run the migrate command inside the container
+`make migrate`
+
+### To run the test coverage
+`make test`
+
+# The available Endpoints using swagger UI
+`http:localhost:8080/users/api/swagger/`
+
+
+# Link to the User-Management-Service Travis-CI Dashboard
+[Travis-CI page for the project](https://app.travis-ci.com/github/blitz-de/user-management-service/builds)
+
+`https://app.travis-ci.com/github/blitz-de/user-management-service/builds`
