@@ -31,6 +31,9 @@ There is a file called makefile, inside of it are various commands to run differ
 `make test`
 
 # The available Endpoints using swagger UI
+[Go to Swagger UI](http:localhost:8080/users/api/swagger/)
+
+Or use the link below:
 `http:localhost:8080/users/api/swagger/`
 
 
