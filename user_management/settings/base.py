@@ -44,7 +44,7 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'phonenumber_field',
     'django_countries',
-    'knox',
+    # 'knox',
     'rest_framework_swagger',
     'django_filters',
     'django_extensions',

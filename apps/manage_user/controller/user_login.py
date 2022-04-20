@@ -1,8 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
-from drf_yasg import openapi
-from drf_yasg.utils import swagger_auto_schema
-from requests import Response
+from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny
@@ -92,16 +90,16 @@ class BlacklistTokenUpdateView(APIView):
             return Response({"response": str(e)},status=status.HTTP_400_BAD_REQUEST)
 
 
-class LogoutAPIView(generics.GenericAPIView):
-    serializer_class = LogoutSerializer
-
-    permission_classes = (permissions.IsAuthenticated,)
-
-    def post(self, request):
-
-        serializer = self.serializer_class(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
+# class LogoutAPIView(generics.GenericAPIView):
+#     serializer_class = LogoutSerializer
+#
+#     permission_classes = (permissions.IsAuthenticated,)
+#
+#     def post(self, request):
+#
+#         serializer = self.serializer_class(data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+#

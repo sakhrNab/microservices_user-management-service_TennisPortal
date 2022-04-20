@@ -5,10 +5,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
 from django_filters.rest_framework import DjangoFilterBackend
-from knox.auth import TokenAuthentication
 from rest_framework import filters, permissions, renderers, schemas, status
-from rest_framework.decorators import (api_view, authentication_classes,
-                                       renderer_classes)
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.renderers import OpenAPIRenderer

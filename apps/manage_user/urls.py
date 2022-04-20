@@ -1,6 +1,5 @@
 from django.urls import include, path
-from knox.views import LogoutView
-from rest_framework import routers
+# from knox.views import LogoutView
 from rest_framework_simplejwt.views import (TokenObtainPairView,
                                             TokenRefreshView)
 
@@ -15,13 +14,13 @@ from .controller.profile_management import (AddWishList, AllUsersAPIView,
                                             UpdateProfileView, UserAPI,
                                             UserDetailView, WishListView)
 from .controller.user_login import (GoogleSocialAuthView, LoginAPI,
-                                    LogoutAPIView)
+                                     BlacklistTokenUpdateView)
 from .controller.user_register import RegisterAPI
 from .controller.user_search_and_categories import (
     FilterAvailableUsersAPIView, FilterUsersByIDAPIView,
     FilterUsersStrengthAPIView, LatestPlayersAPIView, PopularUsersAPIView,
     RecommendedPlayersAPIView)
-from .views import BlacklistTokenUpdateView, CustomTokenObtainPairView
+# from .views import BlacklistTokenUpdateView, CustomTokenObtainPairView
 
 app_name = 'apps.manage_user'
 
@@ -31,12 +30,12 @@ router = DefaultRouter()
 
 urlpatterns = [
 
-     # path('', include(router.urls)),
+     path('', include(router.urls)),
      path('api/register/', RegisterAPI.as_view(), name='register'),
      path('api/google/', GoogleSocialAuthView.as_view(), name="google-login"),
 
      path('api/login/', LoginAPI.as_view(), name='login'),
-     path('api/logout/', LogoutView.as_view(), name='logout'),
+     # path('api/logout/', LogoutView.as_view(), name='logout'),
 
      path('api/my-profile/', UserAPI.as_view(), name='user'),
 
@@ -85,6 +84,7 @@ urlpatterns = [
      ),
      path('api/logout/blacklist/', BlacklistTokenUpdateView.as_view(),
           name='blacklist'),
+
      path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
      path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
