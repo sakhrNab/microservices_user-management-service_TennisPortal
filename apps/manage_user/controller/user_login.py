@@ -90,16 +90,16 @@ class BlacklistTokenUpdateView(APIView):
             return Response({"response": str(e)},status=status.HTTP_400_BAD_REQUEST)
 
 
-# class LogoutAPIView(generics.GenericAPIView):
-#     serializer_class = LogoutSerializer
-#
-#     permission_classes = (permissions.IsAuthenticated,)
-#
-#     def post(self, request):
-#
-#         serializer = self.serializer_class(data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#
-#         return Response(status=status.HTTP_204_NO_CONTENT)
-#
+class LogoutAPIView(generics.GenericAPIView):
+    serializer_class = LogoutSerializer
+
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request):
+
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+

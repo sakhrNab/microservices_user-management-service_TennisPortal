@@ -191,25 +191,25 @@ class PasswordResetTest(TestCase):
 #         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class LogoutTestTest(TestCase):
-    """ Test module for Logout API """
-
-    def setUp(self):
-        user1 = User.objects.create(username='zackazico', first_name='first_name', last_name='last_name', email='example1@gmail.com', available=True, auth_provider='email')
-        user1.set_password('apple_2001')
-        user1.save()
-
-        self.user1 = user1
-
-    def test_logout(self):
-        c = Client()
-        c.force_login(self.user1)
-        url = reverse('apps.manage_user:blacklist')
-        refresh = RefreshToken.for_user(self.user1)
-        refresh_token = {"refresh_token": str(refresh)}
-
-        response = c.post(url, refresh_token)
-        self.assertEqual(response.status_code, status.HTTP_205_RESET_CONTENT)
+# class LogoutTestTest(TestCase):
+#     """ Test module for Logout API """
+#
+#     def setUp(self):
+#         user1 = User.objects.create(username='zackazico', first_name='first_name', last_name='last_name', email='example1@gmail.com', available=True, auth_provider='email')
+#         user1.set_password('apple_2001')
+#         user1.save()
+#
+#         self.user1 = user1
+#
+#     def test_logout(self):
+#         c = Client()
+#         c.force_login(self.user1)
+#         url = reverse('apps.manage_user:blacklist')
+#         refresh = RefreshToken.for_user(self.user1)
+#         refresh_token = {"refresh_token": str(refresh)}
+#
+#         response = c.post(url, refresh_token)
+#         self.assertEqual(response.status_code, status.HTTP_205_RESET_CONTENT)
 
 class UpdateAvailablityTest(TestCase):
     """ Test module for UpdateAvailablity API """
