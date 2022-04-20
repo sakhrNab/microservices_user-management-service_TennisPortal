@@ -28,13 +28,10 @@ app_name = 'apps.manage_user'
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-# router.register('profiles', views.ProfileViewset,
-#                 basename='profiles')
-# router.register("favorites", WishListView, basename="student")
 
 urlpatterns = [
 
-     path('', include(router.urls)),
+     # path('', include(router.urls)),
      path('api/register/', RegisterAPI.as_view(), name='register'),
      path('api/google/', GoogleSocialAuthView.as_view(), name="google-login"),
 

@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from requests import Response
 from rest_framework import generics, permissions, status
 from rest_framework.generics import GenericAPIView
@@ -8,7 +10,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.manage_user.controller.serializers.user_login.serializers import (
-    GoogleSocialAuthSerializer, LogoutSerializer)
+    GoogleSocialAuthSerializer, LogoutSerializer, UserLoginSerializer)
 from apps.profiles.producer import RabbitMq
 
 User=get_user_model()
@@ -17,20 +19,16 @@ User=get_user_model()
 class LoginAPI(APIView):
 
     permission_classes = (AllowAny,)
-    # serializer_class = UserLoginSerializer
+    serializer_class = UserLoginSerializer
 
     def post(self, request):
-        # serializer = self.serializer_class(data=request.data)
-        # serializer.is_valid(raise_exception=True)
-        print("I AM  HERERERERERE#########################################")
-        user_data = User.objects.get(email=request.data['email'])
-        # User.objects.filter(email=request.data['email']).first()
+        user_data = self.serializer_class(data=request.data)
+        user_data.is_valid(raise_exception=True)
 
+        user_data = User.objects.get(email=request.data['email'])
         user_data.is_signed=True
         user_data.save()
-        print(user_data.is_signed)
-        # models.Tennisplayer.objects.get(email=email, password=password)
-        print(user_data, "##R##########################")
+
         if user_data:
             status_code = status.HTTP_200_OK
             response = {
@@ -65,7 +63,7 @@ class GoogleSocialAuthView(GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = ((serializer.validated_data)['auth_token'])
-        return Response(data, status=status.HTTP_200_OK)
+        return JsonResponse(data, status=status.HTTP_200_OK)
 
 # API to blacklist a token
 class BlacklistTokenUpdateView(APIView):
@@ -87,7 +85,7 @@ class BlacklistTokenUpdateView(APIView):
             }
             p = RabbitMq()
             RabbitMq.publish(p, 'user_signed', publish_data)
-            print("!!!!!!!!! ", "shared logout message")
+            print("shared logout message")
             user_data.save()
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
