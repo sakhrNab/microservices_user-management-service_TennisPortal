@@ -14,10 +14,10 @@ from user_management.settings.base import env
 User = get_user_model()
 
 class GoogleSocialAuthSerializer(serializers.Serializer):
-    auth_token = serializers.CharField()
+    token = serializers.CharField()#auth_token
 
-    def validate_auth_token(self, auth_token):
-        user_data = google.Google.validate(auth_token)
+    def validate_token(self, token):#auth_token
+        user_data = google.Google.validate(token)#auth_token
         try:
             user_data['sub']
         except:
@@ -26,7 +26,6 @@ class GoogleSocialAuthSerializer(serializers.Serializer):
             )
 
         if user_data['aud'] != env ("GOOGLE_CLIENT_ID"):
-
             raise AuthenticationFailed('oops, who are you?')
 
         user_id = user_data['sub']
