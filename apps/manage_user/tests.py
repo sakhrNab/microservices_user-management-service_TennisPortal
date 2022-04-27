@@ -64,13 +64,13 @@ class GetAllUsersTest(TestCase):
 
     def setUp(self):
         User.objects.create(
-            username='useranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available=True, auth_provider='email')
+            username='testuseranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available=True, auth_provider='email')
         User.objects.create(
-            username='useranme2', first_name='Name 2', last_name='Surname 2', email='project2@project.com', available=True, auth_provider='email')
+            username='testuseranme2', first_name='Name 2', last_name='Surname 2', email='project2@project.com', available=True, auth_provider='email')
         User.objects.create(
-            username='useranme3', first_name='Name 2', last_name='Surname 3', email='project3@project.com', available=True, auth_provider='email')
+            username='testuseranme3', first_name='Name 2', last_name='Surname 3', email='project3@project.com', available=True, auth_provider='email')
         User.objects.create(
-            username='useranme4', first_name='Name 2', last_name='Surname 4', email='project4@project.com', available=True, auth_provider='email')
+            username='testuseranme4', first_name='Name 2', last_name='Surname 4', email='project4@project.com', available=True, auth_provider='email')
 
     def test_get_all_users(self):
         response = client.get(reverse('apps.manage_user:registered_users'))
@@ -91,12 +91,12 @@ class GetSingleUserTest(TestCase):
 
     def setUp(self):
         self.user1 = User.objects.create(
-            username = 'useranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available = True, auth_provider='email')
+            username = 'testuseranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available = True, auth_provider='email')
 
 
     def test_get_valid_single_user(self):
         response = client.get(
-            reverse('apps.manage_user:user_details', kwargs={'pk': self.user1.pk}))
+            reverse('apps.manage_user:user_details', kwargs={'username': self.user1.username}))
         profile = Profile.objects.get(pkid=self.user1.pkid)
         serializer = ProfileSerializer(profile)
         self.assertEqual(response.data, serializer.data)
@@ -104,7 +104,7 @@ class GetSingleUserTest(TestCase):
     #
     def test_get_invalid_single_user(self):
         response = client.get(
-            reverse('apps.manage_user:user_details', kwargs={'pk': 11}))
+            reverse('apps.manage_user:user_details', kwargs={'username': "unknown-username"}))
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
 class PasswordResetTest(TestCase):
@@ -112,7 +112,7 @@ class PasswordResetTest(TestCase):
 
     def setUp(self):
         self.user1 = User.objects.create(
-            username='useranme11', first_name='Name 11', last_name='Surname 11', email='zackazico@gmail.com', available=True, auth_provider='email')
+            username='testuseranme11', first_name='Name 11', last_name='Surname 11', email='zackazico@gmail.com', available=True, auth_provider='email')
 
         self.valid_payload = {
             'email': 'zackazico@gmail.com',
@@ -162,7 +162,7 @@ class UpdateAvailablityTest(TestCase):
     """ Test module for UpdateAvailablity API """
 
     def setUp(self):
-        user1 = User.objects.create(username='zackazico', first_name='first_name', last_name='last_name', email='example1@gmail.com', available=True, auth_provider='email')
+        user1 = User.objects.create(username='testzackazico', first_name='first_name', last_name='last_name', email='example1@gmail.com', available=True, auth_provider='email')
         user1.set_password('apple_2001')
         user1.save()
 
@@ -181,7 +181,7 @@ class UpdateAvailablityTest(TestCase):
         access = AccessToken.for_user(self.user1)
         bearer = {"HTTP_AUTHORIZATION": f'Bearer {access}'}
 
-        response = c.post(url, {'username': 'zackazico', 'email': 'example1@gmail.com'}, content_type, **bearer)
+        response = c.post(url, {'username': 'testzackazico', 'email': 'example1@gmail.com'}, content_type, **bearer)
 
         self.assertEqual(response.status_code, 405)
         self.user1.refresh_from_db()
@@ -192,7 +192,7 @@ class FilterUsersByIDTest(TestCase):
 
     def setUp(self):
         user1 = User.objects.create(
-            username='useranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available=True, auth_provider='email')
+            username='testuseranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available=True, auth_provider='email')
         user1.set_password('apple_2001')
         user1.save()
 
@@ -209,7 +209,7 @@ class FilterUsersByIDTest(TestCase):
 class FilterUserTest(TestCase):
     def setUp(self):
         user1 = User.objects.create(
-            username='useranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available=True, auth_provider='email')
+            username='testuseranme1', first_name='Name 1', last_name='Surname 1', email='project1@project.com', available=True, auth_provider='email')
         user1.set_password('apple_2001')
         user1.save()
 
@@ -218,7 +218,7 @@ class FilterUserTest(TestCase):
     def test_get_filter_users(self):
         response = client.get(reverse('apps.manage_user:filter_user'))
 
-        users = User.objects.filter(Q(username='useranme1') & Q(email='project1@project.com') & Q(first_name='Name 1') & Q(last_name='Surname 1'))
+        users = User.objects.filter(Q(username='testuseranme1') & Q(email='project1@project.com') & Q(first_name='Name 1') & Q(last_name='Surname 1'))
         serializer = UserSerializer(users, many=True)
         self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -227,7 +227,7 @@ class DestroyUserTest(TestCase):
     """ Test module for Destroy User API """
 
     def setUp(self):
-        user1 = User.objects.create(username='zackazico', is_staff= True, first_name='first_name', last_name='last_name', email='example1@gmail.com', available=True, auth_provider='email')
+        user1 = User.objects.create(username='testzackazico', is_staff= True, first_name='first_name', last_name='last_name', email='example1@gmail.com', available=True, auth_provider='email')
         user1.set_password('apple_2001')
         user1.save()
 
@@ -253,7 +253,7 @@ class PopularUsersTest(TestCase):
 
     def setUp(self):
         new_user1 = User.objects.create(
-            username='username101', first_name='Name 101', last_name='Surname 101', email='project101@project.com', available=True, auth_provider='email')
+            username='testusername101', first_name='Name 101', last_name='Surname 101', email='project101@project.com', available=True, auth_provider='email')
         new_user1.set_password('apple_2001')
         new_user1.save()
 
@@ -271,7 +271,7 @@ class LatestUsersTest(TestCase):
 
     def setUp(self):
         new_user1 = User.objects.create(
-            username='username101', first_name='Name 101', last_name='Surname 101', email='project101@project.com', available=True, auth_provider='email')
+            username='testusername101', first_name='Name 101', last_name='Surname 101', email='project101@project.com', available=True, auth_provider='email')
         new_user1.set_password('apple_2001')
         new_user1.save()
 
@@ -293,7 +293,7 @@ class RecommendedUsersTest(TestCase):
 
     def setUp(self):
         new_user1 = User.objects.create(
-            username='username1011', first_name='Name 1011', last_name='Surname 1011', email='project1011@project.com', available=True, auth_provider='email')
+            username='testusername1011', first_name='Name 1011', last_name='Surname 1011', email='project1011@project.com', available=True, auth_provider='email')
         new_user1.set_password('apple_2001')
         new_user1.save()
 
@@ -322,12 +322,12 @@ class RecommendedUsersTest(TestCase):
 class WishListViewSetTest(TestCase):
     def setUp(self):
         new_user = User.objects.create(
-            username='username1011', first_name='Name 1011', last_name='Surname 1011', email='project1011@project.com', available=True, auth_provider='email')
+            username='testusername1011', first_name='Name 1011', last_name='Surname 1011', email='project1011@project.com', available=True, auth_provider='email')
         new_user.set_password('apple_20011')
         new_user.save()
 
         new_user1 = User.objects.create(
-            username='username101', first_name='Name 101', last_name='Surname 101', email='project101@project.com', available=True, auth_provider='email')
+            username='testusername101', first_name='Name 101', last_name='Surname 101', email='project101@project.com', available=True, auth_provider='email')
         new_user1.favorite_players.add(new_user)
         new_user1.set_password('apple_2001')
         new_user1.save()

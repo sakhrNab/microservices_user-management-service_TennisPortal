@@ -1,9 +1,11 @@
 import os
+from django.contrib.auth.models import update_last_login
 
 from django.contrib.auth import authenticate, get_user_model
 from rest_framework import serializers, status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.response import Response
+from rest_framework_simplejwt.settings import api_settings
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.manage_user.controller.serializers.utils import google
@@ -15,6 +17,9 @@ User = get_user_model()
 
 class GoogleSocialAuthSerializer(serializers.Serializer):
     token = serializers.CharField()#auth_token
+    @classmethod
+    def get_token(cls, user):
+        return RefreshToken.for_user(user)
 
     def validate_token(self, token):#auth_token
         user_data = google.Google.validate(token)#auth_token

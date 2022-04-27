@@ -10,10 +10,12 @@ from rest_framework.exceptions import ValidationError
 
 from apps.manage_user.controller.serializers.utils.forms import \
     PasswordResetForm
+from apps.profiles.models import Profile
 
 User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = User
         fields = ('id', 'username', 'email')
@@ -74,17 +76,21 @@ class ChangePasswordSerializer(serializers.Serializer):
 
             update_session_auth_hash(self.request, self.user)
 
-
 class UpdateUserSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(required=True)
+    email = serializers.EmailField(required=False)
+    username = serializers.CharField(required=False)
+    first_name = serializers.CharField(required=False)
+    last_name = serializers.CharField(required=False)
+    profile_photo = serializers.ImageField(source='profile.profile_photo', required=False)
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'email', 'available', 'profile_photo')
         extra_kwargs = {
             'first_name': {'required': True},
             'last_name': {'required': True},
         }
+
 
     def validate_email(self, value):
         user = self.context['request'].user
@@ -105,10 +111,21 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         if user.pkid != instance.pk:
             raise serializers.ValidationError({"authorize": "You do not have permission for this user."})
 
-        instance.first_name = validated_data['first_name']
-        instance.last_name = validated_data['last_name']
-        instance.email = validated_data['email']
-        instance.username = validated_data['username']
+        print("FF#########F#FFFF ", validated_data)
+
+        if "last_name" in validated_data:
+            instance.last_name = validated_data['last_name']
+        if "email" in validated_data:
+            instance.email = validated_data['email']
+        if 'username' in validated_data:
+            instance.username = validated_data['username']
+        if 'first_name' in validated_data:
+            instance.first_name = validated_data['first_name']
+        if 'available' in validated_data:
+            instance.available = validated_data['available']
+        if 'profile_photo' in validated_data:
+            instance.profile_photo = validated_data['profile_photo']
+
 
         instance.save()
 
@@ -133,7 +150,7 @@ class UpdateUserSerializer(serializers.ModelSerializer):
 #             return Response(status=status.HTTP_400_BAD_REQUEST)
 #
 
-
+###########################################
 # class ResetPasswordEmailRequestSerializer(serializers.Serializer):
 #     email = serializers.EmailField()
 #
@@ -143,30 +160,31 @@ class UpdateUserSerializer(serializers.ModelSerializer):
 #         return {
 #
 #         }
+#
+#     def validate_email(self, value):
+#         # Create PasswordResetForm with the serializer
+#         self.reset_form = self.password_reset_form_class(data=self.initial_data)
+#         if not self.reset_form.is_valid():
+#             raise serializers.ValidationError(self.reset_form.errors)
+#
+#         if not User.objects.filter(email=value).exists():
+#             raise serializers.ValidationError(_('Invalid e-mail address'))
+#
+#         return value
+#
+#     def save(self):
+#         request = self.context.get('request')
+#         # Set some values to trigger the send_email method.
+#         opts = {
+#             'use_https': request.is_secure(),
+#             'from_email': getattr(settings, 'DEFAULT_FROM_EMAIL'),
+#             'request': request,
+#         }
+#
+#         opts.update(self.get_email_options())
+#         self.reset_form.save(**opts)
 
-    def validate_email(self, value):
-        # Create PasswordResetForm with the serializer
-        self.reset_form = self.password_reset_form_class(data=self.initial_data)
-        if not self.reset_form.is_valid():
-            raise serializers.ValidationError(self.reset_form.errors)
-
-        if not User.objects.filter(email=value).exists():
-            raise serializers.ValidationError(_('Invalid e-mail address'))
-
-        return value
-
-    def save(self):
-        request = self.context.get('request')
-        # Set some values to trigger the send_email method.
-        opts = {
-            'use_https': request.is_secure(),
-            'from_email': getattr(settings, 'DEFAULT_FROM_EMAIL'),
-            'request': request,
-        }
-
-        opts.update(self.get_email_options())
-        self.reset_form.save(**opts)
-
+###########################################
 
 
 class PasswordResetConfirmSerializer(serializers.Serializer):

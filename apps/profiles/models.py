@@ -1,13 +1,17 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 
 import user_management
 from apps.common.models import TimeStampedUUIDModel
+from user_management.settings import base
 
 User = get_user_model()
 
+def upload_to(instance, filename):
+    return 'mediafiles/imgs/{filename}'.format(filename=filename)
 
 class Gender(models.TextChoices):
     MALE = "Male", _("Male")
@@ -45,8 +49,10 @@ class Profile(TimeStampedUUIDModel):
 
     zip_code = models.CharField(max_length=10)
 
-    profile_photo = models.ImageField(default='/imgs/tennis_player_img.png',
-        verbose_name=_("Profile Photo"))
+    profile_photo = models.ImageField(_("Profile Photo"),
+        upload_to=upload_to,
+        default='/imgs/tennis_player_img.png',
+        validators=[FileExtensionValidator(['png','jpg','gif','jpeg'])])
 
     gender = models.CharField(
         verbose_name=_("Gender"),

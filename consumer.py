@@ -60,13 +60,12 @@ class rabbitmqServer():
     def callback(ch,method, properties, body):
         print(body)
         data = json.loads(body)
-        print(data)# data is already the username
-        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX: ",data['username'], " ", properties.content_type)
+        print(data)
+        print("",data['username'], " ", properties.content_type)
         new_rating = float(data['rating'])
         if properties.content_type == 'review_added':
             try:
                 print("Rartatgga ", data['rating'])
-                print("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2", new_rating)
                 profile = Profile.objects.get(user__username=data['username'])
                 profile.num_reviews += 1
                 # profile.rating += new_rating

@@ -16,7 +16,6 @@ class RegisterAPI(CreateAPIView):
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
-        print("##########",serializer.validated_data)
         serializer.save()
         response = {
             'success': 'True',

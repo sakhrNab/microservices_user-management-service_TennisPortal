@@ -4,6 +4,7 @@ import random
 
 from django.contrib.auth import authenticate, get_user_model
 from rest_framework.exceptions import AuthenticationFailed
+from apps.profiles.producer import RabbitMq
 
 User=get_user_model()
 
@@ -27,10 +28,22 @@ def register_social_user(provider, user_id, email, name, first_name, last_name):
             registered_user = authenticate(
                 email=email, password=os.environ.get('SOCIAL_SECRET'))
 
+            publish_data = {
+                'username': registered_user.username,
+                "logged_status": "True"
+            }
+
+            print("Google Login-status is being shared", registered_user)
+            registered_user.is_signed = True
+            registered_user.save()
+            p = RabbitMq()
+
+            RabbitMq.publish(p, 'user_signed', publish_data)
             return {
                 'username': registered_user.username,
                 'email': registered_user.email,
-                'tokens': registered_user.tokens()
+                'access_token': registered_user.tokens()['access'],
+                'refresh_token': registered_user.tokens()['refresh']
             }
 
         else:
@@ -48,9 +61,14 @@ def register_social_user(provider, user_id, email, name, first_name, last_name):
         user.is_verified = True
         user.auth_provider = provider
         user.save()
-
         new_user = authenticate(
             email=email, password=os.environ.get('SOCIAL_SECRET'))
+
+        publish_data = {
+            'username': new_user.username,
+        }
+        RabbitMq.publish(p, 'profile_created', publish_data)
+
         return {
             'email': new_user.email,
             'username': new_user.username,

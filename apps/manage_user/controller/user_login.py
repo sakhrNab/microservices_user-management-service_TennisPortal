@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
 from rest_framework import generics, permissions, status
 from rest_framework.generics import GenericAPIView
@@ -19,6 +20,7 @@ class LoginAPI(APIView):
     permission_classes = (AllowAny,)
     serializer_class = UserLoginSerializer
 
+    @swagger_auto_schema(operation_description="description")
     def post(self, request):
         user_data = self.serializer_class(data=request.data)
         user_data.is_valid(raise_exception=True)
@@ -61,6 +63,7 @@ class GoogleSocialAuthView(GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = ((serializer.validated_data)['token']) #auth_token
+        print("########################## ", data)
         return JsonResponse(data, status=status.HTTP_200_OK)
 
 # API to blacklist a token
@@ -69,23 +72,27 @@ class BlacklistTokenUpdateView(APIView):
     authentication_classes = ()
 
     def post(self, request):
+        user_exists = User.objects.filter(is_signed=True).exists
         try:
-            user_data = User.objects.filter(is_signed=True).first()
+            if user_exists:
+                user_data = User.objects.filter(is_signed=True).first()
 
-            refresh_token = request.data["refresh_token"]
-            token = RefreshToken(refresh_token)
-            token.blacklist()
-            print(user_data)
-            user_data.is_signed=False
-            publish_data = {
-                "username": str(user_data),
-                "logged_status": str(user_data.is_signed)
-            }
-            p = RabbitMq()
-            RabbitMq.publish(p, 'user_signed', publish_data)
-            print("shared logout message")
-            user_data.save()
-            return Response(status=status.HTTP_205_RESET_CONTENT)
+                refresh_token = request.data["refresh_token"]
+                token = RefreshToken(refresh_token)
+                token.blacklist()
+                print(user_data)
+                user_data.is_signed=False
+                publish_data = {
+                    "username": str(user_data),
+                    "logged_status": str(user_data.is_signed)
+                }
+                p = RabbitMq()
+                RabbitMq.publish(p, 'user_signed', publish_data)
+                print("shared logout message")
+                user_data.save()
+                return Response(status=status.HTTP_205_RESET_CONTENT)
+            return Response({"response": "User is either not signed in or doesn't exist"}, status=status.HTTP_404_NOT_FOUND)
+
         except Exception as e:
             return Response({"response": str(e)},status=status.HTTP_400_BAD_REQUEST)
 

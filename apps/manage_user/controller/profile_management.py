@@ -7,7 +7,7 @@ from django.contrib.auth.forms import (PasswordChangeForm, PasswordResetForm,
                                        SetPasswordForm)
 from django.contrib.auth.tokens import default_token_generator
 from django.core.exceptions import ImproperlyConfigured, ValidationError
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, resolve_url
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -25,6 +25,7 @@ from django.views.decorators.debug import sensitive_post_parameters
 from django.views.decorators.vary import vary_on_cookie
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import generics, permissions, status, viewsets
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import DestroyAPIView, ListAPIView
@@ -88,10 +89,10 @@ class AllUsersAPIView(ListAPIView):
 # API to fetch User details by ID
 class UserDetailView(APIView):
     permission_classes = permission_classes = (AllowAny,)
-
-    def get(self, request, pk):
+    # pk
+    def get(self, request, username):
         try:
-            profile = Profile.objects.get(pk=pk)
+            profile = Profile.objects.get(user__username=username)
             serializer = ProfileSerializer(
                 profile, context={"request": request}
             )
@@ -140,6 +141,7 @@ class AddWishList(APIView):
     def get_queryset(self):
         return User.objects.filter(available=True)
 
+    @swagger_auto_schema(operation_description="description")
     def post(self, request, *args, **kwargs):
         data = request.data
         user_item = self.request.user
@@ -153,20 +155,22 @@ class AddWishList(APIView):
             {"detail": _("The user has been added to the favorites")},
             status=status.HTTP_200_OK
         )
+from rest_framework.parsers import MultiPartParser, FormParser
 
 # API to Update Profile
 class UpdateProfileView(generics.UpdateAPIView):
     queryset = User.objects.all()
-    permission_classes = (AllowAny,)
     serializer_class = UpdateUserSerializer
+    permission_classes = (AllowAny,)
+    parser_classes = [MultiPartParser, FormParser]
 
 # API to Update a User's availability by User-ID
 class UpdateAvailability(generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = ProfileAvailabilitySerializer
-    # permission_classes = (permissions.IsAuthenticated,)
 
+    @swagger_auto_schema(operation_description="description##################")
     def update(self, request, *args, **kwargs):
         data_to_change = {'available': request.data.get("available")}
 

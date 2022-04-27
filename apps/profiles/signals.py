@@ -32,7 +32,6 @@ def create_user_profile(sender, instance, created, **kwargs):
         data = {'id': profile_id_str,
                 "username": instance.username,
                 'is_admin': str(instance.is_staff)}
-
         p = RabbitMq()
         RabbitMq.publish(p, 'profile_created', data)
 

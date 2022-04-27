@@ -42,9 +42,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             "skill_level",
             "rating",
             "num_reviews",
-            # "reviews",
-            # "is_opponent",
-
         ]
 
     def get_full_name(self, obj):
@@ -65,7 +62,6 @@ class ProfileSerializer(serializers.ModelSerializer):
     # because i am reviewing the opponent
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        print("########################################", instance)
         print(instance.id)
         if instance.is_opponent:
             representation["is_opponent"] = True
@@ -73,7 +69,9 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 class UpdateProfileSerializer(serializers.ModelSerializer):
-    country = CountryField(name_only=True)
+    country = CountryField(name_only=True, required=False)
+    zip_code = serializers.CharField(required=False)
+    profile_photo = serializers.SerializerMethodField()
 
     class Meta:
         model = Profile
@@ -98,4 +96,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
         if instance.is_opponent:
             representation["is_opponent"] = True
         return representation
+
+    def get_profile_photo(self, obj):
+        return obj.profile_photo.url
 

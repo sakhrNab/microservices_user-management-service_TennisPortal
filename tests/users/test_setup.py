@@ -9,7 +9,7 @@ class BaseTest(TestCase):
 
         self.user={
             'email':'example1@gmail.com',
-            'username':'zackazico',
+            'username':'testzackazico',
             'password':'apple_2001',
             'first_name': 'first_name',
             'last_name': 'last_name',
@@ -28,7 +28,7 @@ class BaseTest(TestCase):
         }
         self.user_short_password={
             'email':'example1@gmail.com',
-            'username':'zackazico',
+            'username':'testzackazico',
             'password1':'password',
             'password2':'password', 
             'first_name': 'first_name',
@@ -36,7 +36,7 @@ class BaseTest(TestCase):
         }
         self.user_unmatching_password={
             'email':'example1@gmail.com',
-            'username':'zackazico',
+            'username':'testzackazico',
             'password1':'password',
             'password2':'password', 
             'first_name': 'first_name',
@@ -45,7 +45,7 @@ class BaseTest(TestCase):
 
         self.user_invalid_email={
             'email':'example1@gmail.com',
-            'username':'zackazico',
+            'username':'testzackazico',
             'password1':'password',
             'password2':'password', 
             'first_name': 'first_name',

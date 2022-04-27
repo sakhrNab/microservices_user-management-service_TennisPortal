@@ -8,9 +8,7 @@ User = get_user_model()
 
 
 class RegisterSerializer(serializers.ModelSerializer):
-    # username = serializers.CharField(source="user.username")
 
-    # profile = UserSerializer(required=False)
     region = serializers.CharField(source="profile.region", required=False)
     zip_code = serializers.CharField(source="profile.zip_code", required=False)
     phone_number = serializers.CharField(source="profile.phone_number", required=False)
@@ -34,12 +32,6 @@ class RegisterSerializer(serializers.ModelSerializer):
             'phone_number': {'required': False},
             'zip_code': {'required': False},
             'gender': {'required': False},
-            # 'country': {'required': True},
-            # 'city': {'required': True},
-            # 'region': {'required': False},
-            # 'age': {'required': False},
-            # 'skill_level': {'required': False},
-            # 'game_type': {'required': False},
         }
 
     def validate(self, attrs):
@@ -66,6 +58,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name']
         )
+
 
         user.profile.region = validated_data["profile"].get("region")
         user.profile.zip_code = validated_data["profile"].get("zip_code")
